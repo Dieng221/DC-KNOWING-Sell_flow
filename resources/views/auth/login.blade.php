@@ -48,7 +48,7 @@
    <link rel="stylesheet" href="style.css">
 
    <!-- endinject -->
-   <link rel="icon" type="image/png" href="img/favicon.png">
+   <link rel="icon" type="image/png" href="img/logo.png">
    <!-- <link rel="icon"  type="image/x-icon" href="/favicon.ico"> -->
 
    <!-- Fonts -->

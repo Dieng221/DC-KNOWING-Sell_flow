@@ -1,5 +1,5 @@
 @extends('components.layout')
 
 @section('content')
-   <div>Test page</div>
+   <div>Dashboard page</div>
 @endsection

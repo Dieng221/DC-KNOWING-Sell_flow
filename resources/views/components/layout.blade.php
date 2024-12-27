@@ -49,7 +49,7 @@
 
    <!-- endinject -->
 
-   <link rel="icon" type="image/png" sizes="16x16" href="{{asset('img/favicon.png')}}">
+   <link rel="icon" type="image/png" sizes="16x16" href="{{asset('img/logo.png')}}">
 
    <!-- Fonts -->
    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
