@@ -1,5 +1,5 @@
 @extends('components.layout')
 
 @section('content')
-   <div>Update purchase</div>
+   <div>Edit article</div>
 @endsection

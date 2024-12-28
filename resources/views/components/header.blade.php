@@ -3,11 +3,11 @@
          <div class="navbar-left">
             <div class="logo-area">
                <a class="navbar-brand" href="index.html">
-                  <img class="dark" src="img/logo-dark.png" alt="logo">
-                  <img class="light" src="img/logo-white.png" alt="logo">
+                  <img class="dark" src="{{asset('img/logo-dark.png')}}" alt="logo">
+                  <img class="light" src="{{asset('img/logo-white.png')}}" alt="logo">
                </a>
                <a href="#" class="sidebar-toggle">
-                  <img class="svg" src="img/svg/align-center-alt.svg" alt="img"></a>
+                  <img class="svg" src="{{asset('img/svg/align-center-alt.svg')}}" alt="img"></a>
             </div>
             <div class="top-menu">
 
@@ -75,7 +75,7 @@
                               <ul>
                                  <li class="has-subMenu-left">
                                     <a href="#" class="">
-                                       <img src="img/svg/mail.svg" alt="mail" class="svg nav-icon">
+                                       <img src="{{asset('img/svg/mail.svg')}}" alt="mail" class="svg nav-icon">
                                        <span class="menu-text">Email</span>
                                     </a>
                                     <ul class="subMenu">
@@ -90,14 +90,14 @@
                                  </li>
                                  <li>
                                     <a href="chat.html" class="">
-                                       <img src="img/svg/message-square.svg" alt="message-square" class="svg nav-icon">
+                                       <img src="{{asset('img/svg/message-square.svg')}}" alt="message-square" class="svg nav-icon">
                                        <span class="menu-text">Chat</span>
                                        <span class="badge badge-success menuItem rounded-circle">3</span>
                                     </a>
                                  </li>
                                  <li class="has-subMenu-left">
                                     <a href="#" class="">
-                                       <img src="img/svg/shopping-cart.svg" alt="shopping-cart" class="svg nav-icon">
+                                       <img src="{{asset('img/svg/shopping-cart.svg')}}" alt="shopping-cart" class="svg nav-icon">
                                        <span class="menu-text text-initial">eCommerce</span>
                                     </a>
                                     <ul class="subMenu">
@@ -190,7 +190,7 @@
                                  </li>
                                  <li class="has-subMenu-left">
                                     <a href="#" class="">
-                                       <img src="img/svg/user-check.svg" alt="user-check" class="svg nav-icon">
+                                       <img src="{{asset('img/svg/user-check.svg')}}" alt="user-check" class="svg nav-icon">
                                        <span class="menu-text">Contact</span>
                                     </a>
                                     <ul class="subMenu">
@@ -204,13 +204,13 @@
                                  </li>
                                  <li>
                                     <a href="chat.html" class="">
-                                       <img src="img/svg/bookmark.svg" alt="bookmark" class="svg nav-icon">
+                                       <img src="{{asset('img/svg/bookmark.svg')}}" alt="bookmark" class="svg nav-icon">
                                        <span class="menu-text">Note</span>
                                     </a>
                                  </li>
                                  <li>
                                     <a href="chat.html" class="">
-                                       <img src="img/svg/activity.svg" alt="activity" class="svg nav-icon">
+                                       <img src="{{asset('img/svg/activity.svg')}}" alt="activity" class="svg nav-icon">
                                        <span class="menu-text">To-Do</span>
                                     </a>
                                  </li>
@@ -220,13 +220,13 @@
                               <ul>
                                  <li>
                                     <a href="kanban.html" class="">
-                                       <img src="img/svg/columns.svg" alt="columns" class="svg nav-icon">
+                                       <img src="{{asset('img/svg/columns.svg')}}" alt="columns" class="svg nav-icon">
                                        <span class="menu-text">Kanban Board</span>
                                     </a>
                                  </li>
                                  <li class="has-subMenu-left">
                                     <a href="#" class="">
-                                       <img src="img/svg/repeat.svg" alt="repeat" class="svg nav-icon">
+                                       <img src="{{asset('img/svg/repeat.svg')}}" alt="repeat" class="svg nav-icon">
                                        <span class="menu-text">Import & Export</span>
                                     </a>
                                     <ul class="subMenu">
@@ -244,13 +244,13 @@
                                  </li>
                                  <li>
                                     <a href="file-manager.html" class="">
-                                       <img src="img/svg/file.svg" alt="file" class="svg nav-icon">
+                                       <img src="{{asset('img/svg/file.svg')}}" alt="file" class="svg nav-icon">
                                        <span class="menu-text">File Manager</span>
                                     </a>
                                  </li>
                                  <li>
                                     <a href="task-app.html" class="">
-                                       <img src="img/svg/clipboard.svg" alt="clipboard" class="svg nav-icon">
+                                       <img src="{{asset('img/svg/clipboard.svg')}}" alt="clipboard" class="svg nav-icon">
                                        <span class="menu-text">Task App</span>
                                     </a>
                                  </li>
@@ -262,7 +262,7 @@
                                  </li>
                                  <li class="has-subMenu-left">
                                     <a href="#" class="">
-                                       <img src="img/svg/user.svg" alt="user" class="svg nav-icon">
+                                       <img src="{{asset('img/svg/user.svg')}}" alt="user" class="svg nav-icon">
                                        <span class="menu-text">Social app</span>
                                     </a>
                                     <ul class="subMenu">
@@ -344,7 +344,7 @@
                         <ul class="subMenu">
                            <li class="has-subMenu-left">
                               <a href="#" class="">
-                                 <img src="img/svg/shopping-cart.svg" alt="shopping-cart" class="svg nav-icon">
+                                 <img src="{{asset('img/svg/shopping-cart.svg')}}" alt="shopping-cart" class="svg nav-icon">
                                  <span class="menu-text">Firestore Crud</span>
                               </a>
                               <ul class="subMenu">
@@ -364,13 +364,13 @@
                         <ul class="subMenu">
                            <li>
                               <a href="editors.html" class="">
-                                 <img src="img/svg/edit.svg" alt="svg" class="svg nav-icon">
+                                 <img src="{{asset('img/svg/edit.svg')}}" alt="svg" class="svg nav-icon">
                                  <span class="menu-text">Editors</span>
                               </a>
                            </li>
                            <li class="has-subMenu-left">
                               <a href="#" class="">
-                                 <img src="img/svg/grid.svg" alt="grid" class="svg nav-icon">
+                                 <img src="{{asset('img/svg/grid.svg')}}" alt="grid" class="svg nav-icon">
                                  <span class="menu-text">Icons</span>
                               </a>
                               <ul class="subMenu">
@@ -390,7 +390,7 @@
                            </li>
                            <li class="has-subMenu-left">
                               <a href="#" class="">
-                                 <img src="img/svg/bar-chart-2.svg" alt="bar-chart-2" class="svg nav-icon">
+                                 <img src="{{asset('img/svg/bar-chart-2.svg')}}" alt="bar-chart-2" class="svg nav-icon">
                                  <span class="menu-text">Charts</span>
                               </a>
                               <ul class="subMenu">
@@ -409,7 +409,7 @@
                            </li>
                            <li class="has-subMenu-left">
                               <a href="#" class="">
-                                 <img src="img/svg/disc.svg" alt="disc" class="svg nav-icon">
+                                 <img src="{{asset('img/svg/disc.svg')}}" alt="disc" class="svg nav-icon">
                                  <span class="menu-text">Froms</span>
                               </a>
                               <ul class="subMenu">
@@ -432,7 +432,7 @@
                            </li>
                            <li class="has-subMenu-left">
                               <a href="#" class="">
-                                 <img src="img/svg/map.svg" alt="map" class="svg nav-icon">
+                                 <img src="{{asset('img/svg/map.svg')}}" alt="map" class="svg nav-icon">
                                  <span class="menu-text">Maps</span>
                               </a>
                               <ul class="subMenu">
@@ -452,7 +452,7 @@
                            </li>
                            <li class="has-subMenu-left">
                               <a href="#" class="">
-                                 <img src="img/svg/server.svg" alt="server" class="svg nav-icon">
+                                 <img src="{{asset('img/svg/server.svg')}}" alt="server" class="svg nav-icon">
                                  <span class="menu-text">Widget</span>
                               </a>
                               <ul class="subMenu">
@@ -469,7 +469,7 @@
                            </li>
                            <li class="has-subMenu-left">
                               <a href="#" class="">
-                                 <img src="img/svg/square.svg" alt="square" class="svg nav-icon">
+                                 <img src="{{asset('img/svg/square.svg')}}" alt="square" class="svg nav-icon">
                                  <span class="menu-text">Wizards</span>
                               </a>
                               <ul class="subMenu">
@@ -497,7 +497,7 @@
                            </li>
                            <li class="has-subMenu-left">
                               <a href="#" class="">
-                                 <img src="img/svg/book.svg" alt="book" class="svg nav-icon">
+                                 <img src="{{asset('img/svg/book.svg')}}" alt="book" class="svg nav-icon">
                                  <span class="menu-text">Knowledge Base</span>
                               </a>
                               <ul class="subMenu">
@@ -818,14 +818,14 @@
             <ul class="navbar-right__menu">
                <li class="nav-author">
                   <div class="dropdown-custom">
-                     <a href="javascript:;" class="nav-item-toggle"><img src="img/author-nav.jpg" alt="" class="rounded-circle">
+                     <a href="javascript:;" class="nav-item-toggle"><img src="{{asset('img/author-nav.jpg')}}" alt="" class="rounded-circle">
                         <span class="nav-item__title">Ibrahima<i class="las la-angle-down nav-item__arrow"></i></span>
                      </a>
                      <div class="dropdown-parent-wrapper">
                         <div class="dropdown-wrapper">
                            <div class="nav-author__info">
                               <div class="author-img">
-                                 <img src="img/author-nav.jpg" alt="" class="rounded-circle">
+                                 <img src="{{asset('img/author-nav.jpg')}}" alt="" class="rounded-circle">
                               </div>
                               <div>
                                  <h6>DIENG IBRAHIMA</h6>
@@ -856,10 +856,10 @@
             <!-- ends: .navbar-right__menu -->
             <div class="navbar-right__mobileAction d-md-none">
                <a href="#" class="btn-search">
-                  <img src="img/svg/search.svg" alt="search" class="svg feather-search">
-                  <img src="img/svg/x.svg" alt="x" class="svg feather-x"></a>
+                  <img src="{{asset('img/svg/search.svg')}}" alt="search" class="svg feather-search">
+                  <img src="{{asset('img/svg/x.svg')}}" alt="x" class="svg feather-x"></a>
                <a href="#" class="btn-author-action">
-                  <img class="svg" src="img/svg/more-vertical.svg" alt="more-vertical"></a>
+                  <img class="svg" src="{{asset('img/svg/more-vertical.svg')}}" alt="more-vertical"></a>
             </div>
          </div>
          <!-- ends: .navbar-right -->
