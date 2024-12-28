@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\SalesController;
+use App\Http\Controllers\SaleController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PurchaseController;
@@ -22,13 +22,13 @@ Route::get('/', [AuthController::class, 'index']);
 Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
 
 Route::group(['prefix' => 'sales'], function(){
-    Route::get('/list', [SalesController::class, 'index'])->name('sales.list');
-    Route::get('/create', [SalesController::class, 'create'])->name('sales.create');
-    Route::post('/store', [SalesController::class, 'store'])->name('sales.store');
-    Route::get('/show/{id}', [SalesController::class, 'show'])->name('sales.show');
-    Route::get('/edit/{id}', [SalesController::class, 'edit'])->name('sales.edit');
-    Route::post('/update/{id}', [SalesController::class, 'edit'])->name('sales.update');
-    Route::get('/delete/{id}', [SalesController::class, 'destroy'])->name('sales.delete');
+    Route::get('/list', [SaleController::class, 'index'])->name('sales.list');
+    Route::get('/create', [SaleController::class, 'create'])->name('sales.create');
+    Route::post('/store', [SaleController::class, 'store'])->name('sales.store');
+    Route::get('/show/{id}', [SaleController::class, 'show'])->name('sales.show');
+    Route::get('/edit/{id}', [SaleController::class, 'edit'])->name('sales.edit');
+    Route::post('/update/{id}', [SaleController::class, 'edit'])->name('sales.update');
+    Route::get('/delete/{id}', [SaleController::class, 'destroy'])->name('sales.delete');
 });
 
 Route::group(['prefix' => 'purchases'], function(){
