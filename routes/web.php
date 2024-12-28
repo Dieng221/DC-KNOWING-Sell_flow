@@ -19,7 +19,7 @@ use App\Http\Controllers\PurchaseController;
 */
 
 Route::get('/', [AuthController::class, 'index']);
-Route::get('/dashboard', [AuthController::class, 'dashboard']);
+Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
 
 Route::group(['prefix' => 'sales'], function(){
     Route::get('/list', [SalesController::class, 'index'])->name('sales.list');
@@ -29,6 +29,16 @@ Route::group(['prefix' => 'sales'], function(){
     Route::get('/edit/{id}', [SalesController::class, 'edit'])->name('sales.edit');
     Route::post('/update/{id}', [SalesController::class, 'edit'])->name('sales.update');
     Route::get('/delete/{id}', [SalesController::class, 'destroy'])->name('sales.delete');
+});
+
+Route::group(['prefix' => 'purchases'], function(){
+    Route::get('/list', [PurchaseController::class, 'index'])->name('purchases.list');
+    Route::get('/create', [PurchaseController::class, 'create'])->name('purchases.create');
+    Route::post('/store', [PurchaseController::class, 'store'])->name('purchases.store');
+    Route::get('/show/{id}', [PurchaseController::class, 'show'])->name('purchases.show');
+    Route::get('/edit/{id}', [PurchaseController::class, 'edit'])->name('purchases.edit');
+    Route::post('/update/{id}', [PurchaseController::class, 'edit'])->name('purchases.update');
+    Route::get('/delete/{id}', [PurchaseController::class, 'destroy'])->name('purchases.delete');
 });
 
 Route::group(['prefix' => 'articles'], function(){
@@ -49,14 +59,4 @@ Route::group(['prefix' => 'clients'], function(){
     Route::get('/edit/{id}', [ClientController::class, 'edit'])->name('clients.edit');
     Route::post('/update/{id}', [ClientController::class, 'edit'])->name('clients.update');
     Route::get('/delete/{id}', [ClientController::class, 'destroy'])->name('clients.delete');
-});
-
-Route::group(['prefix' => 'purchases'], function(){
-    Route::get('/list', [PurchaseController::class, 'index'])->name('purchases.list');
-    Route::get('/create', [PurchaseController::class, 'create'])->name('purchases.create');
-    Route::post('/store', [PurchaseController::class, 'store'])->name('purchases.store');
-    Route::get('/show/{id}', [PurchaseController::class, 'show'])->name('purchases.show');
-    Route::get('/edit/{id}', [PurchaseController::class, 'edit'])->name('purchases.edit');
-    Route::post('/update/{id}', [PurchaseController::class, 'edit'])->name('purchases.update');
-    Route::get('/delete/{id}', [PurchaseController::class, 'destroy'])->name('purchases.delete');
 });
