@@ -39,18 +39,18 @@
                     </a>
                  </li>
                   <li class="menu-title mt-30">
-                     <span>Clients</span>
+                     <span>Partenaires</span>
                   </li>
                   <li class="">
                     <a href="{{route('clients.create')}}">
                        <span class="nav-icon uil uil-signin"></span>
-                       <span class="menu-text">Ajouter un client</span>
+                       <span class="menu-text">Ajouter un partenaire</span>
                     </a>
                  </li>
                  <li class="">
                     <a href="{{route('clients.list')}}">
                        <span class="nav-icon uil uil-sign-out-alt"></span>
-                       <span class="menu-text">Liste des clients</span>
+                       <span class="menu-text">Liste des partenaires</span>
                     </a>
                  </li>
                   <li class="menu-title mt-30">

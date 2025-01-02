@@ -1,110 +1,157 @@
 @extends('components.layout')
 
 @section('content')
-   
-   <div class="container-fluid">
+
+<div class="container-fluid">
     <div class="row">
        <div class="col-lg-12">
+          <div class="shop-breadcrumb">
 
-          <div class="breadcrumb-main">
-             <h4 class="text-capitalize breadcrumb-title"></h4>
-             <div class="breadcrumb-action justify-content-center flex-wrap">
-                <nav aria-label="breadcrumb">
-                   <ol class="breadcrumb">
-                      <li class="breadcrumb-item"><a href="#"><i class="uil uil-estate"></i>Accueil</a></li>
-                      <li class="breadcrumb-item"><a href="#">Entreprise</a></li>
-                      <li class="breadcrumb-item active" aria-current="page">10</li>
-                   </ol>
-                </nav>
+             <div class="breadcrumb-main">
+                <h4 class="text-capitalize breadcrumb-title">invoice</h4>
+                <div class="breadcrumb-action justify-content-center flex-wrap">
+                   <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                         <li class="breadcrumb-item"><a href="#"><i class="uil uil-estate"></i>Home</a></li>
+                         <li class="breadcrumb-item active" aria-current="page">Invoice</li>
+                      </ol>
+                   </nav>
+                </div>
              </div>
-          </div>
 
+          </div>
        </div>
     </div>
+ </div>
+ <div class="container-fluid">
     <div class="row">
        <div class="col-lg-12">
-          <div class="card card-Vertical card-default card-md mb-4">
-             <div class="card-header">
-                <h6>Détails de la vente </h6>
-             </div>
-             <div class="card-body py-md-30">
-             <div class="container mt-4">
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
-      <div class="card">
-        <div class="card-body">
-          <div class="row mb-3">
-            <div class="col-md-4">
-              <h5 class="card-title">Nom:</h5>
-            </div>
-            <div class="col-md-8">
-              <p class="card-text">DC-Knowing</p>
-            </div>
-          </div>
-          <div class="row mb-3">
-            <div class="col-md-4">
-              <h5 class="card-title">Secteur d'activité:</h5>
-            </div>
-            <div class="col-md-8">
-              <p class="card-text">Comptabilité</p>
-            </div>
-          </div>
-          <div class="row mb-3">
-            <div class="col-md-4">
-              <h5 class="card-title">Localisation:</h5>
-            </div>
-            <div class="col-md-8">
-              <p class="card-text">Abidjan, Cocody</p>
-            </div>
-          </div>
-          <div class="row mb-3">
-            <div class="col-md-4">
-              <h5 class="card-title">Email:</h5>
-            </div>
-            <div class="col-md-8">
-              <p class="card-text">dc-knowing@gmail.com</p>
-            </div>
-          </div>
-          <div class="row mb-3">
-            <div class="col-md-4">
-              <h5 class="card-title">Contact:</h5>
-            </div>
-            <div class="col-md-8">
-              <p class="card-text">+225 0778087378</p>
-            </div>
-          </div>
-          <div class="row mb-3">
-            <div class="col-md-4">
-              <h5 class="card-title">Statut:</h5>
-            </div>
-            <div class="col-md-8">
-                  <p class="card-text">Actif</p>
-            </div>
+          <div class="payment-invoice global-shadow radius-xl w-100 mb-30">
+             <div class="payment-invoice__body">
+                <div class="payment-invoice-address d-flex justify-content-sm-between">
+                   <div class="payment-invoice-logo">
+                      <a href="index.html">
+                         <img class="dark" src="{{asset('img/logo_h.png')}}" alt="logo">
+                         <img class="light" src="{{asset('img/logo_h.png')}}" alt="logo">
+                      </a>
+                   </div>
+                   <div class="payment-invoice-address__area">
+                      <address>Admin Company<br> 795 Folsom Ave, Suite 600<br> San Francisco, CA 94107, USA<br>
+                         Reg.
+                         number : 245000003513</address>
+                   </div>
+                </div><!-- End: .payment-invoice-address -->
+                <div class="payment-invoice-qr d-flex justify-content-between mb-40 px-xl-50 px-30 py-sm-30 py-20 ">
+                   <div class="d-flex justify-content-center mb-lg-0 mb-25">
+                      <div class="payment-invoice-qr__number">
+                         <div class="display-3">
+                            Invoice
+                         </div>
+                         <p>No : <span>#642678</span></p>
+                         <p>Date : <span>Jan 17, 2020</span></p>
+                      </div>
+                   </div><!-- End: .d-flex -->
+                   <div class="d-flex justify-content-center">
+                      <div class="payment-invoice-qr__address">
+                         <p>Invoice To:</p>
+                         <span>Stanley Jones</span><br>
+                         <span>795 Folsom Ave, Suite 600</span><br>
+                         <span>San Francisco, CA 94107, USA</span>
+                      </div>
+                   </div><!-- End: .d-flex -->
+                </div><!-- End: .payment-invoice-qr -->
+                <div class="payment-invoice-table">
+                   <div class="table-responsive">
+                      <table id="cart" class="table table-borderless">
+                         <thead>
+                            <tr class="product-cart__header">
+                               <th scope="col">#</th>
+                               <th scope="col">Product</th>
+                               <th scope="col" class="text-end">Price Per Unit</th>
+                               <th scope="col" class="text-end">Quantity</th>
+                               <th scope="col" class="text-end">Order Total</th>
+                            </tr>
+                         </thead>
+                         <tbody>
+                            <tr>
+                               <th>1</th>
+                               <td class="Product-cart-title">
+                                  <div class="media  align-items-center">
+                                     <div class="media-body">
+                                        <h5 class="mt-0">Fiber base chair</h5>
+                                        <div class="d-flex">
+                                           <p>Size:<span>large</span></p>
+                                           <p>color:<span>brown</span></p>
 
-          </div>
-          <div class="row mb-3">
-            <div class="col-md-4">
-              <h5 class="card-title">Date d'Enregistrement:</h5>
-            </div>
-            <div class="col-md-8">
-              <p class="card-text">30/12/2024</p>
-            </div>
-          </div>
-          <div class="d-flex text-center mt-4">
-            <a href="" class="btn btn-outline-secondary me-2">Retour</a>
-            <a href="" class="btn btn-outline-primary me-2">Modifier</a>
-            <a href="" class="btn btn-outline-danger">Supprimer</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-             </div>
-          </div>
-          <!-- ends: .card -->
+                                        </div>
+                                     </div>
+                                  </div>
+                               </td>
+                               <td class="unit text-end">$248.66</td>
+                               <td class="invoice-quantity text-end">1</td>
+                               <td class="text-end order">$5.11</td>
+                            </tr>
+                            <tr>
+                               <th>1</th>
+                               <td class="Product-cart-title">
+                                  <div class="media  align-items-center">
+                                     <div class="media-body">
+                                        <h5 class="mt-0">Fiber base chair</h5>
+                                        <div class="d-flex">
+                                           <p>Size:<span>large</span></p>
+                                           <p>color:<span>brown</span></p>
 
-       </div>
+                                        </div>
+                                     </div>
+                                  </div>
+                               </td>
+                               <td class="unit text-end">$248.66</td>
+                               <td class="invoice-quantity text-end">2</td>
+                               <td class="text-end order">$5.11</td>
+                            </tr>
+                         </tbody>
+                         <tfoot>
+                            <tr>
+                               <td colspan="3"></td>
+                               <td class="order-summery float-right border-0   ">
+                                  <div class="total">
+                                     <div class="subtotalTotal mb-0 text-end">
+                                        Subtotal :
+                                     </div>
+                                     <div class="taxes mb-0 text-end">
+                                        discount :
+                                     </div>
+                                     <div class="shipping mb-0 text-end">
+                                        Shipping charge :
+                                     </div>
+                                  </div>
+                                  <div class="total-money mt-2 text-end">
+                                     <h6>Total :</h6>
+                                  </div>
+                               </td>
+
+                               <td>
+                                  <div class="total-order float-right text-end fs-14 fw-500">
+                                     <p>$1,690.26</p>
+                                     <p>-$126.30</p>
+                                     <p>$46.30</p>
+                                     <h5 class="text-primary">$1736.00</h5>
+                                  </div>
+                               </td>
+                            </tr>
+                         </tfoot>
+                      </table>
+                   </div>
+                   <div class="payment-invoice__btn mt-xxl-50 pt-xxl-30">
+                      <button type="button" class="btn border rounded-pill bg-normal text-gray px-25 print-btn">
+                         <img src="{{asset('img/svg/printer.svg')}}" alt="printer" class="svg">print</button>
+                      <button type="button" class="btn-primary btn rounded-pill px-25 text-white download">
+                         <img src="{{asset('img/svg/upload.svg')}}" alt="upload" class="svg">download</button>
+                   </div>
+                </div><!-- End: .payment-invoice-table -->
+             </div><!-- End: .payment-invoice__body -->
+          </div><!-- End: .payment-invoice -->
+       </div><!-- End: .col -->
     </div>
  </div>
 
