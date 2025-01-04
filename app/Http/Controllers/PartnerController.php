@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ClientController extends Controller
+class PartnerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('pages.clients.list');
+        return view('pages.partners.list');
     }
 
     /**
@@ -19,7 +19,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('pages.clients.create');
+        return view('pages.partners.create');
     }
 
     /**
@@ -35,7 +35,7 @@ class ClientController extends Controller
      */
     public function show(string $id)
     {
-        return view('pages.clients.show');
+        return view('pages.partners.show');
     }
 
     /**
@@ -43,7 +43,7 @@ class ClientController extends Controller
      */
     public function edit(string $id)
     {
-        return view('pages.clients.edit');
+        return view('pages.partners.edit');
     }
 
     /**

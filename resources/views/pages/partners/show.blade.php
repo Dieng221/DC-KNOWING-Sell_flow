@@ -25,7 +25,7 @@
        <div class="col-lg-12">
           <div class="card card-Vertical card-default card-md mb-4">
              <div class="card-header">
-                <h6>Détails du client </h6>
+                <h6>Détails du partenaire </h6>
              </div>
              <div class="card-body py-md-30">
              <div class="container mt-4">
@@ -35,7 +35,7 @@
         <div class="card-body">
           <div class="row mb-3">
             <div class="col-md-4">
-              <h5 class="card-title">Nom:</h5>
+              <h5 class="card-title">Nom ou Raison sociale:</h5>
             </div>
             <div class="col-md-8">
               <p class="card-text">DC-Knowing</p>
@@ -43,7 +43,7 @@
           </div>
           <div class="row mb-3">
             <div class="col-md-4">
-              <h5 class="card-title">Secteur d'activité:</h5>
+              <h5 class="card-title">Type de partenariat:</h5>
             </div>
             <div class="col-md-8">
               <p class="card-text">Comptabilité</p>
@@ -51,7 +51,7 @@
           </div>
           <div class="row mb-3">
             <div class="col-md-4">
-              <h5 class="card-title">Localisation:</h5>
+              <h5 class="card-title">Statut du partenaire:</h5>
             </div>
             <div class="col-md-8">
               <p class="card-text">Abidjan, Cocody</p>
@@ -59,7 +59,7 @@
           </div>
           <div class="row mb-3">
             <div class="col-md-4">
-              <h5 class="card-title">Email:</h5>
+              <h5 class="card-title">Contact téléphonique:</h5>
             </div>
             <div class="col-md-8">
               <p class="card-text">dc-knowing@gmail.com</p>
@@ -67,7 +67,7 @@
           </div>
           <div class="row mb-3">
             <div class="col-md-4">
-              <h5 class="card-title">Contact:</h5>
+              <h5 class="card-title">Ligne fixe:</h5>
             </div>
             <div class="col-md-8">
               <p class="card-text">+225 0778087378</p>
@@ -75,16 +75,55 @@
           </div>
           <div class="row mb-3">
             <div class="col-md-4">
-              <h5 class="card-title">Statut:</h5>
+              <h5 class="card-title">Email:</h5>
             </div>
             <div class="col-md-8">
                   <p class="card-text">Actif</p>
             </div>
-
           </div>
           <div class="row mb-3">
             <div class="col-md-4">
-              <h5 class="card-title">Date d'Enregistrement:</h5>
+              <h5 class="card-title">Adresse de l'entreprise:</h5>
+            </div>
+            <div class="col-md-8">
+                  <p class="card-text">Actif</p>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-4">
+              <h5 class="card-title">Adresse de livraison:</h5>
+            </div>
+            <div class="col-md-8">
+                  <p class="card-text">Actif</p>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-4">
+              <h5 class="card-title">Numéro d'identification fiscale:</h5>
+            </div>
+            <div class="col-md-8">
+                  <p class="card-text">Actif</p>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-4">
+              <h5 class="card-title">Solde d'ouverture:</h5>
+            </div>
+            <div class="col-md-8">
+                  <p class="card-text">Actif</p>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-4">
+              <h5 class="card-title">Limite de crédit:</h5>
+            </div>
+            <div class="col-md-8">
+                  <p class="card-text">Actif</p>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-4">
+              <h5 class="card-title">Condition de paiement:</h5>
             </div>
             <div class="col-md-8">
               <p class="card-text">30/12/2024</p>
