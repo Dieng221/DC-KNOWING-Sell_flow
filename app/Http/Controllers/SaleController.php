@@ -31,6 +31,30 @@ class SaleController extends Controller
         //
     }
 
+
+    public function storeAPI(Request $request)
+    {
+        $request->validate([
+            'partner_id' => ['required'],
+            'adresse_facturation' => ['required'],
+            'statut' => ['required'],
+            'type_remise' => ['required'],
+            'produits' => ['required'],
+            'qte_produit' => ['required'],
+            'date_vente' => ['required'],
+            'condition_paiement' => ['required'],
+            'adresse_livraison' => ['required'],
+            'num_facture' => ['required'],
+            'valeur_remise' => ['required'],
+            'prix_unitaire' => ['required'],
+        ]);
+
+       Sale::create($request->all());
+
+        return response()->json('Enregistrement réussit !');
+    }
+
+
     /**
      * Display the specified resource.
      */

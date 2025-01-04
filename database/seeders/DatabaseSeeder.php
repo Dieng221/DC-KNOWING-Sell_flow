@@ -22,14 +22,14 @@ class DatabaseSeeder extends Seeder
 
     public function run()
     {
-        \App\Models\User::factory(10)->create();
-        \App\Models\Article::factory(20)->create();
-        \App\Models\Client::factory(20)->create();
-        \App\Models\Sale::factory(10)->create();
-        \App\Models\Supplier::factory(10)->create();
-        \App\Models\Purchase::factory(10)->create();
-        \App\Models\ArticleSale::factory(30)->create();
-        \App\Models\ArticlePurchase::factory(30)->create();
-        \App\Models\Admin::factory(5)->create();
+        // \App\Models\User::factory(10)->create();
+        // \App\Models\Article::factory(20)->create();
+        // \App\Models\Client::factory(20)->create();
+        // \App\Models\Sale::factory(10)->create();
+        // \App\Models\Supplier::factory(10)->create();
+        // \App\Models\Purchase::factory(10)->create();
+        // \App\Models\ArticleSale::factory(30)->create();
+        // \App\Models\ArticlePurchase::factory(30)->create();
+        // \App\Models\Admin::factory(5)->create();
     }
 }
