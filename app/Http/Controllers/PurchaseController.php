@@ -31,27 +31,6 @@ class PurchaseController extends Controller
         //
     }
 
-    public function storeAPI(Request $request)
-    {
-        $request->validate([
-            'partner_id' => ['required'],
-            'num_ref' => ['required'],
-            'adresse' => ['required'],
-            'type_remise' => ['required'],
-            'produits' => ['required'],
-            'qte_produit' => ['required'],
-            'date_vente' => ['required'],
-            'condition_paiement' => ['required'],
-            'magasin_entrepot' => ['required'],
-            'valeur_remise' => ['required'],
-            'prix_unitaire' => ['required'],
-        ]);
-
-       Sale::create($request->all());
-
-        return response()->json('Enregistrement réussit !');
-    }
-
     /**
      * Display the specified resource.
      */
@@ -80,6 +59,50 @@ class PurchaseController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
+    {
+        //
+    }
+
+
+
+    // API
+    public function indexAPI()
+    {
+        return view('pages.sales.list');
+    }
+
+    public function storeAPI(Request $request)
+    {
+        $request->validate([
+            'partner_id' => ['required'],
+            'num_ref' => ['required'],
+            'adresse' => ['required'],
+            'type_remise' => ['required'],
+            'produits' => ['required'],
+            'qte_produit' => ['required'],
+            'date_vente' => ['required'],
+            'condition_paiement' => ['required'],
+            'magasin_entrepot' => ['required'],
+            'valeur_remise' => ['required'],
+            'prix_unitaire' => ['required'],
+        ]);
+
+       Sale::create($request->all());
+
+        return response()->json('Enregistrement réussit !');
+    }
+
+    public function showAPI(string $id)
+    {
+        //
+    }
+
+    public function updateAPI(Request $request, string $id)
+    {
+        //
+    }
+
+    public function destroyAPI(string $id)
     {
         //
     }

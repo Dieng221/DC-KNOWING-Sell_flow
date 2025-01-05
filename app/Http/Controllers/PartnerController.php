@@ -49,29 +49,6 @@ class PartnerController extends Controller
         return response()->json('Enregistrement réussit !');
     }
 
-    public function storeAPI(Request $request)
-    {
-        $request->validate([
-            'nom' => ['required'],
-            'ligne_fixe' => ['required'],
-            'adresse' => ['required'],
-            'numero_identification_fiscal' => ['required'],
-            'limite_credit' => ['required'],
-            'statut' => ['required'],
-            'contact' => ['required'],
-            'email' => ['required'],
-            'adresse_livraison' => ['required'],
-            'condition_paiement' => ['required'],
-            'solde_ouverture' => ['required'],
-            'client' => ['required'],
-            'supplier' => ['required'],
-        ]);
-
-        $partner = Partner::create($request->all());
-
-        return response()->json('Enregistrement réussit !');
-    }
-
     /**
      * Display the specified resource.
      */
@@ -100,6 +77,51 @@ class PartnerController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Partner $partner)
+    {
+        //
+    }
+
+
+    // API
+    public function indexAPI()
+    {
+        return view('pages.sales.list');
+    }
+
+    public function storeAPI(Request $request)
+    {
+        $request->validate([
+            'nom' => ['required'],
+            'ligne_fixe' => ['required'],
+            'adresse' => ['required'],
+            'numero_identification_fiscal' => ['required'],
+            'limite_credit' => ['required'],
+            'statut' => ['required'],
+            'contact' => ['required'],
+            'email' => ['required'],
+            'adresse_livraison' => ['required'],
+            'condition_paiement' => ['required'],
+            'solde_ouverture' => ['required'],
+            'client' => ['required'],
+            'supplier' => ['required'],
+        ]);
+
+        $partner = Partner::create($request->all());
+
+        return response()->json('Enregistrement réussit !');
+    }
+
+    public function showAPI(string $id)
+    {
+        //
+    }
+
+    public function updateAPI(Request $request, string $id)
+    {
+        //
+    }
+
+    public function destroyAPI(string $id)
     {
         //
     }
