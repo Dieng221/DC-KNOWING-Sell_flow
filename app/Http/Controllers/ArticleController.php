@@ -67,7 +67,8 @@ class ArticleController extends Controller
     // API
     public function indexAPI()
     {
-        return view('pages.sales.list');
+        $articles = Article::all();
+        return response()->json($articles);
     }
 
     public function storeAPI(Request $request)
@@ -87,7 +88,7 @@ class ArticleController extends Controller
             'prix_unitaire' => ['required'],
         ]);
 
-        Sale::create($request->all());
+        Article::create($request->all());
 
         return response()->json('Enregistrement réussit !');
     }

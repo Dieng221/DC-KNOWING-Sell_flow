@@ -67,7 +67,8 @@ class SupplierController extends Controller
     // API
     public function indexAPI()
     {
-        return view('pages.sales.list');
+        $suppliers = Supplier::all();
+        return response()->json($suppliers);
     }
 
     public function storeAPI(Request $request)

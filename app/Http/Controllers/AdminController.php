@@ -67,7 +67,8 @@ class AdminController extends Controller
     // API
     public function indexAPI()
     {
-        return view('pages.sales.list');
+        $admins = Admin::all();
+        return response()->json($admins);
     }
 
     public function storeAPI(Request $request)
@@ -87,7 +88,7 @@ class AdminController extends Controller
             'prix_unitaire' => ['required'],
         ]);
 
-       Sale::create($request->all());
+        Admin::create($request->all());
 
         return response()->json('Enregistrement réussit !');
     }

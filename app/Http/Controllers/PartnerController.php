@@ -85,7 +85,8 @@ class PartnerController extends Controller
     // API
     public function indexAPI()
     {
-        return view('pages.sales.list');
+        $partners = Partner::all();
+        return response()->json($partners);
     }
 
     public function storeAPI(Request $request)

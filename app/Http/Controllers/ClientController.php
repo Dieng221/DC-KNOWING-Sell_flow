@@ -67,7 +67,8 @@ class ClientController extends Controller
     // API
     public function indexAPI()
     {
-        return view('pages.sales.list');
+        $clients = Client::all();
+        return response()->json($clients);
     }
 
     public function storeAPI(Request $request)
@@ -87,7 +88,7 @@ class ClientController extends Controller
             'prix_unitaire' => ['required'],
         ]);
 
-       Client::create($request->all());
+        Client::create($request->all());
 
         return response()->json('Enregistrement réussit !');
     }

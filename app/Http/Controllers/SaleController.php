@@ -68,7 +68,8 @@ class SaleController extends Controller
     // API
     public function indexAPI()
     {
-        return view('pages.sales.list');
+        $sales = Sale::all();
+        return response()->json($sales);
     }
 
     public function storeAPI(Request $request)

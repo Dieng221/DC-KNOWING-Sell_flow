@@ -68,7 +68,8 @@ class PurchaseController extends Controller
     // API
     public function indexAPI()
     {
-        return view('pages.sales.list');
+        $purchases = Purchase::all();
+        return response()->json($purchases);
     }
 
     public function storeAPI(Request $request)
@@ -87,7 +88,7 @@ class PurchaseController extends Controller
             'prix_unitaire' => ['required'],
         ]);
 
-       Sale::create($request->all());
+        Purchase::create($request->all());
 
         return response()->json('Enregistrement réussit !');
     }
