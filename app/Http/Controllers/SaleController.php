@@ -89,7 +89,7 @@ class SaleController extends Controller
             'prix_unitaire' => ['required'],
         ]);
 
-       Sale::create($request->all());
+        Sale::create($request->all());
 
         return response()->json('Enregistrement réussit !');
     }
