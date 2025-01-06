@@ -91,7 +91,7 @@ class SaleController extends Controller
 
         Sale::create($request->all());
 
-        return response()->json('Enregistrement réussit !');
+        return response()->json(['message' => 'Enregistrement réussit !', 'success' => true]);
     }
 
     public function showAPI(string $id)
