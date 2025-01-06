@@ -1,102 +1,162 @@
 @extends('components.layout')
 
 @section('content')
-   
-   <div class="container-fluid mt-4">
-  <div class="row text-center">
-    <div class="col-md-4 mb-4">
-      <div class="card">
 
-  <div class="card-header d-flex align-items-center justify-content-center">
-      <!-- <h1 class="nav-icon uil uil-analytics"></h1> -->
-      <i class="fas fa-user-shield fa-2x"></i>
-
-  </div>
-      <div class="card-body">
-
-          <h5 class="card-title">Nombre d'Administrateurs</h5>
-          <p class="card-text display-4">14</p>
+<div class="container-fluid mt-4">
+    <div class="row text-center">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-header d-flex align-items-center justify-content-center">
+                    <i class="fas fa-user-shield fa-2x"></i>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Nombre d'Administrateurs</h5>
+                    <p class="card-text display-4">14</p>
+                </div>
+            </div>
         </div>
-      </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-header d-flex align-items-center justify-content-center">
+                    <i class="fas fa-user-shield fa-2x" style="color: green;"></i>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Administrateurs Actifs</h5>
+                    <p class="card-text display-4">51</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-header d-flex align-items-center justify-content-center">
+                    <i class="fas fa-user fa-2x"></i>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Utilisateurs Inscrits</h5>
+                    <p class="card-text display-4">10 802</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-header d-flex align-items-center justify-content-center">
+                    <i class="fas fa-user-shield fa-2x"></i>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Nombre d'Administrateurs</h5>
+                    <p class="card-text display-4">14</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-header d-flex align-items-center justify-content-center">
+                    <i class="fas fa-user-shield fa-2x" style="color: green;"></i>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Administrateurs Actifs</h5>
+                    <p class="card-text display-4">51</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-header d-flex align-items-center justify-content-center">
+                    <i class="fas fa-user fa-2x"></i>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Utilisateurs Inscrits</h5>
+                    <p class="card-text display-4">10 802</p>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="col-md-4 mb-4">
-      <div class="card">
+    <div class="row">
+        <div class="row">
+       <div class="col-12 mb-30">
+          <div class="support-ticket-system support-ticket-system--search">
 
-      <div class="card-header d-flex align-items-center justify-content-center">
-      <!-- <h1 class="nav-icon uil uil-analytics"></h1> -->
-      <!-- <i class="fas fa-user fa-2x"></i> -->
-      <i class="fas fa-user-shield fa-2x" style="color: green;"></i>
+             <div class="breadcrumb-main m-0 breadcrumb-main--table justify-content-sm-between ">
+                <div class=" d-flex flex-wrap justify-content-center breadcrumb-main__wrapper">
+                   <div class="d-flex align-items-center ticket__title justify-content-center me-md-25 mb-md-0 mb-20">
+                      <h4 class="text-capitalize fw-500 breadcrumb-title">Récapitulatif des dernières ventes</h4>
+                   </div>
+                </div>
 
+                <!-- Remplacement du bouton d'exportation avec un menu déroulant -->
+                <div class="adv-table-table__button">
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            Sélectionnez...
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="max-height: 200px; overflow-y: auto;">
+                            <li><a class="dropdown-item" href="">Demande emplois</a></li>
+                            <li><a class="dropdown-item" href="">Demandes emplois restauration</a></li>
+                            <li><a class="dropdown-item" href="">Demande emplois transport</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            Exporter...
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="max-height: 200px; overflow-y: auto;">
+                            <li><a class="dropdown-item" href="">Pdf</a></li>
+                            <li><a class="dropdown-item" href="">Csv</a></li>
+                           <li><a class="dropdown-item" href="">Print</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-  </div>
-        <div class="card-body">
-          <h5 class="card-title">Administrateurs Actifs</h5>
-          <p class="card-text display-4">51</p>
-        </div>
-      </div>
-    </div>
+                <!-- Fin du menu déroulant -->
+             </div>
 
-    <div class="col-md-4 mb-4">
-      <div class="card">
-
-      <div class="card-header d-flex align-items-center justify-content-center">
-      <!-- <h1 class="nav-icon uil uil-user"></h1> -->
-      <i class="fas fa-user fa-2x"></i>
-
-
-  </div>
-        <div class="card-body">
-          <h5 class="card-title">Utilisateurs Inscrits</h5>
-          <p class="card-text display-4">10 802</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-<div class="row">
-       <div class="col-lg-12 mb-30">
-    <div class="card mt-2">
-
-             <div class="card-body">
-
-             <div class="userDatatable adv-table-table global-shadow border-light-0 w-100 adv-table">
-                   <div class="table-responsive">
-             <div class="adv-table-table__header mb-4">
-                         <h4>Récapitulatif des services</h4>
-                      </div>
-    <div style="opacity: 0; position: absolute;">
-                         <div id="filter-form-container"></div>
-                        </div>
-
-    <table id="mytable" class="table mt-0 table-borderless adv-table" data-sorting="true" data-filter-container="#filter-form-container" data-paging-current="1" data-paging-size="10">
-                         <thead>
-                            <tr class="userDatatable-header">
-                               <!-- <th>
-                                  <span class="userDatatable-title">id</span>
-                               </th> -->
-                               <th>
-                                  <span class="userDatatable-title">Service</span>
-                               </th>
-
-                               <th>
-                                  <span class="userDatatable-title">Date de création</span>
-                               </th>
-                               <th>
-                                  <span class="userDatatable-title">Montant générer</span>
-                               </th>
-                               <th data-type="html" data-name='status'>
-                                  <span class="userDatatable-title">statut</span>
-                               </th>
-                               <th>
-                                  <span class="userDatatable-title float-end">Action</span>
-                               </th>
-                            </tr>
-                         </thead>
-                         <tbody>
+             <div class="userDatatable userDatatable--ticket userDatatable--ticket--2 mt-1">
+                <div style="opacity: 0; position: absolute;">
+                    <div id="filter-form-container"></div>
+                </div>
+                <div class="table-responsive">
+                   <table class="table mb-0 mt-4 adv-table" data-sorting="true" data-filter-container="#filter-form-container" data-paging-current="1" data-paging-position="right" data-paging-size="10">
+                      <thead>
+                         <tr class="userDatatable-header">
+                            <th><span class="userDatatable-title">Nom complet du client</span></th>
+                            <th><span class="userDatatable-title">Condition de paiement</span></th>
+                            <th><span class="userDatatable-title">Adresse de facturation</span></th>
+                            <th><span class="userDatatable-title">Adresse de livraison</span></th>
+                            <th><span class="userDatatable-title">Facture n°</span></th>
+                            <th><span class="userDatatable-title">Type de remise</span></th>
+                            <th><span class="userDatatable-title">Valeur de la remise</span></th>
+                            <th><span class="userDatatable-title">Produits</span></th>
+                            <th><span class="userDatatable-title">Date de vente</span></th>
+                            <th><span class="userDatatable-title">Statut</span></th>
+                            <th class="actions"><span class="userDatatable-title">Actions</span></th>
+                         </tr>
+                      </thead>
+                      <tbody>
 
                                     <tr>
+                                       <td>
+                                          <div class="userDatatable-content">01</div>
+                                       </td>
+                                       <td>
+                                          <div class="d-flex">
+                                             <div class="userDatatable-inline-title">
+                                                <a href="" class="text-dark fw-500">
+                                                   <h6>Kellie Marquot </h6>
+                                                </a>
+                                             </div>
+                                          </div>
+                                       </td>
+                                       <td>
+                                          <div class="userDatatable-content">
+                                             john-keller@gmail.com
+                                          </div>
+                                       </td>
                                        <td>
                                           <div class="userDatatable-content">
                                              Business Development
@@ -113,6 +173,21 @@
                                           </div>
                                        </td>
                                        <td>
+                                        <div class="userDatatable-content">
+                                           Valeur de test
+                                        </div>
+                                     </td>
+                                     <td>
+                                        <div class="userDatatable-content">
+                                           Valeur de test
+                                        </div>
+                                     </td>
+                                     <td>
+                                        <div class="userDatatable-content">
+                                           Valeur de test
+                                        </div>
+                                     </td>
+                                       <td>
                                           <div class="userDatatable-content d-inline-block">
                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
                                           </div>
@@ -120,17 +195,17 @@
                                        <td>
                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
                                              <li>
-                                                <a href="#" class="view">
+                                                <a href="{{route('sales.show', 1)}}" class="view">
                                                    <i class="uil uil-eye"></i>
                                                 </a>
                                              </li>
                                              <li>
-                                                <a href="#" class="edit">
+                                                <a href="{{route('sales.edit', 1)}}" class="edit">
                                                    <i class="uil uil-edit"></i>
                                                 </a>
                                              </li>
                                              <li>
-                                                <a href="#" class="remove">
+                                                <a href="{{route('sales.delete', 1)}}" class="remove">
                                                    <i class="uil uil-trash-alt"></i>
                                                 </a>
                                              </li>
@@ -138,137 +213,3731 @@
                                        </td>
                                     </tr>
                                     <tr>
-                                       <td>
-                                          <div class="userDatatable-content">
-                                             Business Development
-                                          </div>
-                                       </td>
-                                       <td>
-                                          <div class="userDatatable-content">
-                                             Web Developer
-                                          </div>
-                                       </td>
-                                       <td>
-                                          <div class="userDatatable-content">
-                                             January 20, 2020
-                                          </div>
-                                       </td>
-                                       <td>
-                                          <div class="userDatatable-content d-inline-block">
-                                             <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
-                                          </div>
-                                       </td>
-                                       <td>
-                                          <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
-                                             <li>
-                                                <a href="#" class="view">
-                                                   <i class="uil uil-eye"></i>
-                                                </a>
-                                             </li>
-                                             <li>
-                                                <a href="#" class="edit">
-                                                   <i class="uil uil-edit"></i>
-                                                </a>
-                                             </li>
-                                             <li>
-                                                <a href="#" class="remove">
-                                                   <i class="uil uil-trash-alt"></i>
-                                                </a>
-                                             </li>
-                                          </ul>
-                                       </td>
-                                    </tr>
-                                    <tr>
-                                       <td>
-                                          <div class="userDatatable-content">
-                                             Business Development
-                                          </div>
-                                       </td>
-                                       <td>
-                                          <div class="userDatatable-content">
-                                             Web Developer
-                                          </div>
-                                       </td>
-                                       <td>
-                                          <div class="userDatatable-content">
-                                             January 20, 2020
-                                          </div>
-                                       </td>
-                                       <td>
-                                          <div class="userDatatable-content d-inline-block">
-                                             <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
-                                          </div>
-                                       </td>
-                                       <td>
-                                          <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
-                                             <li>
-                                                <a href="#" class="view">
-                                                   <i class="uil uil-eye"></i>
-                                                </a>
-                                             </li>
-                                             <li>
-                                                <a href="#" class="edit">
-                                                   <i class="uil uil-edit"></i>
-                                                </a>
-                                             </li>
-                                             <li>
-                                                <a href="#" class="remove">
-                                                   <i class="uil uil-trash-alt"></i>
-                                                </a>
-                                             </li>
-                                          </ul>
-                                       </td>
-                                    </tr>
-                                    <tr>
-                                       <td>
-                                          <div class="userDatatable-content">
-                                             Business Development
-                                          </div>
-                                       </td>
-                                       <td>
-                                          <div class="userDatatable-content">
-                                             Web Developer
-                                          </div>
-                                       </td>
-                                       <td>
-                                          <div class="userDatatable-content">
-                                             January 20, 2020
-                                          </div>
-                                       </td>
-                                       <td>
-                                          <div class="userDatatable-content d-inline-block">
-                                             <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
-                                          </div>
-                                       </td>
-                                       <td>
-                                          <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
-                                             <li>
-                                                <a href="#" class="view">
-                                                   <i class="uil uil-eye"></i>
-                                                </a>
-                                             </li>
-                                             <li>
-                                                <a href="#" class="edit">
-                                                   <i class="uil uil-edit"></i>
-                                                </a>
-                                             </li>
-                                             <li>
-                                                <a href="#" class="remove">
-                                                   <i class="uil uil-trash-alt"></i>
-                                                </a>
-                                             </li>
-                                          </ul>
-                                       </td>
-                                    </tr>
-
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
                                  </tbody>
-                      </table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+                   </table>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+
+        <div class="row">
+       <div class="col-12 mb-30">
+          <div class="support-ticket-system support-ticket-system--search">
+
+             <div class="breadcrumb-main m-0 breadcrumb-main--table justify-content-sm-between ">
+                <div class=" d-flex flex-wrap justify-content-center breadcrumb-main__wrapper">
+                   <div class="d-flex align-items-center ticket__title justify-content-center me-md-25 mb-md-0 mb-20">
+                      <h4 class="text-capitalize fw-500 breadcrumb-title">Liste des achats</h4>
+                   </div>
+                </div>
+
+                <!-- Remplacement du bouton d'exportation avec un menu déroulant -->
+                <div class="adv-table-table__button">
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            Sélectionnez...
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="max-height: 200px; overflow-y: auto;">
+                            <li><a class="dropdown-item" href="">Demande emplois</a></li>
+                            <li><a class="dropdown-item" href="">Demandes emplois restauration</a></li>
+                            <li><a class="dropdown-item" href="">Demande emplois transport</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            Exporter...
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="max-height: 200px; overflow-y: auto;">
+                            <li><a class="dropdown-item" href="">Pdf</a></li>
+                            <li><a class="dropdown-item" href="">Csv</a></li>
+                           <li><a class="dropdown-item" href="">Print</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Fin du menu déroulant -->
+             </div>
+
+             <div class="userDatatable userDatatable--ticket userDatatable--ticket--2 mt-1">
+                <div style="opacity: 0; position: absolute;">
+                    <div id="filter-form-container"></div>
+                </div>
+                <div class="table-responsive">
+                   <table class="table mb-0 mt-4 adv-table" data-sorting="true" data-filter-container="#filter-form-container" data-paging-current="1" data-paging-position="right" data-paging-size="10">
+                      <thead>
+                         <tr class="userDatatable-header">
+                            <th><span class="userDatatable-title">Nom complet du fournisseur</span></th>
+                            <th><span class="userDatatable-title">Condition de paiement</span></th>
+                            <th><span class="userDatatable-title">Numéro de référence</span></th>
+                            <th><span class="userDatatable-title">Statut d'achat</span></th>
+                            <th><span class="userDatatable-title">Adresse</span></th>
+                            <th><span class="userDatatable-title">Magasin / Entrepot</span></th>
+                            <th><span class="userDatatable-title">Type de remise</span></th>
+                            <th><span class="userDatatable-title">Valeur de la remise</span></th>
+                            <th><span class="userDatatable-title">Produits</span></th>
+                            <th><span class="userDatatable-title">Date d'achat</span></th>
+                            <th class="actions"><span class="userDatatable-title">Actions</span></th>
+                         </tr>
+                      </thead>
+                      <tbody>
+                                    <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                     <tr>
+                                        <td>
+                                           <div class="userDatatable-content">01</div>
+                                        </td>
+                                        <td>
+                                           <div class="d-flex">
+                                              <div class="userDatatable-inline-title">
+                                                 <a href="" class="text-dark fw-500">
+                                                    <h6>Kellie Marquot </h6>
+                                                 </a>
+                                              </div>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              john-keller@gmail.com
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Business Development
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              Web Developer
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <div class="userDatatable-content">
+                                              January 20, 2020
+                                           </div>
+                                        </td>
+                                        <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                      <td>
+                                         <div class="userDatatable-content">
+                                            Valeur de test
+                                         </div>
+                                      </td>
+                                        <td>
+                                           <div class="userDatatable-content d-inline-block">
+                                              <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                           </div>
+                                        </td>
+                                        <td>
+                                           <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
+                                              <li>
+                                                 <a href="{{route('sales.show', 1)}}" class="view">
+                                                    <i class="uil uil-eye"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.edit', 1)}}" class="edit">
+                                                    <i class="uil uil-edit"></i>
+                                                 </a>
+                                              </li>
+                                              <li>
+                                                 <a href="{{route('sales.delete', 1)}}" class="remove">
+                                                    <i class="uil uil-trash-alt"></i>
+                                                 </a>
+                                              </li>
+                                           </ul>
+                                        </td>
+                                     </tr>
+                                 </tbody>
+                   </table>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    </div>
 </div>
 
 @endsection
