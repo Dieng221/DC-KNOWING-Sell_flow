@@ -76,7 +76,7 @@
                         </div>
                         <div class="card-body">
                            <div class="edit-profile__body">
-                            <form action="" method="POST">
+                            <form action="{{route('dashboard')}}" method="GET">
                                 @csrf
                                 <div class="form-group mb-25">
                                     <label for="email">Adresse mail</label>

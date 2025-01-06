@@ -39,18 +39,18 @@
                     </a>
                  </li>
                   <li class="menu-title mt-30">
-                     <span>Clients</span>
+                     <span>Partenaires</span>
                   </li>
                   <li class="">
-                    <a href="{{route('clients.create')}}">
+                    <a href="{{route('partners.create')}}">
                        <span class="nav-icon uil uil-signin"></span>
-                       <span class="menu-text">Ajouter un client</span>
+                       <span class="menu-text">Ajouter un partenaire</span>
                     </a>
                  </li>
                  <li class="">
-                    <a href="{{route('clients.list')}}">
+                    <a href="{{route('partners.list')}}">
                        <span class="nav-icon uil uil-sign-out-alt"></span>
-                       <span class="menu-text">Liste des clients</span>
+                       <span class="menu-text">Liste des partenaires</span>
                     </a>
                  </li>
                   <li class="menu-title mt-30">
@@ -59,26 +59,26 @@
                   <li class="">
                     <a href="{{route('articles.create')}}">
                        <span class="nav-icon uil uil-signin"></span>
-                       <span class="menu-text">Ajouter un client</span>
+                       <span class="menu-text">Ajouter un article</span>
                     </a>
                  </li>
                  <li class="">
                     <a href="{{route('articles.list')}}">
                        <span class="nav-icon uil uil-sign-out-alt"></span>
-                       <span class="menu-text">Liste des clients</span>
+                       <span class="menu-text">Liste des articles</span>
                     </a>
                  </li>
                   <li class="menu-title mt-30">
                     <span>Paramètrages</span>
                  </li>
                  <li class="">
-                    <a href="login.html">
+                    <a href="{{route('profiles.show', 1)}}">
                        <span class="nav-icon uil uil-signin"></span>
                        <span class="menu-text">Profil</span>
                     </a>
                  </li>
                  <li class="">
-                    <a href="login.html">
+                    <a href="#">
                        <span class="nav-icon uil uil-signin"></span>
                        <span class="menu-text">Se déconnecter</span>
                     </a>

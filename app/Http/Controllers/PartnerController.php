@@ -12,7 +12,7 @@ class PartnerController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.partners.list');
     }
 
     /**
@@ -20,7 +20,7 @@ class PartnerController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.partners.create');
     }
 
     /**
@@ -54,7 +54,7 @@ class PartnerController extends Controller
      */
     public function show(Partner $partner)
     {
-        //
+        return view('pages.partners.show');
     }
 
     /**
@@ -62,7 +62,7 @@ class PartnerController extends Controller
      */
     public function edit(Partner $partner)
     {
-        //
+        return view('pages.partners.edit');
     }
 
     /**

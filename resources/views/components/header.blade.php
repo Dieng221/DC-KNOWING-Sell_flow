@@ -3,8 +3,8 @@
          <div class="navbar-left">
             <div class="logo-area">
                <a class="navbar-brand" href="index.html">
-                  <img class="dark" src="{{asset('img/logo-dark.png')}}" alt="logo">
-                  <img class="light" src="{{asset('img/logo-white.png')}}" alt="logo">
+                  <img class="dark" src="{{asset('img/logo_h.png')}}" alt="logo">
+                  <img class="light" src="{{asset('img/logo_h.png')}}" alt="logo">
                </a>
                <a href="#" class="sidebar-toggle">
                   <img class="svg" src="{{asset('img/svg/align-center-alt.svg')}}" alt="img"></a>

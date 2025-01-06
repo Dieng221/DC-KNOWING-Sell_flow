@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SaleController;
-use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PurchaseController;
 
 /*
@@ -51,12 +52,19 @@ Route::group(['prefix' => 'articles'], function(){
     Route::get('/delete/{id}', [ArticleController::class, 'destroy'])->name('articles.delete');
 });
 
-Route::group(['prefix' => 'clients'], function(){
-    Route::get('/list', [ClientController::class, 'index'])->name('clients.list');
-    Route::get('/create', [ClientController::class, 'create'])->name('clients.create');
-    Route::post('/store', [ClientController::class, 'store'])->name('clients.store');
-    Route::get('/show/{id}', [ClientController::class, 'show'])->name('clients.show');
-    Route::get('/edit/{id}', [ClientController::class, 'edit'])->name('clients.edit');
-    Route::post('/update/{id}', [ClientController::class, 'edit'])->name('clients.update');
-    Route::get('/delete/{id}', [ClientController::class, 'destroy'])->name('clients.delete');
+Route::group(['prefix' => 'partners'], function(){
+    Route::get('/list', [PartnerController::class, 'index'])->name('partners.list');
+    Route::get('/create', [PartnerController::class, 'create'])->name('partners.create');
+    Route::post('/store', [PartnerController::class, 'store'])->name('partners.store');
+    Route::get('/show/{id}', [PartnerController::class, 'show'])->name('partners.show');
+    Route::get('/edit/{id}', [PartnerController::class, 'edit'])->name('partners.edit');
+    Route::post('/update/{id}', [PartnerController::class, 'edit'])->name('partners.update');
+    Route::get('/delete/{id}', [PartnerController::class, 'destroy'])->name('partners.delete');
+});
+
+Route::group(['prefix' => 'profiles'], function(){
+    Route::get('/show/{id}', [ProfileController::class, 'show'])->name('profiles.show');
+    Route::get('/edit/{id}', [ProfileController::class, 'edit'])->name('profiles.edit');
+    Route::post('/update/{id}', [ProfileController::class, 'edit'])->name('profiles.update');
+    Route::get('/delete/{id}', [ProfileController::class, 'destroy'])->name('profiles.delete');
 });

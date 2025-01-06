@@ -5,14 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Client;
 
-class ClientController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('pages.clients.list');
+        //
     }
 
     /**
@@ -20,7 +20,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('pages.clients.create');
+        //
     }
 
     /**
@@ -36,7 +36,7 @@ class ClientController extends Controller
      */
     public function show(string $id)
     {
-        return view('pages.clients.show');
+        return view('pages.profiles.show');
     }
 
     /**
@@ -44,7 +44,7 @@ class ClientController extends Controller
      */
     public function edit(string $id)
     {
-        return view('pages.clients.edit');
+        return view('pages.profiles.edit');
     }
 
     /**
