@@ -27,5 +27,6 @@ class ClientFactory extends Factory
             'numero' => fake()->phoneNumber(),
             'user_id' => \App\Models\User::factory(),
         ];
+
     }
 }

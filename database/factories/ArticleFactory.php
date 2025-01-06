@@ -25,5 +25,6 @@ class ArticleFactory extends Factory
             'quantite' => fake()->numberBetween(1, 100),
             'user_id' => \App\Models\User::factory(),
         ];
+
     }
 }
