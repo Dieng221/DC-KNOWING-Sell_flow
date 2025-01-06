@@ -24,9 +24,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::group([
-    // 'middleware' => 'auth:sanctum'
-], function () {
+Route::post('register', [AuthController::class, 'registerAPI']);
+Route::post('login', [AuthController::class, 'loginAPI']);
+
+Route::group(['middleware' => 'jwt.auth'], function () {
+    Route::get('me', [AuthController::class, 'meAPI']);
+    Route::post('logout', [AuthController::class, 'logoutAPI']);
+
     Route::group(['prefix' => 'sales'], function(){
         Route::get('/list', [SaleController::class, 'indexAPI'])->name('sales.list');
         Route::post('/store', [SaleController::class, 'storeAPI'])->name('sales.store');

@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -57,5 +58,25 @@ class User extends Authenticatable
     ];
 
 
+     /**
+     * Récupère l'identifiant unique pour le JWT.
+     *
+     * @return mixed
+     */
+    public function getJWTIdentifier()
+    {
+        // Par défaut, c'est l'ID de l'utilisateur
+        return $this->getKey();
+    }
 
+    /**
+     * Récupère les revendications personnalisées du JWT.
+     *
+     * @return array
+     */
+    public function getJWTCustomClaims()
+    {
+        // Tu peux ajouter des données personnalisées ici si nécessaire
+        return [];
+    }
 }
