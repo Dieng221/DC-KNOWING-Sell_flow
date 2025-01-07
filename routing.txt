@@ -1,0 +1,209 @@
+/api/sales/list => liste des ventes
+    $request->validate([
+        'partner_id' => ['required'],
+        'adresse_facturation' => ['required'],
+        'statut' => ['required'],
+        'type_remise' => ['required'],
+        'produits' => ['required'],
+        'qte_produit' => ['required'],
+        'date_vente' => ['required'],
+        'condition_paiement' => ['required'],
+        'adresse_livraison' => ['required'],
+        'num_facture' => ['required'],
+        'valeur_remise' => ['required'],
+        'prix_unitaire' => ['required'],
+    ]);
+    return response()->json('Enregistrement réussit !');
+/api/sales/store => création de vente
+/api/sales/show/{id} => affichage de vente spécifique
+/api/sales/update/{id} => mise à jour de vente spécifique
+/api/sales/delete/{id} => suppression de vente spécifique
+
+/api/purchases/list => liste des achats
+    $request->validate([
+        'partner_id' => ['required'],
+        'num_ref' => ['required'],
+        'adresse' => ['required'],
+        'type_remise' => ['required'],
+        'produits' => ['required'],
+        'qte_produit' => ['required'],
+        'date_vente' => ['required'],
+        'condition_paiement' => ['required'],
+        'magasin_entrepot' => ['required'],
+        'valeur_remise' => ['required'],
+        'prix_unitaire' => ['required'],
+    ]);
+    return response()->json('Enregistrement réussit !');
+/api/purchases/store => création de achat
+/api/purchases/show/{id} => affichage de achat spécifique
+/api/purchases/update/{id} => mise à jour de achat spécifique
+/api/purchases/delete/{id} => suppression de achat spécifique
+
+/api/articles/list => liste des articles
+    $request->validate([
+        'partner_id' => ['required'],
+        'adresse_facturation' => ['required'],
+        'statut' => ['required'],
+        'type_remise' => ['required'],
+        'produits' => ['required'],
+        'qte_produit' => ['required'],
+        'date_vente' => ['required'],
+        'condition_paiement' => ['required'],
+        'adresse_livraison' => ['required'],
+        'num_facture' => ['required'],
+        'valeur_remise' => ['required'],
+        'prix_unitaire' => ['required'],
+    ]);
+    return response()->json('Enregistrement réussit !');
+/api/articles/store => création de article
+/api/articles/show/{id} => affichage de article spécifique
+/api/articles/update/{id} => mise à jour de article spécifique
+/api/articles/delete/{id} => suppression de article spécifique
+
+/api/clients/list => liste des clients
+    $request->validate([
+        'partner_id' => ['required'],
+        'adresse_facturation' => ['required'],
+        'statut' => ['required'],
+        'type_remise' => ['required'],
+        'produits' => ['required'],
+        'qte_produit' => ['required'],
+        'date_vente' => ['required'],
+        'condition_paiement' => ['required'],
+        'adresse_livraison' => ['required'],
+        'num_facture' => ['required'],
+        'valeur_remise' => ['required'],
+        'prix_unitaire' => ['required'],
+    ]);
+    return response()->json('Enregistrement réussit !');
+/api/clients/store => création de client
+/api/clients/show/{id} => affichage de client spécifique
+/api/clients/update/{id} => mise à jour de client spécifique
+/api/clients/delete/{id} => suppression de client spécifique
+
+/api/partners/list => liste des partners
+    $request->validate([
+        'nom' => ['required'],
+        'ligne_fixe' => ['required'],
+        'adresse' => ['required'],
+        'numero_identification_fiscal' => ['required'],
+        'limite_credit' => ['required'],
+        'statut' => ['required'],
+        'contact' => ['required'],
+        'email' => ['required'],
+        'adresse_livraison' => ['required'],
+        'condition_paiement' => ['required'],
+        'solde_ouverture' => ['required'],
+        'client' => ['required'],
+        'supplier' => ['required'],
+    ]);
+    return response()->json('Enregistrement réussit !');
+/api/partners/store => création de partner
+/api/partners/show/{id} => affichage de partner spécifique
+/api/partners/update/{id} => mise à jour de partner spécifique
+/api/partners/delete/{id} => suppression de partner spécifique
+
+
+Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('nom');
+            $table->string('prenom');
+            $table->string('numero');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
+            $table->timestamps();
+        });
+
+ Schema::create('articles', function (Blueprint $table) {
+            $table->id();
+            $table->string('libelle');
+            $table->integer('quantite');
+            $table->foreignId('user_id')->references('id')->on('users');
+            $table->timestamps();
+        });
+
+Schema::create('clients', function (Blueprint $table) {
+            $table->id();
+            $table->string('nom');
+            $table->string('prenom');
+            $table->string('adresse');
+            $table->string('numero');
+            $table->foreignId('user_id')->references('id')->on('users');
+            $table->timestamps();
+        });
+
+Schema::create('partners', function (Blueprint $table) {
+            $table->id();
+            $table->string('nom');
+            $table->string('ligne_fixe');
+            $table->string('adresse');
+            $table->string('numero_identification_fiscal');
+
+            $table->string('limite_credit');
+            $table->string('statut');
+            $table->string('contact');
+            $table->string('email');
+
+            $table->string('adresse_livraison');
+            $table->string('solde_ouverture');
+            $table->string('condition_paiement');
+            $table->boolean('client');
+            $table->boolean('supplier');
+
+            // $table->foreignId('user_id')->references('id')->on('users');
+            $table->timestamps();
+        });
+
+Schema::create('sales', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('partner_id')->references('id')->on('partners');
+            // $table->decimal('prix_sans_tva', 10, 2);
+            // $table->decimal('prix_avec_tva', 10, 2);
+            $table->string('adresse_facturation');
+            $table->string('statut');
+            $table->string('type_remise');
+            $table->string('produits');
+            $table->string('qte_produit');
+            $table->string('date_vente');
+            $table->string('condition_paiement');
+            $table->string('adresse_livraison');
+            $table->string('num_facture');
+            $table->string('valeur_remise');
+            $table->string('prix_unitaire');
+            $table->timestamps();
+        });
+
+        Schema::create('suppliers', function (Blueprint $table) {
+            $table->id();
+            $table->string('raison_social');
+            $table->string('adresse');
+            $table->timestamps();
+        });
+
+        Schema::create('admins', function (Blueprint $table) {
+            $table->id();
+            $table->string('nom');
+            $table->string('prenom');
+            $table->string('numero');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->timestamps();
+        });
+
+        Schema::create('article_purchases', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('article_id')->references('id')->on('articles');
+            $table->foreignId('purchase_id')->references('id')->on('purchases');
+            $table->timestamps();
+        });
+
+        Schema::create('article_sales', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('article_id')->references('id')->on('articles');
+            $table->foreignId('sale_id')->references('id')->on('sales');
+            $table->timestamps();
+        });
+
+Faire des factory à partir de ces migrations

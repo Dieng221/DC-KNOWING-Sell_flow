@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Supplier;
 use Illuminate\Http\Request;
-use App\Models\Sale;
 use Illuminate\Support\Facades\Log; // Pour la gestion des logs
 
-class SaleController extends Controller
+class SupplierController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('pages.sales.list');
+        //
     }
 
     /**
@@ -21,7 +21,7 @@ class SaleController extends Controller
      */
     public function create()
     {
-        return view('pages.sales.create');
+        //
     }
 
     /**
@@ -35,23 +35,23 @@ class SaleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Supplier $supplier)
     {
-        return view('pages.sales.show');
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Supplier $supplier)
     {
-        return view('pages.sales.edit');
+        //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Supplier $supplier)
     {
         //
     }
@@ -59,21 +59,18 @@ class SaleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Supplier $supplier)
     {
         //
     }
 
 
-
     // API
     public function indexAPI()
     {
-        $sales = Sale::with(['articles', 'partner'])->where('user_id', auth()->id())->get();
-        return response()->json($sales);
+        $suppliers = Supplier::all();
+        return response()->json($suppliers);
     }
-
-
 
     public function storeAPI(Request $request)
     {
@@ -84,14 +81,18 @@ class SaleController extends Controller
                 'adresse_facturation' => ['required'],
                 'statut' => ['required'],
                 'type_remise' => ['required'],
+                'produits' => ['required'],
+                'qte_produit' => ['required'],
+                'date_vente' => ['required'],
                 'condition_paiement' => ['required'],
                 'adresse_livraison' => ['required'],
+                'num_facture' => ['required'],
                 'valeur_remise' => ['required'],
+                'prix_unitaire' => ['required'],
             ]);
 
-            $validatedData['user_id'] = auth()->id();
-            // Créer une vente avec les données validées
-            Sale::create($validatedData);
+            // Créer un fournisseur avec les données validées
+            Supplier::create($validatedData);
 
             // Retourner une réponse JSON en cas de succès
             return response()->json(['message' => 'Enregistrement réussi !', 'success' => true]);
@@ -106,7 +107,7 @@ class SaleController extends Controller
 
         } catch (\Exception $e) {
             // Log l'erreur et retourne un message générique en cas d'erreur inattendue
-            Log::error('Erreur lors de la création de la vente: ' . $e->getMessage());
+            Log::error('Erreur lors de la création du fournisseur: ' . $e->getMessage());
 
             return response()->json([
                 'message' => 'Une erreur est survenue. Veuillez réessayer plus tard.',
@@ -114,7 +115,6 @@ class SaleController extends Controller
             ], 500);  // Code HTTP 500 pour une erreur serveur générique
         }
     }
-
 
     public function showAPI(string $id)
     {
