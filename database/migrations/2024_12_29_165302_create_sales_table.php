@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
             $table->foreignId('partner_id')->references('id')->on('partners');
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->string('adresse_facturation');
             $table->string('statut');
             $table->string('type_remise');
@@ -22,7 +23,6 @@ return new class extends Migration
             $table->string('adresse_livraison');
             $table->string('num_facture');
             $table->decimal('valeur_remise', 10, 2);
-            // $table->string('prix_unitaire');
             $table->timestamps();
         });
     }
