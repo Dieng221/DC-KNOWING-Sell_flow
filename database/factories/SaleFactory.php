@@ -25,14 +25,14 @@ class SaleFactory extends Factory
             'adresse_facturation' => fake()->address(),
             'statut' => fake()->randomElement(['en_attente', 'confirme', 'livree']),
             'type_remise' => fake()->word(),
-            'produits' => fake()->word(),
-            'qte_produit' => fake()->numberBetween(1, 10),
+            // 'produits' => fake()->word(),
+            // 'qte_produit' => fake()->numberBetween(1, 10),
             'date_vente' => fake()->date(),
             'condition_paiement' => fake()->word(),
             'adresse_livraison' => fake()->address(),
             'num_facture' => fake()->unique()->numerify('FAC-#####'),
             'valeur_remise' => fake()->randomFloat(2, 10, 100),
-            'prix_unitaire' => fake()->randomFloat(2, 5, 50),
+            // 'prix_unitaire' => fake()->randomFloat(2, 5, 50),
         ];
     }
 }

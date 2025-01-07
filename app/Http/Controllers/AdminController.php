@@ -93,9 +93,9 @@ class AdminController extends Controller
         return response()->json(['message' => 'Enregistrement réussit !', 'success' => true]);
     }
 
-    public function showAPI(string $id)
+    public function showAPI(Admin $admin)
     {
-        //
+        return response()->json(['message' => 'Récupération réussit !', 'success' => true, 'data' => $admin]);
     }
 
     public function updateAPI(Request $request, string $id)

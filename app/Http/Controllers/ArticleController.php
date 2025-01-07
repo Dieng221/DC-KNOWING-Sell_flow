@@ -69,8 +69,14 @@ class ArticleController extends Controller
     // API
     public function indexAPI()
     {
-        $articles = Article::all();
-        return response()->json($articles);
+        $user = Auth::user();
+        $articles = $user->articles;
+
+        return response()->json([
+            'message' => 'Récupération réussie !',
+            'success' => true,
+            'data' => $articles
+        ]);
     }
 
     public function storeAPI(Request $request)
@@ -129,9 +135,12 @@ class ArticleController extends Controller
         }
     }
 
-    public function showAPI(string $id)
+    public function showAPI(Article $article)
     {
-        //
+        if ($article->user_id != auth()->id()) {
+            return response()->json(['message' => 'Article non trouvé. L\'article a peut-être été supprimé ou est en privé', 'success' => true,], 404);
+        }
+        return response()->json(['message' => 'Récupération réussit !', 'success' => false, 'data' => $article]);
     }
 
     public function updateAPI(Request $request, string $id)

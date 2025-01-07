@@ -54,13 +54,21 @@ class AuthController extends Controller
         try {
             // Tente de générer le token JWT
             if (!$token = JWTAuth::attempt($credentials)) {
-                return response()->json(['error' => 'Unauthorized'], 401);
+                return response()->json(['message' => 'Unauthorized'], 401);
             }
+            // Récupérer l'utilisateur associé au token
+            $user = JWTAuth::user();
         } catch (JWTException $e) {
-            return response()->json(['error' => 'Could not create token'], 500);
+            return response()->json(['message' => 'Could not create token'], 500);
         }
 
-        return response()->json(compact('token'));
+        // Retourner le token et l'utilisateur dans la réponse
+        return response()->json([
+            'token' => $token,
+            'data'  => $user,
+            'message' => 'Connexion réussit !',
+            'success' => true
+        ]);
     }
 
     // Méthode pour récupérer les informations de l'utilisateur authentifié

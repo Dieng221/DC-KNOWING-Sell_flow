@@ -116,9 +116,13 @@ class ProfileController extends Controller
         }
     }
 
-    public function showAPI(string $id)
+    public function showAPI(string $profile)
     {
-        //
+        if ($profile->user_id != auth()->id()) {
+            return response()->json(['message' => 'Article non trouvé. L\'article a peut-être été supprimé ou est en privé', 'success' => true,], 404);
+        }
+        return response()->json(['message' => 'Récupération réussit !', 'success' => false, 'data' => $profile]);
+
     }
 
     public function updateAPI(Request $request, string $id)

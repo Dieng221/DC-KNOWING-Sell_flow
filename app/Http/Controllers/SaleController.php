@@ -69,7 +69,7 @@ class SaleController extends Controller
     // API
     public function indexAPI()
     {
-        $sales = Sale::all();
+        $sales = Sale::with(['articles', 'partner'])->get();
         return response()->json($sales);
     }
 
@@ -84,14 +84,14 @@ class SaleController extends Controller
                 'adresse_facturation' => ['required'],
                 'statut' => ['required'],
                 'type_remise' => ['required'],
-                'produits' => ['required'],
-                'qte_produit' => ['required'],
-                'date_vente' => ['required'],
+                // 'produits' => ['required'],
+                // 'qte_produit' => ['required'],
+                // 'date_vente' => ['required'],
                 'condition_paiement' => ['required'],
                 'adresse_livraison' => ['required'],
-                'num_facture' => ['required'],
+                // 'num_facture' => ['required'],
                 'valeur_remise' => ['required'],
-                'prix_unitaire' => ['required'],
+                // 'prix_unitaire' => ['required'],
             ]);
 
             // Créer une vente avec les données validées

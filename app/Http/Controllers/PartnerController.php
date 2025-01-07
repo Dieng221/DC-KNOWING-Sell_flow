@@ -117,9 +117,12 @@ class PartnerController extends Controller
         }
     }
 
-    public function showAPI(string $id)
+    public function showAPI(Partner $partner)
     {
-        //
+        // if ($article->user_id != auth()->id()) {
+        //     return response()->json(['message' => 'Article non trouvé. L\'article a peut-être été supprimé ou est en privé', 'success' => true,], 404);
+        // }
+        return response()->json(['message' => 'Récupération réussit !', 'success' => false, 'data' => $partner]);
     }
 
     public function updateAPI(Request $request, string $id)

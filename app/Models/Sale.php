@@ -20,6 +20,11 @@ class Sale extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function partner()
+    {
+        return $this->belongsTo(Partner::class);
+    }
+
     public function articles()
     {
         return $this->belongsToMany(Article::class, 'article_sales');
