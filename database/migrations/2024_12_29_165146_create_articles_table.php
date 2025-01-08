@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('libelle');
             $table->integer('quantite');
+            $table->decimal('prix_achat', 8, 2, true);
+            $table->decimal('prix_vente', 8, 2, true);
             $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });

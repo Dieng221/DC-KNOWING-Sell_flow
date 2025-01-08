@@ -23,6 +23,7 @@ class ArticlePurchaseFactory extends Factory
         return [
             'article_id' => \App\Models\Article::factory(),
             'purchase_id' => \App\Models\Purchase::factory(),
+            'quantite' => fake()->numberBetween(1, 100),
         ];
     }
 }

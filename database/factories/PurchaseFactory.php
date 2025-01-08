@@ -28,23 +28,15 @@ class PurchaseFactory extends Factory
         // ];
 
         return [
-            // Si vous avez les relations commentées, vous pouvez les activer comme suit :
-            // 'user_id' => User::factory(), // Crée un utilisateur associé automatiquement
-            // 'supplier_id' => Supplier::factory(), // Crée un fournisseur associé automatiquement
-
-            'partner_id' => \App\Models\Partner::factory(), // Crée un partenaire associé automatiquement
-
-            'num_ref' => fake()->unique()->numerify('ACH-#####'), // Numéro de référence unique
-            'adresse' => fake()->address(),  // Adresse associée à l'achat
-            'type_remise' => fake()->word(),  // Type de remise (ex: pourcentage, montant fixe)
-            'produits' => fake()->word(),  // Produits achetés (vous pouvez remplacer par une liste plus détaillée si nécessaire)
-            'qte_produit' => fake()->numberBetween(1, 100),  // Quantité de produits
-            'date_achat' => fake()->date(),  // Date de l'achat
-            'condition_paiement' => fake()->word(),  // Condition de paiement (ex: à crédit, au comptant)
-            'statut' => fake()->randomElement(['en_attente', 'confirme', 'livree']), // Statut de la commande
-            'magasin_entrepot' => fake()->word(),  // Magasin ou entrepôt
+            'partner_id' => \App\Models\Partner::factory(),
+            'user_id' => \App\Models\User::factory(),
+            'num_ref' => 'INV-' . date('Y-m-d') . '-' . str_pad(rand(1000, 9999), 4, '0', STR_PAD_LEFT),
+            'adresse' => fake()->address(),
+            'type_remise' => fake()->randomElement(['pourcentage', 'montant fixe']),
             'valeur_remise' => fake()->randomFloat(2, 10, 100),  // Valeur de la remise
-            'prix_unitaire' => fake()->randomFloat(2, 5, 100),  // Prix unitaire des produits
+            'montant_payer' => fake()->randomFloat(5, 1000, 50000),
+            'date_achat' => fake()->date(),  // Date de l'achat
+            'magasin_entrepot' => fake()->word(),  // Magasin ou entrepôt
         ];
     }
 }

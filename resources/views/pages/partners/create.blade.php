@@ -31,56 +31,56 @@
                 <h6>Ajouter un partenaire</h6>
              </div>
              <div class="card-body py-md-30">
-                <form method="POST" action="">
+                <form method="POST" action="{{route('partners.store')}}">
                     @csrf
                    <div class="row">
                     <div class="col-md-6 mb-25">
-                        <select class="form-control ih-medium ip-gray radius-xs b-light px-15" name="module">
+                        <select class="form-control ih-medium ip-gray radius-xs b-light px-15" name="type_partenariat">
                             <option selected>Type de partenariat...</option>
-                            <option value="Bim Bara">Client</option>
-                            <option value="Bim Livraison">Fournisseur</option>
-                            <option value="Bim Dabali">Client & Fournisseur</option>
+                            <option value="Client">Client</option>
+                            <option value="Fournisseur">Fournisseur</option>
+                            <option value="Client & Fournisseur">Client & Fournisseur</option>
                         </select>
                     </div>
                     <div class="col-md-6 mb-25">
-                        <select class="form-control ih-medium ip-gray radius-xs b-light px-15" name="module">
+                        <select class="form-control ih-medium ip-gray radius-xs b-light px-15" name="statut">
                             <option selected>Statut du partenaire...</option>
-                            <option value="Bim Bara">Individuel</option>
-                            <option value="Bim Bara">Entreprise</option>
+                            <option value="Individuel">Individuel</option>
+                            <option value="Entreprise">Entreprise</option>
                         </select>
                     </div>
                     <div class="col-md-6 mb-25">
-                        <input type="text" name="adresse_facturation" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Nom ou Raison sociale">
+                        <input type="text" name="nom" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Nom ou Raison sociale">
                      </div>
                      <div class="col-md-6 mb-25">
-                        <input type="number" name="adresse_livraison" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Contact téléphonique">
+                        <input type="number" name="contact" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Contact téléphonique">
                      </div>
                      <div class="col-md-6 mb-25">
-                        <input type="number" name="adresse_livraison" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Ligne fixe">
+                        <input type="number" name="ligne_fixe" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Ligne fixe">
                      </div>
                      <div class="col-md-6 mb-25">
-                        <input type="email" name="adresse_livraison" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Email">
+                        <input type="email" name="email" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Email">
                      </div>
                      <div class="col-md-6 mb-25">
-                        <input type="text" name="adresse_facturation" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Adresse de l'entreprise">
+                        <input type="text" name="adresse" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Adresse de l'entreprise">
                      </div>
                      <div class="col-md-6 mb-25">
-                        <input type="text" name="adresse_facturation" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Adresse de livraison">
+                        <input type="text" name="adresse_livraison" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Adresse de livraison">
                      </div>
                      <div class="col-md-6 mb-25">
-                        <input type="number" name="adresse_livraison" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Numéro d'identification fiscale">
+                        <input type="number" name="numero_identification_fiscal" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Numéro d'identification fiscale">
                      </div>
                      <div class="col-md-6 mb-25">
-                        <input type="number" name="adresse_livraison" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Solde d'ouverture">
+                        <input type="number" name="solde_ouverture" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Solde d'ouverture">
                      </div>
                      <div class="col-md-6 mb-25">
-                        <input type="number" name="adresse_livraison" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Limite de crédit">
+                        <input type="number" name="limite_credit" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Limite de crédit">
                      </div>
                      <div class="col-md-6 mb-25">
-                        <select class="form-control ih-medium ip-gray radius-xs b-light px-15" name="module">
+                        <select class="form-control ih-medium ip-gray radius-xs b-light px-15" name="condition_paiement">
                             <option selected>Condition de paiement...</option>
-                            <option value="Bim Bara">Journées</option>
-                            <option value="Bim Bara">Mois</option>
+                            <option value="Journées">Journées</option>
+                            <option value="Mois">Mois</option>
                         </select>
                     </div>
                       <div class="col-md-6">

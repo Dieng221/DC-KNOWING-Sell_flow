@@ -13,21 +13,18 @@ return new class extends Migration
     {
         Schema::create('partners', function (Blueprint $table) {
             $table->id();
+            $table->string('type_partenariat');
             $table->string('nom');
             $table->string('ligne_fixe');
             $table->string('adresse');
             $table->string('numero_identification_fiscal');
-
             $table->string('limite_credit');
             $table->string('statut');
             $table->string('contact');
             $table->string('email');
-
             $table->string('adresse_livraison');
             $table->string('solde_ouverture');
             $table->string('condition_paiement');
-            $table->boolean('client');
-            $table->boolean('supplier');
 
             // $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
