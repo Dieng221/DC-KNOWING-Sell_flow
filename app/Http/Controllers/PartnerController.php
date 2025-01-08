@@ -13,7 +13,8 @@ class PartnerController extends Controller
      */
     public function index()
     {
-        return view('pages.partners.list');
+        $partners = Partner::all();
+        return view('pages.partners.list', compact('partners'));
     }
 
     /**
@@ -29,6 +30,37 @@ class PartnerController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'type_partenariat' => 'required',
+            'statut' => 'required',
+            'nom' => 'required',
+            'contact' => 'required',
+            'ligne_fixe' => 'required',
+            'email' => 'required|email',
+            'adresse' => 'required',
+            'adresse_livraison' => 'required',
+            'numero_identification_fiscal' => 'required',
+            'solde_ouverture' => 'required',
+            'limite_credit' => 'required',
+            'condition_paiement' => 'required',
+        ]);
+
+        $partner = new Partner();
+        $partner->type_partenariat = $request->type_partenariat;
+        $partner->statut = $request->statut;
+        $partner->nom = $request->nom;
+        $partner->contact = $request->contact;
+        $partner->ligne_fixe = $request->ligne_fixe;
+        $partner->email = $request->email;
+        $partner->adresse = $request->adresse;
+        $partner->adresse_livraison = $request->adresse_livraison;
+        $partner->numero_identification_fiscal = $request->numero_identification_fiscal;
+        $partner->solde_ouverture = $request->solde_ouverture;
+        $partner->limite_credit = $request->limite_credit;
+        $partner->condition_paiement = $request->condition_paiement;
+        $partner->save();
+
+        return redirect()->route('partners.list');
 
     }
 

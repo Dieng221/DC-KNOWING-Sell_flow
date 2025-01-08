@@ -13,7 +13,8 @@ class SaleController extends Controller
      */
     public function index()
     {
-        return view('pages.sales.list');
+        $sales = Sale::all();
+        return view('pages.sales.list', compact('sales'));
     }
 
     /**
@@ -21,7 +22,8 @@ class SaleController extends Controller
      */
     public function create()
     {
-        return view('pages.sales.create');
+        $clients = Client::all();
+        return view('pages.sales.create', compact('clients'));
     }
 
     /**
