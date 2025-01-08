@@ -19,48 +19,47 @@ use App\Http\Controllers\PurchaseController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 
 Route::post('register', [AuthController::class, 'registerAPI']);
 Route::post('login', [AuthController::class, 'loginAPI']);
 
 Route::group(['middleware' => 'jwt.auth'], function () {
-    Route::get('me', [AuthController::class, 'meAPI']);
     Route::post('logout', [AuthController::class, 'logoutAPI']);
 
     Route::group(['prefix' => 'sales'], function(){
-        Route::get('/list', [SaleController::class, 'indexAPI'])->name('sales.list');
-        Route::post('/store', [SaleController::class, 'storeAPI'])->name('sales.store');
-        Route::get('/show/{sale}', [SaleController::class, 'showAPI'])->name('sales.show');
-        Route::post('/update/{sale}', [SaleController::class, 'updateAPI'])->name('sales.update');
-        Route::get('/delete/{sale}', [SaleController::class, 'destroyAPI'])->name('sales.delete');
+        Route::get('/list', [SaleController::class, 'indexAPI']);
+        Route::post('/store', [SaleController::class, 'storeAPI']);
+        Route::get('/show/{sale}', [SaleController::class, 'showAPI']);
+        Route::patch('/update/{sale}', [SaleController::class, 'updateAPI']);
+        Route::delete('/delete/{sale}', [SaleController::class, 'destroyAPI']);
     });
 
     Route::group(['prefix' => 'purchases'], function(){
-        Route::get('/list', [PurchaseController::class, 'indexAPI'])->name('purchases.list');
-        Route::post('/store', [PurchaseController::class, 'storeAPI'])->name('purchases.store');
-        Route::get('/show/{purchase}', [PurchaseController::class, 'showAPI'])->name('purchases.show');
-        Route::post('/update/{purchase}', [PurchaseController::class, 'updateAPI'])->name('purchases.update');
-        Route::get('/delete/{purchase}', [PurchaseController::class, 'destroyAPI'])->name('purchases.delete');
+        Route::get('/list', [PurchaseController::class, 'indexAPI']);
+        Route::post('/store', [PurchaseController::class, 'storeAPI']);
+        Route::get('/show/{purchase}', [PurchaseController::class, 'showAPI']);
+        Route::patch('/update/{purchase}', [PurchaseController::class, 'updateAPI']);
+        Route::delete('/delete/{purchase}', [PurchaseController::class, 'destroyAPI']);
     });
 
     Route::group(['prefix' => 'articles'], function(){
-        Route::get('/list', [ArticleController::class, 'indexAPI'])->name('articles.list');
-        Route::post('/store', [ArticleController::class, 'storeAPI'])->name('articles.store');
-        Route::get('/show/{article}', [ArticleController::class, 'showAPI'])->name('articles.show');
-        Route::post('/update/{article}', [ArticleController::class, 'updateAPI'])->name('articles.update');
-        Route::get('/delete/{articles}', [ArticleController::class, 'destroyAPI'])->name('articles.delete');
+        Route::get('/list', [ArticleController::class, 'indexAPI']);
+        Route::post('/store', [ArticleController::class, 'storeAPI']);
+        Route::get('/show/{article}', [ArticleController::class, 'showAPI']);
+        Route::patch('/update/{article}', [ArticleController::class, 'updateAPI']);
+        Route::delete('/delete/{articles}', [ArticleController::class, 'destroyAPI']);
     });
 
     Route::group(['prefix' => 'clients'], function(){
-        Route::get('/list', [ClientController::class, 'indexAPI'])->name('clients.list');
-        Route::post('/store', [ClientController::class, 'storeAPI'])->name('clients.store');
-        Route::get('/show/{client}', [ClientController::class, 'showAPI'])->name('clients.show');
-        Route::post('/update/{client}', [ClientController::class, 'updateAPI'])->name('clients.update');
-        Route::get('/delete/{client}', [ClientController::class, 'destroyAPI'])->name('clients.delete');
+        Route::get('/list', [ClientController::class, 'indexAPI']);
+        Route::post('/store', [ClientController::class, 'storeAPI']);
+        Route::get('/show/{client}', [ClientController::class, 'showAPI']);
+        Route::patch('/update/{client}', [ClientController::class, 'updateAPI']);
+        Route::delete('/delete/{client}', [ClientController::class, 'destroyAPI']);
     });
 
     // /api/sales/list => liste des ventes
