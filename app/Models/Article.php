@@ -12,6 +12,8 @@ class Article extends Model
     protected $fillable = [
         'libelle',
         'quantite',
+        'prix_achat',
+        'prix_vente',
         'user_id',
     ];
 
@@ -28,5 +30,10 @@ class Article extends Model
     public function purchases()
     {
         return $this->belongsToMany(Purchase::class, 'article_purchases');
+    }
+
+    public function scopeWithoutUserId($query)
+    {
+        return $query->select('*')->without('user_id');
     }
 }

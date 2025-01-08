@@ -10,10 +10,7 @@ class Purchase extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
-        'supplier_id',
-        'prix_sans_tva',
-        'prix_avec_tva',
+
     ];
 
     public function user()

@@ -23,6 +23,8 @@ class ArticleFactory extends Factory
         return [
             'libelle' => fake()->word(),
             'quantite' => fake()->numberBetween(1, 100),
+            'prix_achat' => fake()->randomFloat(2, 5, 100),
+            'prix_vente' => fake()->randomFloat(2, 5, 100),
             'user_id' => \App\Models\User::factory(),
         ];
 

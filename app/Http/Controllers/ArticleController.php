@@ -85,26 +85,12 @@ class ArticleController extends Controller
             // Récupérer l'utilisateur connecté
             $user = Auth::user();
 
-            // // Validation des données
-            // $validatedData = $request->validate([
-            //     'partner_id' => ['required', 'exists:partners,id'], // Assurez-vous que `partner_id` existe dans la table `partners`
-            //     'adresse_facturation' => ['required', 'string'],
-            //     'statut' => ['required', 'string', 'in:en_attente,confirme,livree'], // Exemple de validation avec valeurs possibles
-            //     'type_remise' => ['required', 'string'],
-            //     'produits' => ['required', 'array'],
-            //     'qte_produit' => ['required', 'array', 'min:1'], // Doit être un tableau non vide
-            //     'date_vente' => ['required', 'date'],
-            //     'condition_paiement' => ['required', 'string'],
-            //     'adresse_livraison' => ['required', 'string'],
-            //     'num_facture' => ['required', 'string', 'unique:articles,num_facture'], // Assurez-vous que le numéro de facture est unique
-            //     'valeur_remise' => ['required', 'numeric'],
-            //     'prix_unitaire' => ['required', 'numeric'],
-            // ]);
-
             // Validation des données
             $validatedData = $request->validate([
                 'libelle' => ['required', 'string'],
-                'quantite' => ['required', 'integer'], // Exemple de validation avec valeurs possibles
+                'quantite' => ['required', 'integer'],
+                'prix_achat' => ['required', 'numeric'],
+                'prix_vente' => ['required', 'numeric'],
             ]);
 
             // Ajouter l'ID de l'utilisateur connecté à la requête
@@ -130,6 +116,7 @@ class ArticleController extends Controller
 
             return response()->json([
                 'message' => 'Une erreur est survenue. Veuillez réessayer plus tard.',
+                'errors' => $e->getMessage(),
                 'success' => false
             ], 500);  // Code HTTP 500 pour une erreur serveur générique
         }
@@ -143,7 +130,7 @@ class ArticleController extends Controller
         return response()->json(['message' => 'Récupération réussit !', 'success' => false, 'data' => $article]);
     }
 
-    public function updateAPI(Request $request, string $id)
+    public function updateAPI(Request $request, Article $article)
     {
         //
     }
