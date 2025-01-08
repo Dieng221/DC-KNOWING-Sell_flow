@@ -51,7 +51,7 @@ Route::group(['middleware' => 'jwt.auth'], function () {
         Route::post('/store', [ArticleController::class, 'storeAPI']);
         Route::get('/show/{article}', [ArticleController::class, 'showAPI']);
         Route::patch('/update/{article}', [ArticleController::class, 'updateAPI']);
-        Route::delete('/delete/{articles}', [ArticleController::class, 'destroyAPI']);
+        Route::delete('/delete/{article}', [ArticleController::class, 'destroyAPI']);
     });
 
     Route::group(['prefix' => 'clients'], function(){

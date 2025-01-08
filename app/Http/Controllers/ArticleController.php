@@ -125,18 +125,65 @@ class ArticleController extends Controller
     public function showAPI(Article $article)
     {
         if ($article->user_id != auth()->id()) {
-            return response()->json(['message' => 'Article non trouvé. L\'article a peut-être été supprimé ou est en privé', 'success' => true,], 404);
+            return response()->json(['message' => 'Article non trouvé. L\'article a peut-être été supprimé ou est en privé', 'success' => false,], 404);
         }
-        return response()->json(['message' => 'Récupération réussit !', 'success' => false, 'data' => $article]);
+        return response()->json(['message' => 'Récupération réussit !', 'success' => true, 'data' => $article]);
     }
 
     public function updateAPI(Request $request, Article $article)
     {
-        //
+        try {
+            if ($article->user_id != auth()->id()) {
+                return response()->json([
+                    'message' => 'Article non trouvé. L\'article a peut-être été supprimé ou est en privé',
+                    'success' => false,
+                ], 404);
+            }
+
+            // Validation des données
+            $validatedData = $request->validate([
+                'libelle' => ['string'],
+                'quantite' => ['integer'],
+                'prix_achat' => ['numeric'],
+                'prix_vente' => ['numeric'],
+            ]);
+
+            // Mettre à jour les données de l'achat
+            $article->update($validatedData);
+
+            // Retourner une réponse JSON en cas de succès
+            return response()->json([
+                'message' => 'Enregistrement réussi !',
+                'success' => true,
+                'success' => $article,
+            ]);
+
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            // Capturer les erreurs de validation et retourner un message d'erreur
+            return response()->json([
+                'message' => 'Erreur de validation',
+                'errors' => $e->errors(),  // Les erreurs spécifiques de validation
+                'success' => false
+            ], 422);  // Code HTTP 422 pour les erreurs de validation
+
+        } catch (\Exception $e) {
+            // Log l'erreur et retourne un message générique en cas d'erreur inattendue
+            Log::error('Erreur lors de la mise à jour de l\'article: ' . $e->getMessage());
+
+            return response()->json([
+                'message' => 'Une erreur est survenue. Veuillez réessayer plus tard.',
+                'errors' => $e->getMessage(),
+                'success' => false
+            ], 500);  // Code HTTP 500 pour une erreur serveur générique
+        }
     }
 
-    public function destroyAPI(string $id)
+    public function destroyAPI(Article $article)
     {
-        //
+        if ($article->user_id != auth()->id()) {
+            return response()->json(['message' => 'Article non trouvé. L\'article a peut-être été supprimé ou est en privé', 'success' => false,], 404);
+        }
+        $article->delete();
+        return response()->json(['message' => 'Suppression réussit !', 'success' => true]);
     }
 }

@@ -18,9 +18,10 @@ php -m | grep intl && php -m | grep mbstring && php -m | grep pdo_mysql
 sudo apt install composer
 
 
-sudo rm -rf DC-KNOWING-Sell_flow/
-git clone -b silas_dev https://github.com/Dieng221/DC-KNOWING-Sell_flow.git && cd DC-KNOWING-Sell_flow/ && composer install && touch .env && nano .env
-php artisan migrate:fresh --seed
+sudo rm -rf DC-KNOWING-Sell_flow/ && git clone -b silas_dev https://github.com/Dieng221/DC-KNOWING-Sell_flow.git && cd DC-KNOWING-Sell_flow/ && composer install && touch .env && nano .env
+// php artisan migrate:fresh --seed
+php artisan migrate:reset && php artisan migrate && php artisan db:seed
+
 
 
 sudo apt install npm
@@ -31,8 +32,6 @@ tmux new-session -s monserveurlaravel
 tmux attach -t monserveurlaravel
 sudo php artisan serve --host=0.0.0.0 --port=80
 Ctrl B, puis D
-
-
 
 
 // sudo nohup php artisan serve --host=0.0.0.0 --port=80 > /dev/null 2>&1 &

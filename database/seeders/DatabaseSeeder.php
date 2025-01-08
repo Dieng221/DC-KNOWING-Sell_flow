@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
             'remember_token' => Str::random(10),
         ]);
-        \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(2)->create();
         \App\Models\Article::factory(20)->create();
         \App\Models\Partner::factory(10)->create();
         \App\Models\Sale::factory(10)->create();

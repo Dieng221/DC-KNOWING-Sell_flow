@@ -162,7 +162,7 @@ class SaleController extends Controller
             return response()->json([
                 'message' => 'Mise à jour réussie !',
                 'success' => true,
-                'purchase' => $sale
+                'data' => $sale
             ]);
 
         } catch (\Illuminate\Validation\ValidationException $e) {

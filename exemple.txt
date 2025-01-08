@@ -1,0 +1,174 @@
+{
+  "message": "Récupération réussie !",
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "partner_id": 21,
+      "user_id": 1,
+      "num_ref": "INV-2025-01-08-9687",
+      "adresse": "2706 Laury Plaza Suite 566\nLeuschkechester, OK 82481",
+      "type_remise": "montant fixe",
+      "valeur_remise": "26.60",
+      "date_achat": "2001-01-27",
+      "montant_payer": "42043.43",
+      "magasin_entrepot": "atque",
+      "created_at": "2025-01-08T11:36:35.000000Z",
+      "updated_at": "2025-01-08T11:36:35.000000Z",
+      "articles": []
+    },
+    {
+      "id": 4,
+      "partner_id": 24,
+      "user_id": 1,
+      "num_ref": "INV-2025-01-08-3076",
+      "adresse": "93118 Rosario Viaduct\nKochport, IL 24080-7486",
+      "type_remise": "montant fixe",
+      "valeur_remise": "85.80",
+      "date_achat": "1992-03-03",
+      "montant_payer": "44321.00",
+      "magasin_entrepot": "dignissimos",
+      "created_at": "2025-01-08T11:36:35.000000Z",
+      "updated_at": "2025-01-08T11:36:35.000000Z",
+      "articles": []
+    },
+    {
+      "id": 41,
+      "partner_id": 1,
+      "user_id": 1,
+      "num_ref": "INV-2025-01-08-9173",
+      "adresse": "Yopougon",
+      "type_remise": "pourcentage",
+      "valeur_remise": "30.00",
+      "date_achat": "2025-01-08",
+      "montant_payer": "7000.00",
+      "magasin_entrepot": "Entrepot 1",
+      "created_at": "2025-01-08T16:16:38.000000Z",
+      "updated_at": "2025-01-08T16:16:38.000000Z",
+      "articles": [
+        {
+          "id": 2,
+          "libelle": "voluptatibus",
+          "quantite": 25,
+          "prix_achat": "12.05",
+          "prix_vente": "79.08",
+          "user_id": 1,
+          "created_at": "2025-01-08T11:36:29.000000Z",
+          "updated_at": "2025-01-08T11:36:29.000000Z",
+          "pivot": {
+            "purchase_id": 41,
+            "article_id": 2,
+            "quantite": 3
+          }
+        },
+        {
+          "id": 5,
+          "libelle": "iste",
+          "quantite": 82,
+          "prix_achat": "88.09",
+          "prix_vente": "68.73",
+          "user_id": 1,
+          "created_at": "2025-01-08T11:36:29.000000Z",
+          "updated_at": "2025-01-08T11:36:29.000000Z",
+          "pivot": {
+            "purchase_id": 41,
+            "article_id": 5,
+            "quantite": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "partner_id": 1,
+      "user_id": 1,
+      "num_ref": "INV-2025-01-08-0000007889",
+      "adresse": "Yopougon",
+      "type_remise": "pourcentage",
+      "valeur_remise": "30.00",
+      "date_achat": "2025-01-08",
+      "montant_payer": "7000.00",
+      "magasin_entrepot": "Entrepot 1",
+      "created_at": "2025-01-08T16:17:34.000000Z",
+      "updated_at": "2025-01-08T16:17:34.000000Z",
+      "articles": [
+        {
+          "id": 2,
+          "libelle": "voluptatibus",
+          "quantite": 25,
+          "prix_achat": "12.05",
+          "prix_vente": "79.08",
+          "user_id": 1,
+          "created_at": "2025-01-08T11:36:29.000000Z",
+          "updated_at": "2025-01-08T11:36:29.000000Z",
+          "pivot": {
+            "purchase_id": 42,
+            "article_id": 2,
+            "quantite": 3
+          }
+        },
+        {
+          "id": 5,
+          "libelle": "iste",
+          "quantite": 82,
+          "prix_achat": "88.09",
+          "prix_vente": "68.73",
+          "user_id": 1,
+          "created_at": "2025-01-08T11:36:29.000000Z",
+          "updated_at": "2025-01-08T11:36:29.000000Z",
+          "pivot": {
+            "purchase_id": 42,
+            "article_id": 5,
+            "quantite": 2
+          }
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "partner_id": 1,
+      "user_id": 1,
+      "num_ref": "INV-2025-01-08-70366024",
+      "adresse": "Yopougon",
+      "type_remise": "pourcentage",
+      "valeur_remise": "30.00",
+      "date_achat": "2025-01-08",
+      "montant_payer": "7000.00",
+      "magasin_entrepot": "Entrepot 1",
+      "created_at": "2025-01-08T16:18:27.000000Z",
+      "updated_at": "2025-01-08T16:18:27.000000Z",
+      "articles": [
+        {
+          "id": 2,
+          "libelle": "voluptatibus",
+          "quantite": 25,
+          "prix_achat": "12.05",
+          "prix_vente": "79.08",
+          "user_id": 1,
+          "created_at": "2025-01-08T11:36:29.000000Z",
+          "updated_at": "2025-01-08T11:36:29.000000Z",
+          "pivot": {
+            "purchase_id": 43,
+            "article_id": 2,
+            "quantite": 3
+          }
+        },
+        {
+          "id": 5,
+          "libelle": "iste",
+          "quantite": 82,
+          "prix_achat": "88.09",
+          "prix_vente": "68.73",
+          "user_id": 1,
+          "created_at": "2025-01-08T11:36:29.000000Z",
+          "updated_at": "2025-01-08T11:36:29.000000Z",
+          "pivot": {
+            "purchase_id": 43,
+            "article_id": 5,
+            "quantite": 2
+          }
+        }
+      ]
+    }
+  ]
+}
