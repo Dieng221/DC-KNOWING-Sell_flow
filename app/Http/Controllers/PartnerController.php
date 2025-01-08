@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Partner;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log; // Pour la gestion des logs
+use Illuminate\Support\Facades\Log;
 
 class PartnerController extends Controller
 {
@@ -66,10 +66,23 @@ class PartnerController extends Controller
 
 
     // API
-    public function indexAPI()
+    public function indexAPI(Request $request)
     {
-        $partners = Partner::all();
-        return response()->json($partners);
+        $query = $request->query('type_partner');
+        $partners = null;
+        if ($query == 'client') {
+            $partners = Partner::where('client', true)->get();
+        } else if ($query == 'supplier') {
+            $partners = Partner::where('supplier', true)->get();
+        } else {
+            $partners = Partner::all();
+        }
+
+        return response()->json([
+            'message' => 'Récupération réussie !',
+            'success' => true,
+            'data' => $partners
+        ]);
     }
 
     public function storeAPI(Request $request)
@@ -88,8 +101,8 @@ class PartnerController extends Controller
                 'adresse_livraison' => ['required'],
                 'condition_paiement' => ['required'],
                 'solde_ouverture' => ['required'],
-                'client' => ['required'],
-                'supplier' => ['required'],
+                'client' => ['required', 'boolean'],
+                'supplier' => ['required', 'boolean'],
             ]);
 
             // Créer un nouveau partenaire avec les données validées
@@ -112,6 +125,7 @@ class PartnerController extends Controller
 
             return response()->json([
                 'message' => 'Une erreur est survenue. Veuillez réessayer plus tard.',
+                'errors' => $e->getMessage(),
                 'success' => false
             ], 500);  // Code HTTP 500 pour une erreur serveur générique
         }
@@ -125,13 +139,57 @@ class PartnerController extends Controller
         return response()->json(['message' => 'Récupération réussit !', 'success' => false, 'data' => $partner]);
     }
 
-    public function updateAPI(Request $request, string $id)
+    public function updateAPI(Request $request, Partner $partner)
     {
-        //
+        try {
+            // Validation des données
+            $validatedData = $request->validate([
+                // 'nom' => ['required'],
+                // 'ligne_fixe' => ['required'],
+                // 'adresse' => ['required'],
+                // 'numero_identification_fiscal' => ['required'],
+                // 'limite_credit' => ['required'],
+                // 'statut' => ['required'],
+                // 'contact' => ['required'],
+                // 'email' => ['required'],
+                // 'adresse_livraison' => ['required'],
+                // 'condition_paiement' => ['required'],
+                // 'solde_ouverture' => ['required'],
+                'client' => ['required', 'boolean'],
+                'supplier' => ['required', 'boolean'],
+            ]);
+
+            // Créer un nouveau partenaire avec les données validées
+            $partner->update($validatedData);
+            // Retourner une réponse JSON en cas de succès
+            return response()->json(['message' => 'Enregistrement réussi !', 'success' => true]);
+
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            // Capturer les erreurs de validation et retourner un message d'erreur
+            return response()->json([
+                'message' => 'Erreur de validation',
+                'errors' => $e->errors(),  // Les erreurs spécifiques de validation
+                'success' => false
+            ], 422);  // Code HTTP 422 pour les erreurs de validation
+
+        } catch (\Exception $e) {
+            // Log l'erreur et retourne un message générique en cas d'erreur inattendue
+            Log::error('Erreur lors de la création du partenaire: ' . $e->getMessage());
+
+            return response()->json([
+                'message' => 'Une erreur est survenue. Veuillez réessayer plus tard.',
+                'errors' => $e->getMessage(),
+                'success' => false
+            ], 500);  // Code HTTP 500 pour une erreur serveur générique
+        }
     }
 
-    public function destroyAPI(string $id)
+    public function destroyAPI(Partner $partner)
     {
-        //
+        // if ($article->user_id != auth()->id()) {
+        //     return response()->json(['message' => 'Article non trouvé. L\'article a peut-être été supprimé ou est en privé', 'success' => false,], 404);
+        // }
+        $partner->delete();
+        return response()->json(['message' => 'Suppression réussit !', 'success' => true]);
     }
 }

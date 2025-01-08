@@ -33,6 +33,6 @@ class Purchase extends Model
 
     public function articles()
     {
-        return $this->belongsToMany(Article::class, 'article_purchases') ->withPivot('quantite');;
+        return $this->belongsToMany(Article::class, 'article_purchases')->withPivot('quantite');;
     }
 }

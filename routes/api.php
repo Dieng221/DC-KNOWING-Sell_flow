@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SaleController;
-use App\Http\Controllers\ClientController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PurchaseController;
 
@@ -54,12 +54,12 @@ Route::group(['middleware' => 'jwt.auth'], function () {
         Route::delete('/delete/{article}', [ArticleController::class, 'destroyAPI']);
     });
 
-    Route::group(['prefix' => 'clients'], function(){
-        Route::get('/list', [ClientController::class, 'indexAPI']);
-        Route::post('/store', [ClientController::class, 'storeAPI']);
-        Route::get('/show/{client}', [ClientController::class, 'showAPI']);
-        Route::patch('/update/{client}', [ClientController::class, 'updateAPI']);
-        Route::delete('/delete/{client}', [ClientController::class, 'destroyAPI']);
+    Route::group(['prefix' => 'partners'], function(){
+        Route::get('/list', [PartnerController::class, 'indexAPI']);
+        Route::post('/store', [PartnerController::class, 'storeAPI']);
+        Route::get('/show/{client}', [PartnerController::class, 'showAPI']);
+        Route::patch('/update/{client}', [PartnerController::class, 'updateAPI']);
+        Route::delete('/delete/{client}', [PartnerController::class, 'destroyAPI']);
     });
 
     // /api/sales/list => liste des ventes

@@ -140,7 +140,7 @@ class PurchaseController extends Controller
         return response()->json([
             'message' => 'Récupération réussie !',
             'success' => true,
-            'purchase' => $purchase
+            'data' => $purchase
         ]);
     }
 
@@ -153,16 +153,13 @@ class PurchaseController extends Controller
                 'adresse' => ['required'],
                 'type_remise' => ['required'],
                 'valeur_remise' => ['required', 'numeric'],
-                'date_vente' => ['required', 'date'],
+                'date_achat' => ['required', 'date'],
                 'magasin_entrepot' => ['required'],
                 'montant_payer' => ['required', 'numeric'],
                 'articles' => ['required', 'array', 'min:1'],
                 'articles.*.article_id' => ['required', 'integer', 'exists:articles,id'],
                 'articles.*.quantite' => ['required', 'integer', 'min:1'],
             ]);
-
-            // // Rechercher l'achat existant par ID
-            // $purchase = Purchase::findOrFail($id);  // Si l'achat n'existe pas, cela lancera une erreur 404
 
             // Mettre à jour les données de l'achat
             $purchase->update($validatedData);  // Mettre à jour l'achat avec les données validées
@@ -199,6 +196,10 @@ class PurchaseController extends Controller
 
     public function destroyAPI(Purchase $purchase)
     {
-        //
+        if ($purchase->user_id != auth()->id()) {
+            return response()->json(['message' => 'Achat non trouvé. L\'achat a peut-être été déjà supprimé ou est en privé', 'success' => false,], 404);
+        }
+        $purchase->delete();
+        return response()->json(['message' => 'Suppression réussit !', 'success' => true]);
     }
 }

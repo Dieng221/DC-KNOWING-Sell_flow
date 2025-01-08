@@ -148,6 +148,7 @@ class ArticleController extends Controller
                 'prix_vente' => ['numeric'],
             ]);
 
+            dd($validatedData);
             // Mettre à jour les données de l'achat
             $article->update($validatedData);
 

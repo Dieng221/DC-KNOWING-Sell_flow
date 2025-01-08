@@ -69,8 +69,14 @@ class SaleController extends Controller
     // API
     public function indexAPI()
     {
-        $sales = Sale::with(['articles', 'partner'])->where('user_id', auth()->id())->get();
-        return response()->json($sales);
+        $user = auth()->user();
+        $sales = $user->sales()->with('articles', 'partner')->get();
+
+        return response()->json([
+            'message' => 'Récupération réussie !',
+            'success' => true,
+            'data' => $sales
+        ]);
     }
 
     public function storeAPI(Request $request)
@@ -91,7 +97,7 @@ class SaleController extends Controller
             ]);
 
             // Générer un numéro de facture unique
-            $validatedData['num_facture'] = 'INV-' . date('Y-m-d') . '-' . str_pad(rand(1000, 9999), 4, '0', STR_PAD_LEFT);
+            $validatedData['num_facture'] = 'INV-' . date('Y-m-d') . '-' . str_pad(rand(1000, 9999), 4, '0', STR_PAD_LEFT) . str_pad(rand(1000, 9999), 4, '0', STR_PAD_LEFT);
             $validatedData['user_id'] = auth()->id();
 
             // Créer la vente avec les données validées
@@ -101,7 +107,7 @@ class SaleController extends Controller
             return response()->json([
                 'message' => 'Vente enregistrée avec succès!',
                 'success' => true,
-                'sale' => $sale,  // Vous pouvez aussi renvoyer les données de la vente
+                'data' => $sale,  // Vous pouvez aussi renvoyer les données de la vente
             ]);
 
         } catch (\Illuminate\Validation\ValidationException $e) {
@@ -118,6 +124,7 @@ class SaleController extends Controller
 
             return response()->json([
                 'message' => 'Une erreur est survenue. Veuillez réessayer plus tard.',
+                'errors' => $e->getMessage(),
                 'success' => false
             ], 500);  // Code HTTP 500 pour une erreur serveur générique
         }
@@ -128,7 +135,7 @@ class SaleController extends Controller
         return response()->json([
             'message' => 'Récupération réussie !',
             'success' => true,
-            'purchase' => $sale
+            'data' => $sale
         ]);
     }
 
@@ -186,6 +193,10 @@ class SaleController extends Controller
 
     public function destroyAPI(Sale $sale)
     {
-        //
+        if ($sale->user_id != auth()->id()) {
+            return response()->json(['message' => 'vente non trouvée. La vente a peut-être été déjà supprimée ou est en privée', 'success' => false,], 404);
+        }
+        $sale->delete();
+        return response()->json(['message' => 'Suppression réussit !', 'success' => true]);
     }
 }
