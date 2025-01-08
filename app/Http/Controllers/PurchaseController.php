@@ -70,7 +70,7 @@ class PurchaseController extends Controller
     public function indexAPI()
     {
         $user = auth()->user();
-        $purchases = $user->purchases;
+        $purchases = $user->purchases()->with('articles')->get();
         return response()->json([
             'message' => 'Récupération réussie !',
             'success' => true,
@@ -87,7 +87,7 @@ class PurchaseController extends Controller
                 'adresse' => ['required'],
                 'type_remise' => ['required'],
                 'valeur_remise' => ['required', 'numeric'],
-                'date_vente' => ['required', 'date'],
+                'date_achat' => ['required', 'date'],
                 'magasin_entrepot' => ['required'],
                 'montant_payer' => ['required', 'numeric'],
                 'articles' => ['required', 'array', 'min:1'],
@@ -99,7 +99,7 @@ class PurchaseController extends Controller
             $validatedData['user_id'] = auth()->user()->id;  // Utilisez l'utilisateur authentifié
 
             // Générer le numéro de facture
-            $validatedData['num_ref'] = 'INV-' . date('Y-m-d') . '-' . str_pad(rand(1000, 9999), 4, '0', STR_PAD_LEFT);
+            $validatedData['num_ref'] = 'INV-' . date('Y-m-d') . '-' . str_pad(rand(1000, 9999), 4, '0', STR_PAD_LEFT) . str_pad(rand(1000, 9999), 4, '0', STR_PAD_LEFT);
 
             // Créer un achat avec les données validées
             $purchase = Purchase::create($validatedData);
@@ -128,6 +128,7 @@ class PurchaseController extends Controller
 
             return response()->json([
                 'message' => 'Une erreur est survenue. Veuillez réessayer plus tard.',
+                'errors' => $e->getMessage(),
                 'success' => false
             ], 500);  // Code HTTP 500 pour une erreur serveur générique
         }
