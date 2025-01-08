@@ -69,7 +69,7 @@ class PurchaseController extends Controller
     // API
     public function indexAPI()
     {
-        $user = Auth::user();
+        $user = auth()->user();
         $purchases = $user->purchases;
         return response()->json([
             'message' => 'Récupération réussie !',
