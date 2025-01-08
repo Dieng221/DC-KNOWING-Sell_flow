@@ -24,13 +24,11 @@ class SaleFactory extends Factory
             'user_id' => \App\Models\User::factory(), // Crée un user associé automatiquement
             'partner_id' => \App\Models\Partner::factory(), // Crée un partenaire associé automatiquement
             'adresse_facturation' => fake()->address(),
-            'statut' => fake()->randomElement(['en_attente', 'confirme', 'livree']),
-            'type_remise' => fake()->word(),
-            'date_vente' => fake()->date(),
-            'condition_paiement' => fake()->word(),
-            'adresse_livraison' => fake()->address(),
-            'num_facture' => fake()->unique()->numerify('FAC-#####'),
+            'type_remise' => fake()->randomElement(['pourcentage', 'montant fixe']),
             'valeur_remise' => fake()->randomFloat(2, 10, 100),
+            'date_vente' => fake()->date(),
+            'adresse_livraison' => fake()->address(),
+            'num_facture' => 'INV-' . date('Y-m-d') . '-' . str_pad(rand(1000, 9999), 4, '0', STR_PAD_LEFT),
         ];
     }
 }
