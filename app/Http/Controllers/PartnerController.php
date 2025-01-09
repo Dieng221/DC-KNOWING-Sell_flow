@@ -98,13 +98,6 @@ class PartnerController extends Controller
                 'email' => ['required'],
                 'client' => ['required', 'boolean'],
                 'supplier' => ['required', 'boolean'],
-
-                // 'adresse_livraison' => ['required'],
-                // 'condition_paiement' => ['required'],
-                // 'solde_ouverture' => ['required'],
-                // 'numero_identification_fiscal' => ['required'],
-                // 'limite_credit' => ['required'],
-                // 'statut' => ['required'],
             ]);
             $validatedData['user_id'] = auth()->id();
 
