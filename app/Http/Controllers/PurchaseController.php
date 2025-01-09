@@ -109,10 +109,7 @@ class PurchaseController extends Controller
 
                 $articleRecord = Article::find($articleId);
                 if ($articleRecord) {
-                    if ($articleRecord->quantite < $quantite) {
-                        throw new \Exception("Pas assez de stock pour l'article ID: $articleId");
-                    }
-                    $articleRecord->quantite -= $quantite;
+                    $articleRecord->quantite += $quantite;
                     $articleRecord->save();
                 }
             }
