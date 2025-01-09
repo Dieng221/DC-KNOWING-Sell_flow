@@ -105,7 +105,11 @@ class PartnerController extends Controller
             $partner = Partner::create($validatedData);
 
             // Retourner une réponse JSON en cas de succès
-            return response()->json(['message' => 'Enregistrement réussi !', 'success' => true]);
+            return response()->json([
+                'message' => 'Enregistrement réussi !',
+                'success' => true,
+                'data' => $partner,
+            ]);
 
         } catch (\Illuminate\Validation\ValidationException $e) {
             // Capturer les erreurs de validation et retourner un message d'erreur
@@ -162,7 +166,11 @@ class PartnerController extends Controller
             // Créer un nouveau partenaire avec les données validées
             $partner->update($validatedData);
             // Retourner une réponse JSON en cas de succès
-            return response()->json(['message' => 'Enregistrement réussi !', 'success' => true]);
+            return response()->json([
+                'message' => 'Enregistrement réussi !',
+                'success' => true,
+                'data' => $partner,
+            ]);
 
         } catch (\Illuminate\Validation\ValidationException $e) {
             // Capturer les erreurs de validation et retourner un message d'erreur
