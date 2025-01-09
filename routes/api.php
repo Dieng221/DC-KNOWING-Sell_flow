@@ -7,6 +7,7 @@ use App\Http\Controllers\SaleController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\DashBoardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,42 +65,10 @@ Route::group(['middleware' => 'jwt.auth'], function () {
         Route::delete('/delete/{partner}', [PartnerController::class, 'destroyAPI']);
     });
 
-    // /api/sales/list => liste des ventes
-    // /api/sales/store => création de vente
-    // /api/sales/show/{id} => affichage de vente spécifique
-    // /api/sales/update/{id} => mise à jour de vente spécifique
-    // /api/sales/delete/{id} => suppression de vente spécifique
-
-    // /api/purchases/list => liste des achats
-    // /api/purchases/store => création de achat
-    // /api/purchases/show/{id} => affichage de achat spécifique
-    // /api/purchases/update/{id} => mise à jour de achat spécifique
-    // /api/purchases/delete/{id} => suppression de achat spécifique
-
-    // /api/articles/list => liste des articles
-    // /api/articles/store => création de article
-    // /api/articles/show/{id} => affichage de article spécifique
-    // /api/articles/update/{id} => mise à jour de article spécifique
-    // /api/articles/delete/{id} => suppression de article spécifique
-
-    // /api/clients/list => liste des clients
-    // /api/clients/store => création de client
-    // /api/clients/show/{id} => affichage de client spécifique
-    // /api/clients/update/{id} => mise à jour de client spécifique
-    // /api/clients/delete/{id} => suppression de client spécifique
-
-    // /api/partners/list => liste des partners
-    // /api/partners/store => création de partner
-    // /api/partners/show/{id} => affichage de partner spécifique
-    // /api/partners/update/{id} => mise à jour de partner spécifique
-    // /api/partners/delete/{id} => suppression de partner spécifique
-
-    // /api/purchases/list => liste des ventes
-    // /api/purchases/store => création de vente
-    // /api/purchases/show/{id} => affichage de vente spécifique
-    // /api/purchases/update/{id} => mise à jour de vente spécifique
-    // /api/purchases/delete/{id} => suppression de vente spécifique
-
+    Route::group(['prefix' => 'dashboard'], function(){
+        Route::get('/simple-detail', [DashBoardController::class, 'simpleDetail']);
+        Route::get('/store', [DashBoardController::class, 'storeAPI']);
+    });
 });
 
 

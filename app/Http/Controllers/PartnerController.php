@@ -148,19 +148,13 @@ class PartnerController extends Controller
 
             // Validation des données
             $validatedData = $request->validate([
-                // 'nom' => ['required'],
-                // 'ligne_fixe' => ['required'],
-                // 'adresse' => ['required'],
-                // 'numero_identification_fiscal' => ['required'],
-                // 'limite_credit' => ['required'],
-                // 'statut' => ['required'],
-                // 'contact' => ['required'],
-                // 'email' => ['required'],
-                // 'adresse_livraison' => ['required'],
-                // 'condition_paiement' => ['required'],
-                // 'solde_ouverture' => ['required'],
-                'client' => ['boolean'],
-                'supplier' => ['boolean'],
+                'nom' => ['required'],
+                'ligne_fixe' => ['required'],
+                'adresse' => ['required'],
+                'contact' => ['required'],
+                'email' => ['required'],
+                'client' => ['required', 'boolean'],
+                'supplier' => ['required', 'boolean'],
             ]);
 
             // Créer un nouveau partenaire avec les données validées
