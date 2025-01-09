@@ -12,19 +12,20 @@ class Partner extends Model
     protected $fillable = [
         'nom',
         'ligne_fixe',
-        'statut',
         'contact',
         'email',
         'client',
         'supplier',
         'user_id',
+        'adresse',
 
-        // 'adresse',
+
         // 'numero_identification_fiscal',
         // 'limite_credit',
         // 'adresse_livraison',
         // 'condition_paiement',
         // 'solde_ouverture',
+        // 'statut',
     ];
 
 }
