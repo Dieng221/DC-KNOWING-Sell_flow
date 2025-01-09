@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Purchase;
-use Illuminate\Support\Facades\Log; // Pour la gestion des logs
+use App\Models\Article;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 
 class PurchaseController extends Controller
 {
@@ -81,7 +83,8 @@ class PurchaseController extends Controller
     public function storeAPI(Request $request)
     {
         try {
-            // Validation des données
+            DB::beginTransaction();
+
             $validatedData = $request->validate([
                 'partner_id' => ['required', 'exists:partners,id'],
                 'adresse' => ['required'],
@@ -95,42 +98,49 @@ class PurchaseController extends Controller
                 'articles.*.quantite' => ['required', 'integer', 'min:1'],
             ]);
 
-            // Ajouter l'ID de l'utilisateur
             $validatedData['user_id'] = auth()->user()->id;  // Utilisez l'utilisateur authentifié
-
-            // Générer le numéro de facture
             $validatedData['num_ref'] = 'INV-' . date('Y-m-d') . '-' . str_pad(rand(1000, 9999), 4, '0', STR_PAD_LEFT) . str_pad(rand(1000, 9999), 4, '0', STR_PAD_LEFT);
 
-            // Créer un achat avec les données validées
             $purchase = Purchase::create($validatedData);
 
-            // Lier les articles au purchase (relation many-to-many)
-            $purchase->articles()->sync($validatedData['articles']);  // On utilise 'sync' pour lier les articles
+            foreach ($validatedData['articles'] as $article) {
+                $articleId = $article['article_id'];
+                $quantite = $article['quantite'];
 
-            // Retourner une réponse JSON en cas de succès
+                $articleRecord = Article::find($articleId);
+                if ($articleRecord) {
+                    if ($articleRecord->quantite < $quantite) {
+                        throw new \Exception("Pas assez de stock pour l'article ID: $articleId");
+                    }
+                    $articleRecord->quantite -= $quantite;
+                    $articleRecord->save();
+                }
+            }
+
+            $purchase->articles()->sync($validatedData['articles']);
+
+            DB::commit();
+
             return response()->json([
                 'message' => 'Enregistrement réussi !',
                 'success' => true,
-                'purchase' => $purchase  // Vous pouvez aussi renvoyer les données de l'achat
+                'purchase' => $purchase
             ]);
 
         } catch (\Illuminate\Validation\ValidationException $e) {
-            // Capturer les erreurs de validation et retourner un message d'erreur
             return response()->json([
                 'message' => 'Erreur de validation',
-                'errors' => $e->errors(),  // Les erreurs spécifiques de validation
+                'errors' => $e->errors(),
                 'success' => false
-            ], 422);  // Code HTTP 422 pour les erreurs de validation
+            ], 422);
 
         } catch (\Exception $e) {
-            // Log l'erreur et retourne un message générique en cas d'erreur inattendue
             Log::error('Erreur lors de la création de l\'achat: ' . $e->getMessage());
-
             return response()->json([
                 'message' => 'Une erreur est survenue. Veuillez réessayer plus tard.',
                 'errors' => $e->getMessage(),
                 'success' => false
-            ], 500);  // Code HTTP 500 pour une erreur serveur générique
+            ], 500);
         }
     }
 
