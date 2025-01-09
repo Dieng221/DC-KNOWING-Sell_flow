@@ -7,6 +7,9 @@ use App\Models\Purchase;
 use App\Models\Article;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\StorePurchaseRequest;
+use App\Http\Requests\UpdatePurchaseRequest;
+use Carbon\Carbon;
 
 class PurchaseController extends Controller
 {
@@ -69,10 +72,29 @@ class PurchaseController extends Controller
 
 
     // API
-    public function indexAPI()
+    public function indexAPI(Request $request)
     {
         $user = auth()->user();
-        $purchases = $user->purchases()->with('articles')->get();
+        $period = $request->query('period', 'all');
+
+        $periods = [
+            'day' => Carbon::now()->subHours(24),
+            'week' => Carbon::now()->subDays(7),
+            'month' => Carbon::now()->subMonth(),
+            'quarter' => Carbon::now()->subMonths(3),
+            'half' => Carbon::now()->subMonths(6),
+            'year' => Carbon::now()->subYear(),
+            'all' => null,
+        ];
+
+        $query = $user->purchases()->with('articles');
+
+        if (array_key_exists($period, $periods) && $period !== 'all') {
+            $query->where('created_at', '>=', $periods[$period]);
+        }
+
+        $purchases = $query->get();
+
         return response()->json([
             'message' => 'Récupération réussie !',
             'success' => true,
@@ -80,23 +102,12 @@ class PurchaseController extends Controller
         ]);
     }
 
-    public function storeAPI(Request $request)
+    public function storeAPI(StorePurchaseRequest $request)
     {
         try {
             DB::beginTransaction();
 
-            $validatedData = $request->validate([
-                'partner_id' => ['required', 'exists:partners,id'],
-                'adresse' => ['required'],
-                'type_remise' => ['required'],
-                'valeur_remise' => ['required', 'numeric'],
-                'date_achat' => ['required', 'date'],
-                'magasin_entrepot' => ['required'],
-                'montant_payer' => ['required', 'numeric'],
-                'articles' => ['required', 'array', 'min:1'],
-                'articles.*.article_id' => ['required', 'integer', 'exists:articles,id'],
-                'articles.*.quantite' => ['required', 'integer', 'min:1'],
-            ]);
+            $validatedData = $request->validated();
 
             $validatedData['user_id'] = auth()->user()->id;  // Utilisez l'utilisateur authentifié
             $validatedData['num_ref'] = 'INV-' . date('Y-m-d') . '-' . str_pad(rand(1000, 9999), 4, '0', STR_PAD_LEFT) . str_pad(rand(1000, 9999), 4, '0', STR_PAD_LEFT);
@@ -108,6 +119,7 @@ class PurchaseController extends Controller
                 $quantite = $article['quantite'];
 
                 $articleRecord = Article::find($articleId);
+
                 if ($articleRecord) {
                     $articleRecord->quantite += $quantite;
                     $articleRecord->save();
@@ -156,7 +168,7 @@ class PurchaseController extends Controller
         ]);
     }
 
-    public function updateAPI(Request $request, Purchase $purchase)
+    public function updateAPI(UpdatePurchaseRequest $request, Purchase $purchase)
     {
         try {
             DB::beginTransaction();
@@ -165,22 +177,30 @@ class PurchaseController extends Controller
                 return response()->json(['message' => 'Achat non trouvé. L\'achat a peut-être été déjà supprimé ou est en privé', 'success' => false,], 404);
             }
 
-            $validatedData = $request->validate([
-                'partner_id' => ['required', 'exists:partners,id'],
-                'adresse' => ['required'],
-                'type_remise' => ['required'],
-                'valeur_remise' => ['required', 'numeric'],
-                'date_achat' => ['required', 'date'],
-                'magasin_entrepot' => ['required'],
-                'montant_payer' => ['required', 'numeric'],
-                'articles' => ['required', 'array', 'min:1'],
-                'articles.*.article_id' => ['required', 'integer', 'exists:articles,id'],
-                'articles.*.quantite' => ['required', 'integer', 'min:1'],
-            ]);
+            $validatedData = $request->validated();
 
             $purchase->update($validatedData);
 
-            $purchase->articles()->sync($validatedData['articles']);
+            foreach ($validatedData['articles'] as $article) {
+                $articleId = $article['article_id'];
+                $quantite = $article['quantite'];
+                $articleRecord = Article::find($articleId);
+                if ($articleRecord) {
+                    $existingPivot = $purchase->articles()->where('article_id', $articleId)->first();
+                    if ($existingPivot) {
+                        $oldQuantite = $existingPivot->pivot->quantite;
+                        $newQuantite = $quantite - $oldQuantite;
+                        $articleRecord->quantite += $newQuantite;
+                        if ($newQuantite) $articleRecord->save();
+                        $purchase->articles()->updateExistingPivot($articleId, ['quantite' => $quantite]);
+                    } else {
+                        $purchase->articles()->attach($articleId, ['quantite' => $quantite]);
+                        $articleRecord->quantite -= $quantite;
+                        $articleRecord->save();
+                    }
+                }
+            }
+
 
             DB::commit();
             return response()->json([
@@ -190,18 +210,18 @@ class PurchaseController extends Controller
             ]);
 
         } catch (\Illuminate\Validation\ValidationException $e) {
-            // Capturer les erreurs de validation et retourner un message d'erreur
             return response()->json([
                 'message' => 'Erreur de validation',
-                'errors' => $e->errors(),  // Les erreurs spécifiques de validation
+                'errors' => $e->errors(),
                 'success' => false
-            ], 422);  // Code HTTP 422 pour les erreurs de validation
+            ], 422);
 
         } catch (\Exception $e) {
             Log::error('Erreur lors de la mise à jour de l\'achat: ' . $e->getMessage());
             DB::rollBack();
             return response()->json([
                 'message' => 'Une erreur est survenue. Veuillez réessayer plus tard.',
+                'errors' => $e->getMessage(),
                 'success' => false
             ], 500);
         }

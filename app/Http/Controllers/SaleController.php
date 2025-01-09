@@ -73,7 +73,25 @@ class SaleController extends Controller
     public function indexAPI()
     {
         $user = auth()->user();
-        $sales = $user->sales()->with('articles', 'partner')->get();
+        $period = $request->query('period', 'all');
+
+        $periods = [
+            'day' => Carbon::now()->subHours(24),
+            'week' => Carbon::now()->subDays(7),
+            'month' => Carbon::now()->subMonth(),
+            'quarter' => Carbon::now()->subMonths(3),
+            'half' => Carbon::now()->subMonths(6),
+            'year' => Carbon::now()->subYear(),
+            'all' => null,
+        ];
+
+        $query = $user->sales()->with('articles');
+
+        if (array_key_exists($period, $periods) && $period !== 'all') {
+            $query->where('created_at', '>=', $periods[$period]);
+        }
+
+        $sales = $query->get();
 
         return response()->json([
             'message' => 'Récupération réussie !',
@@ -111,7 +129,7 @@ class SaleController extends Controller
 
                 $articleRecord = Article::find($articleId);
                 if ($articleRecord) {
-                    if ($articleRecord->quantite < $quantite) {
+                    if ($articleRecord->quantite - $quantite < 0) {
                         throw new \Exception("Pas assez de stock pour l'article ID: $articleId");
                     }
                     $articleRecord->quantite -= $quantite;
@@ -185,7 +203,31 @@ class SaleController extends Controller
 
             $sale->update($validatedData);
 
-            $sale->articles()->sync($validatedData['articles']);
+            foreach ($validatedData['articles'] as $article) {
+                $articleId = $article['article_id'];
+                $quantite = $article['quantite'];
+                $articleRecord = Article::find($articleId);
+                if ($articleRecord) {
+                    $existingPivot = $sale->articles()->where('article_id', $articleId)->first();
+                    if ($existingPivot) {
+                        $oldQuantite = $existingPivot->pivot->quantite;
+                        $newQuantite = $quantite - $oldQuantite;
+                        $articleRecord->quantite += $newQuantite;
+                        if ($articleRecord->quantite < 0) {
+                            throw new \Exception("Pas assez de stock pour l'article ID: $articleId");
+                        }
+                        if ($newQuantite) $articleRecord->save();
+                        $sale->articles()->updateExistingPivot($articleId, ['quantite' => $quantite]);
+                    } else {
+                        $articleRecord->quantite -= $quantite;
+                        if ($articleRecord->quantite < 0) {
+                            throw new \Exception("Pas assez de stock pour l'article ID: $articleId");
+                        }
+                        $articleRecord->save();
+                        $sale->articles()->attach($articleId, ['quantite' => $quantite]);
+                    }
+                }
+            }
 
             DB::commit();
             return response()->json([
@@ -207,8 +249,9 @@ class SaleController extends Controller
             DB::rollBack();
             return response()->json([
                 'message' => 'Une erreur est survenue. Veuillez réessayer plus tard.',
+                'errors' => $e->getMessage(),
                 'success' => false
-            ], 500);  // Code HTTP 500 pour une erreur serveur générique
+            ], 500);
         }
     }
 
