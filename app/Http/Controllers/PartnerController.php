@@ -94,16 +94,17 @@ class PartnerController extends Controller
                 'nom' => ['required'],
                 'ligne_fixe' => ['required'],
                 'adresse' => ['required'],
-                'numero_identification_fiscal' => ['required'],
-                'limite_credit' => ['required'],
-                'statut' => ['required'],
                 'contact' => ['required'],
                 'email' => ['required'],
-                'adresse_livraison' => ['required'],
-                'condition_paiement' => ['required'],
-                'solde_ouverture' => ['required'],
                 'client' => ['required', 'boolean'],
                 'supplier' => ['required', 'boolean'],
+
+                // 'adresse_livraison' => ['required'],
+                // 'condition_paiement' => ['required'],
+                // 'solde_ouverture' => ['required'],
+                // 'numero_identification_fiscal' => ['required'],
+                // 'limite_credit' => ['required'],
+                // 'statut' => ['required'],
             ]);
             $validatedData['user_id'] = auth()->id();
 
@@ -161,8 +162,8 @@ class PartnerController extends Controller
                 // 'adresse_livraison' => ['required'],
                 // 'condition_paiement' => ['required'],
                 // 'solde_ouverture' => ['required'],
-                'client' => ['required', 'boolean'],
-                'supplier' => ['required', 'boolean'],
+                'client' => ['boolean'],
+                'supplier' => ['boolean'],
             ]);
 
             // Créer un nouveau partenaire avec les données validées

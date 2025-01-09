@@ -133,6 +133,7 @@ class PurchaseController extends Controller
 
         } catch (\Exception $e) {
             Log::error('Erreur lors de la création de l\'achat: ' . $e->getMessage());
+            DB::rollBack();
             return response()->json([
                 'message' => 'Une erreur est survenue. Veuillez réessayer plus tard.',
                 'errors' => $e->getMessage(),
@@ -158,12 +159,12 @@ class PurchaseController extends Controller
     public function updateAPI(Request $request, Purchase $purchase)
     {
         try {
+            DB::beginTransaction();
 
             if ($purchase->user_id != auth()->id()) {
                 return response()->json(['message' => 'Achat non trouvé. L\'achat a peut-être été déjà supprimé ou est en privé', 'success' => false,], 404);
             }
 
-            // Validation des données
             $validatedData = $request->validate([
                 'partner_id' => ['required', 'exists:partners,id'],
                 'adresse' => ['required'],
@@ -177,13 +178,11 @@ class PurchaseController extends Controller
                 'articles.*.quantite' => ['required', 'integer', 'min:1'],
             ]);
 
-            // Mettre à jour les données de l'achat
-            $purchase->update($validatedData);  // Mettre à jour l'achat avec les données validées
+            $purchase->update($validatedData);
 
-            // Lier les nouveaux articles au purchase (relation many-to-many)
-            $purchase->articles()->sync($validatedData['articles']);  // On utilise 'sync' pour lier les articles mis à jour
+            $purchase->articles()->sync($validatedData['articles']);
 
-            // Retourner une réponse JSON en cas de succès
+            DB::commit();
             return response()->json([
                 'message' => 'Mise à jour réussie !',
                 'success' => true,
@@ -199,13 +198,12 @@ class PurchaseController extends Controller
             ], 422);  // Code HTTP 422 pour les erreurs de validation
 
         } catch (\Exception $e) {
-            // Log l'erreur et retourne un message générique en cas d'erreur inattendue
             Log::error('Erreur lors de la mise à jour de l\'achat: ' . $e->getMessage());
-
+            DB::rollBack();
             return response()->json([
                 'message' => 'Une erreur est survenue. Veuillez réessayer plus tard.',
                 'success' => false
-            ], 500);  // Code HTTP 500 pour une erreur serveur générique
+            ], 500);
         }
     }
 

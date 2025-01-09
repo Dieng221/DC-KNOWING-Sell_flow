@@ -164,11 +164,12 @@ class SaleController extends Controller
     public function updateAPI(Request $request, Sale $sale)
     {
         try {
+            DB::beginTransaction();
+
             if ($sale->user_id != auth()->id()) {
                 return response()->json(['message' => 'vente non trouvée. La vente a peut-être été déjà supprimée ou est en privée', 'success' => false,], 404);
             }
 
-            // Validation des données
             $validatedData = $request->validate([
                 'partner_id' => ['required', 'exists:partners,id'],
                 'adresse_facturation' => ['required', 'string'],
@@ -182,16 +183,11 @@ class SaleController extends Controller
                 'articles.*.quantite' => ['required', 'integer', 'min:1'],
             ]);
 
-            // // Rechercher l'achat existant par ID
-            // $sale = Sale::findOrFail($id);  // Si l'achat n'existe pas, cela lancera une erreur 404
+            $sale->update($validatedData);
 
-            // Mettre à jour les données de l'achat
-            $sale->update($validatedData);  // Mettre à jour l'achat avec les données validées
+            $sale->articles()->sync($validatedData['articles']);
 
-            // Lier les nouveaux articles au purchase (relation many-to-many)
-            $sale->articles()->sync($validatedData['articles']);  // On utilise 'sync' pour lier les articles mis à jour
-
-            // Retourner une réponse JSON en cas de succès
+            DB::commit();
             return response()->json([
                 'message' => 'Mise à jour réussie !',
                 'success' => true,
@@ -207,9 +203,8 @@ class SaleController extends Controller
             ], 422);  // Code HTTP 422 pour les erreurs de validation
 
         } catch (\Exception $e) {
-            // Log l'erreur et retourne un message générique en cas d'erreur inattendue
             Log::error('Erreur lors de la mise à jour de la vente: ' . $e->getMessage());
-
+            DB::rollBack();
             return response()->json([
                 'message' => 'Une erreur est survenue. Veuillez réessayer plus tard.',
                 'success' => false
