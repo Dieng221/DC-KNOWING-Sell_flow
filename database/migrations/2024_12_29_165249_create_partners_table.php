@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('condition_paiement');
             $table->boolean('client');
             $table->boolean('supplier');
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

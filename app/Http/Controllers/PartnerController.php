@@ -104,6 +104,7 @@ class PartnerController extends Controller
                 'client' => ['required', 'boolean'],
                 'supplier' => ['required', 'boolean'],
             ]);
+            $validatedData['user_id'] = auth()->id();
 
             // Créer un nouveau partenaire avec les données validées
             $partner = Partner::create($validatedData);
@@ -133,9 +134,9 @@ class PartnerController extends Controller
 
     public function showAPI(Partner $partner)
     {
-        // if ($article->user_id != auth()->id()) {
-        //     return response()->json(['message' => 'Article non trouvé. L\'article a peut-être été supprimé ou est en privé', 'success' => true,], 404);
-        // }
+        if ($partner->user_id != auth()->id()) {
+            return response()->json(['message' => 'Partenaire non trouvé. Le partenaire a peut-être été supprimé ou est en privé', 'success' => true,], 404);
+        }
         return response()->json(['message' => 'Récupération réussit !', 'success' => false, 'data' => $partner]);
     }
 
@@ -186,9 +187,9 @@ class PartnerController extends Controller
 
     public function destroyAPI(Partner $partner)
     {
-        // if ($article->user_id != auth()->id()) {
-        //     return response()->json(['message' => 'Article non trouvé. L\'article a peut-être été supprimé ou est en privé', 'success' => false,], 404);
-        // }
+        if ($partner->user_id != auth()->id()) {
+            return response()->json(['message' => 'Partenaire non trouvé. Le partenaire a peut-être été supprimé ou est en privé', 'success' => true,], 404);
+        }
         $partner->delete();
         return response()->json(['message' => 'Suppression réussit !', 'success' => true]);
     }

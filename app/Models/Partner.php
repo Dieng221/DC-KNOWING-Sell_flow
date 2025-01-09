@@ -23,6 +23,7 @@ class Partner extends Model
         'solde_ouverture',
         'client',
         'supplier',
+        'user_id'
     ];
 
 }

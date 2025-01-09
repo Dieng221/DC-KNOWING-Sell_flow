@@ -57,9 +57,9 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     Route::group(['prefix' => 'partners'], function(){
         Route::get('/list', [PartnerController::class, 'indexAPI']);
         Route::post('/store', [PartnerController::class, 'storeAPI']);
-        Route::get('/show/{client}', [PartnerController::class, 'showAPI']);
-        Route::patch('/update/{client}', [PartnerController::class, 'updateAPI']);
-        Route::delete('/delete/{client}', [PartnerController::class, 'destroyAPI']);
+        Route::get('/show/{partner}', [PartnerController::class, 'showAPI']);
+        Route::patch('/update/{partner}', [PartnerController::class, 'updateAPI']);
+        Route::delete('/delete/{partner}', [PartnerController::class, 'destroyAPI']);
     });
 
     // /api/sales/list => liste des ventes

@@ -19,7 +19,7 @@ sudo apt install composer
 
 
 sudo rm -rf DC-KNOWING-Sell_flow/ && git clone -b silas_dev https://github.com/Dieng221/DC-KNOWING-Sell_flow.git && cd DC-KNOWING-Sell_flow/ && composer install && touch .env && nano .env
-// php artisan migrate:fresh --seed
+php artisan migrate:fresh --seed
 php artisan migrate:reset && php artisan migrate && php artisan db:seed
 
 

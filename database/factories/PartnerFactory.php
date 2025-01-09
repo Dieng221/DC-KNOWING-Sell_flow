@@ -25,6 +25,7 @@ class PartnerFactory extends Factory
             'condition_paiement' => fake()->word(),
             'client' => fake()->boolean(),
             'supplier' => fake()->boolean(),
+            'user_id' => \App\Models\User::factory(),
         ];
     }
 }
