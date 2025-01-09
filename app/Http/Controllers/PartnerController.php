@@ -69,13 +69,17 @@ class PartnerController extends Controller
     public function indexAPI(Request $request)
     {
         $query = $request->query('type_partner');
+        $user = auth()->user();
         $partners = null;
         if ($query == 'client') {
-            $partners = Partner::where('client', true)->get();
+            // $partners = Partner::where('client', true)->get();
+            $partners = $user->partners()->where('client', true)->get();
         } else if ($query == 'supplier') {
-            $partners = Partner::where('supplier', true)->get();
+            // $partners = Partner::where('supplier', true)->get();
+            $partners = $user->partners()->where('supplier', true)->get();
         } else {
-            $partners = Partner::all();
+            $partners = $user->partners()->get();
+            // $partners = Partner::all();
         }
 
         return response()->json([
