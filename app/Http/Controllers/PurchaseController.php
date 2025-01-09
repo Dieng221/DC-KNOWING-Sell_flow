@@ -137,6 +137,10 @@ class PurchaseController extends Controller
 
     public function showAPI(Purchase $purchase)
     {
+        if ($purchase->user_id != auth()->id()) {
+            return response()->json(['message' => 'Achat non trouvé. L\'achat a peut-être été déjà supprimé ou est en privé', 'success' => false,], 404);
+        }
+
         return response()->json([
             'message' => 'Récupération réussie !',
             'success' => true,
@@ -147,6 +151,11 @@ class PurchaseController extends Controller
     public function updateAPI(Request $request, Purchase $purchase)
     {
         try {
+
+            if ($purchase->user_id != auth()->id()) {
+                return response()->json(['message' => 'Achat non trouvé. L\'achat a peut-être été déjà supprimé ou est en privé', 'success' => false,], 404);
+            }
+
             // Validation des données
             $validatedData = $request->validate([
                 'partner_id' => ['required', 'exists:partners,id'],
@@ -193,7 +202,6 @@ class PurchaseController extends Controller
         }
     }
 
-
     public function destroyAPI(Purchase $purchase)
     {
         if ($purchase->user_id != auth()->id()) {
@@ -201,5 +209,21 @@ class PurchaseController extends Controller
         }
         $purchase->delete();
         return response()->json(['message' => 'Suppression réussit !', 'success' => true]);
+    }
+
+    public function purchasePartnerAPI(Partner $partner)
+    {
+        if ($partner->user_id != auth()->id()) {
+            return response()->json(['message' => 'Partenaire non trouvé. Le partenaire a peut-être été supprimé ou est en privé', 'success' => true,], 404);
+        }
+
+        $user = auth()->user();
+        $purchases = $user->purchases()->with('articles', 'partner')->where('partner_id', $partner->id)->get();
+
+        return response()->json([
+            'message' => 'Récupération réussie !',
+            'success' => true,
+            'data' => $purchases
+        ]);
     }
 }

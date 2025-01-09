@@ -32,6 +32,7 @@ Route::group(['middleware' => 'jwt.auth'], function () {
 
     Route::group(['prefix' => 'sales'], function(){
         Route::get('/list', [SaleController::class, 'indexAPI']);
+        Route::get('/list/partners/{partner}', [SaleController::class, 'salePartnerAPI']);
         Route::post('/store', [SaleController::class, 'storeAPI']);
         Route::get('/show/{sale}', [SaleController::class, 'showAPI']);
         Route::patch('/update/{sale}', [SaleController::class, 'updateAPI']);
@@ -40,6 +41,7 @@ Route::group(['middleware' => 'jwt.auth'], function () {
 
     Route::group(['prefix' => 'purchases'], function(){
         Route::get('/list', [PurchaseController::class, 'indexAPI']);
+        Route::get('/list/partners/{partner}', [PurchaseController::class, 'purchasePartnerAPI']);
         Route::post('/store', [PurchaseController::class, 'storeAPI']);
         Route::get('/show/{purchase}', [PurchaseController::class, 'showAPI']);
         Route::patch('/update/{purchase}', [PurchaseController::class, 'updateAPI']);

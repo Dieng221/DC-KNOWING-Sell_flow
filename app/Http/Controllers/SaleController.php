@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Sale;
+use App\Models\Partner;
 use Illuminate\Support\Facades\Log; // Pour la gestion des logs
 
 class SaleController extends Controller
@@ -132,6 +133,10 @@ class SaleController extends Controller
 
     public function showAPI(Sale $sale)
     {
+        if ($sale->user_id != auth()->id()) {
+            return response()->json(['message' => 'vente non trouvée. La vente a peut-être été déjà supprimée ou est en privée', 'success' => false,], 404);
+        }
+
         return response()->json([
             'message' => 'Récupération réussie !',
             'success' => true,
@@ -142,6 +147,10 @@ class SaleController extends Controller
     public function updateAPI(Request $request, Sale $sale)
     {
         try {
+            if ($sale->user_id != auth()->id()) {
+                return response()->json(['message' => 'vente non trouvée. La vente a peut-être été déjà supprimée ou est en privée', 'success' => false,], 404);
+            }
+
             // Validation des données
             $validatedData = $request->validate([
                 'partner_id' => ['required', 'exists:partners,id'],
@@ -198,5 +207,21 @@ class SaleController extends Controller
         }
         $sale->delete();
         return response()->json(['message' => 'Suppression réussit !', 'success' => true]);
+    }
+
+    public function salePartnerAPI(Partner $partner)
+    {
+        if ($partner->user_id != auth()->id()) {
+            return response()->json(['message' => 'Partenaire non trouvé. Le partenaire a peut-être été supprimé ou est en privé', 'success' => true,], 404);
+        }
+
+        $user = auth()->user();
+        $sales = $user->sales()->with('articles', 'partner')->where('partner_id', $partner->id)->get();
+
+        return response()->json([
+            'message' => 'Récupération réussie !',
+            'success' => true,
+            'data' => $sales
+        ]);
     }
 }

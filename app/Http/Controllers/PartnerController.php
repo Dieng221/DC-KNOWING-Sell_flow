@@ -72,14 +72,11 @@ class PartnerController extends Controller
         $user = auth()->user();
         $partners = null;
         if ($query == 'client') {
-            // $partners = Partner::where('client', true)->get();
             $partners = $user->partners()->where('client', true)->get();
         } else if ($query == 'supplier') {
-            // $partners = Partner::where('supplier', true)->get();
             $partners = $user->partners()->where('supplier', true)->get();
         } else {
             $partners = $user->partners()->get();
-            // $partners = Partner::all();
         }
 
         return response()->json([
@@ -147,6 +144,10 @@ class PartnerController extends Controller
     public function updateAPI(Request $request, Partner $partner)
     {
         try {
+            if ($partner->user_id != auth()->id()) {
+                return response()->json(['message' => 'Partenaire non trouvé. Le partenaire a peut-être été supprimé ou est en privé', 'success' => true,], 404);
+            }
+
             // Validation des données
             $validatedData = $request->validate([
                 // 'nom' => ['required'],
