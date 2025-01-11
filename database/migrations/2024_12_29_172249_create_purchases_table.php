@@ -16,12 +16,10 @@ return new class extends Migration
             $table->foreignId('partner_id')->references('id')->on('partners');
             $table->foreignId('user_id')->references('id')->on('users');
             $table->string('num_ref')->unique();
-            $table->string('adresse')->nullable();
             $table->string('type_remise')->nullable();
-            $table->decimal('valeur_remise')->nullable()->default(0);
+            $table->decimal('valeur_remise')->nullable();
             $table->date('date_achat');
             $table->decimal('montant_payer', 8, 2, true)->default(0);
-            $table->string('magasin_entrepot')->nullable();
             $table->timestamps();
         });
     }

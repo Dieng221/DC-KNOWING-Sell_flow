@@ -8,6 +8,7 @@ use App\Models\Article;
 use App\Models\Partner;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class SaleController extends Controller
 {
@@ -70,7 +71,7 @@ class SaleController extends Controller
 
 
     // API
-    public function indexAPI()
+    public function indexAPI(Request $request)
     {
         $user = auth()->user();
         $period = $request->query('period', 'all');
@@ -85,7 +86,7 @@ class SaleController extends Controller
             'all' => null,
         ];
 
-        $query = $user->sales()->with('articles');
+        $query = $user->sales()->with('articles', 'partner');
 
         if (array_key_exists($period, $periods) && $period !== 'all') {
             $query->where('created_at', '>=', $periods[$period]);

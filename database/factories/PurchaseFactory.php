@@ -30,13 +30,11 @@ class PurchaseFactory extends Factory
         return [
             'partner_id' => \App\Models\Partner::factory(),
             'user_id' => \App\Models\User::factory(),
-            'num_ref' => 'INV-' . date('Y-m-d') . '-' . str_pad(rand(1000, 9999), 4, '0', STR_PAD_LEFT),
-            'adresse' => fake()->address(),
+            'num_ref' => 'INV-' . date('Y-m-d') . '-' . str_pad(rand(1000, 9999), 4, '0', STR_PAD_LEFT) . str_pad(rand(1000, 9999), 4, '0', STR_PAD_LEFT),
             'type_remise' => fake()->randomElement(['pourcentage', 'montant fixe']),
             'valeur_remise' => fake()->randomFloat(2, 10, 100),  // Valeur de la remise
             'montant_payer' => fake()->randomFloat(5, 1000, 50000),
             'date_achat' => fake()->date(),  // Date de l'achat
-            'magasin_entrepot' => fake()->word(),  // Magasin ou entrepôt
         ];
     }
 }

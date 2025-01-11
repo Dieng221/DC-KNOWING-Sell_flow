@@ -13,11 +13,9 @@ class Purchase extends Model
         'partner_id',
         'user_id',
         'num_ref',
-        'adresse',
         'type_remise',
         'valeur_remise',
         'date_achat',
-        'magasin_entrepot',
         'montant_payer',
     ];
 
@@ -26,9 +24,9 @@ class Purchase extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function supplier()
+    public function partner()
     {
-        return $this->belongsTo(Supplier::class);
+        return $this->belongsTo(Partner::class);
     }
 
     public function articles()

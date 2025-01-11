@@ -25,11 +25,9 @@ class UpdatePurchaseRequest extends FormRequest
     {
         return [
             'partner_id' => ['required', 'exists:partners,id'],
-            'adresse' => ['required', 'string'],
-            'type_remise' => ['required', 'string'],
-            'valeur_remise' => ['required', 'numeric'],
+            'type_remise' => ['string'],
+            'valeur_remise' => ['numeric'],
             'date_achat' => ['required', 'date'],
-            'magasin_entrepot' => ['required', 'string'],
             'montant_payer' => ['required', 'numeric'],
             'articles' => ['required', 'array', 'min:1'],
             'articles.*.article_id' => ['required', 'integer', 'exists:articles,id'],

@@ -87,7 +87,7 @@ class PurchaseController extends Controller
             'all' => null,
         ];
 
-        $query = $user->purchases()->with('articles');
+        $query = $user->purchases()->with('articles', 'partner');
 
         if (array_key_exists($period, $periods) && $period !== 'all') {
             $query->where('created_at', '>=', $periods[$period]);

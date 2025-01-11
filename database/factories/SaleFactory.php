@@ -28,7 +28,7 @@ class SaleFactory extends Factory
             'valeur_remise' => fake()->randomFloat(2, 10, 100),
             'date_vente' => fake()->date(),
             'adresse_livraison' => fake()->address(),
-            'num_facture' => 'INV-' . date('Y-m-d') . '-' . str_pad(rand(1000, 9999), 4, '0', STR_PAD_LEFT),
+            'num_facture' => 'INV-' . date('Y-m-d') . '-' . str_pad(rand(1000, 9999), 4, '0', STR_PAD_LEFT) . str_pad(rand(1000, 9999), 4, '0', STR_PAD_LEFT),
         ];
     }
 }
