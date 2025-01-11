@@ -108,12 +108,10 @@ class SaleController extends Controller
 
             $validatedData = $request->validate([
                 'partner_id' => ['required', 'exists:partners,id'],
-                'adresse_facturation' => ['required', 'string'],
                 'montant_payer' => ['required', 'numeric'],
                 'date_vente' => ['required', 'date'],
                 'type_remise' => ['nullable', 'string'],
                 'valeur_remise' => ['nullable', 'numeric'],
-                'adresse_livraison' => ['required', 'string'],
                 'articles' => ['required', 'array', 'min:1'],
                 'articles.*.article_id' => ['required', 'integer', 'exists:articles,id'],
                 'articles.*.quantite' => ['required', 'integer', 'min:1'],
@@ -193,12 +191,10 @@ class SaleController extends Controller
 
             $validatedData = $request->validate([
                 'partner_id' => ['required', 'exists:partners,id'],
-                'adresse_facturation' => ['required', 'string'],
                 'montant_payer' => ['required', 'numeric'],
                 'date_vente' => ['required', 'date'],
                 'type_remise' => ['nullable', 'string'],
                 'valeur_remise' => ['nullable', 'numeric'],
-                'adresse_livraison' => ['required', 'string'],
                 'articles' => ['required', 'array', 'min:1'],
                 'articles.*.article_id' => ['required', 'integer', 'exists:articles,id'],
                 'articles.*.quantite' => ['required', 'integer', 'min:1'],

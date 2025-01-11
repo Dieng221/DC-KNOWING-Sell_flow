@@ -12,12 +12,10 @@ class Sale extends Model
     protected $fillable = [
         'partner_id',
         'user_id',
-        'adresse_facturation',
         'montant_payer',
         'date_vente',
         'type_remise',
         'valeur_remise',
-        'adresse_livraison',
         'num_facture',
     ];
 

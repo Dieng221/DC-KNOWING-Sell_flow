@@ -15,12 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('partner_id')->references('id')->on('partners');
             $table->foreignId('user_id')->references('id')->on('users');
-            $table->string('adresse_facturation');
             $table->decimal('montant_payer', 8, 2, true)->default(0);
             $table->string('date_vente');
             $table->string('type_remise')->nullable();
             $table->decimal('valeur_remise')->nullable()->default(0);
-            $table->string('adresse_livraison');
             $table->string('num_facture');
             $table->timestamps();
         });
