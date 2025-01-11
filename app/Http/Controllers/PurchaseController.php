@@ -170,7 +170,7 @@ class PurchaseController extends Controller
             ], 404);
         }
 
-        $purchase->load('partner');
+        $purchase->load('partner', 'articles');
 
         return response()->json([
             'message' => 'Récupération réussie !',
