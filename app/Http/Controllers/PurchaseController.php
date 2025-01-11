@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Purchase;
+use App\Models\Partner;
 use App\Models\Article;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
@@ -111,6 +112,11 @@ class PurchaseController extends Controller
 
             $validatedData['user_id'] = auth()->user()->id;  // Utilisez l'utilisateur authentifié
             $validatedData['num_ref'] = 'INV-' . date('Y-m-d') . '-' . str_pad(rand(1000, 9999), 4, '0', STR_PAD_LEFT) . str_pad(rand(1000, 9999), 4, '0', STR_PAD_LEFT);
+
+            if (empty($validatedData['type_remise'])) {
+                unset($validatedData['type_remise']);
+                unset($validatedData['valeur_remise']);
+            }
 
             $purchase = Purchase::create($validatedData);
 

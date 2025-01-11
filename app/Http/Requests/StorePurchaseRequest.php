@@ -25,8 +25,8 @@ class StorePurchaseRequest extends FormRequest
     {
         return [
             'partner_id' => ['required', 'exists:partners,id'],
-            'type_remise' => ['string'],
-            'valeur_remise' => ['numeric'],
+            'type_remise' => ['nullable', 'string'],
+            'valeur_remise' => ['nullable', 'numeric'],
             'date_achat' => ['required', 'date'],
             'montant_payer' => ['required', 'numeric'],
             'articles' => ['required', 'array', 'min:1'],
@@ -41,14 +41,14 @@ class StorePurchaseRequest extends FormRequest
      * @param \Illuminate\Contracts\Validation\Validator $validator
      * @return void
      */
-    public function withValidator($validator)
-    {
-        // Vérification d'unicité des article_id dans le tableau
-        $validator->after(function ($validator) {
-            $articleIds = collect($this->input('articles'))->pluck('article_id');
-            if ($articleIds->count() !== $articleIds->unique()->count()) {
-                $validator->errors()->add('articles', 'Les identifiants des articles doivent être uniques.');
-            }
-        });
-    }
+    // public function withValidator($validator)
+    // {
+    //     // Vérification d'unicité des article_id dans le tableau
+    //     $validator->after(function ($validator) {
+    //         $articleIds = collect($this->input('articles'))->pluck('article_id');
+    //         if ($articleIds->count() !== $articleIds->unique()->count()) {
+    //             $validator->errors()->add('articles', 'Les identifiants des articles doivent être uniques.');
+    //         }
+    //     });
+    // }
 }
