@@ -164,8 +164,13 @@ class PurchaseController extends Controller
     public function showAPI(Purchase $purchase)
     {
         if ($purchase->user_id != auth()->id()) {
-            return response()->json(['message' => 'Achat non trouvé. L\'achat a peut-être été déjà supprimé ou est en privé', 'success' => false,], 404);
+            return response()->json([
+                'message' => 'Achat non trouvé. L\'achat a peut-être été déjà supprimé ou est en privé',
+                'success' => false,
+            ], 404);
         }
+
+        $purchase->load('partner');
 
         return response()->json([
             'message' => 'Récupération réussie !',

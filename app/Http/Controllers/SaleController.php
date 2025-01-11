@@ -173,6 +173,8 @@ class SaleController extends Controller
             return response()->json(['message' => 'vente non trouvée. La vente a peut-être été déjà supprimée ou est en privée', 'success' => false,], 404);
         }
 
+        $sale->load('partner');
+
         return response()->json([
             'message' => 'Récupération réussie !',
             'success' => true,
