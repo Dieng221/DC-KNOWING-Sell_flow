@@ -92,13 +92,18 @@ class AuthController extends Controller
                 'nom' => 'nullable|string',
                 'prenom' => 'nullable|string',
                 'numero' => 'nullable|string',
+                'email' => 'nullable|string|email',
             ]);
 
             $user = auth()->user();
 
             $user->update($validatedData);
 
-            return response()->json(['message' => 'Vos données sont à jours !'], 200);
+            return response()->json([
+                'message' => 'Vos données sont à jours !',
+                'data' => $user,
+                'success' => true
+            ], 200);
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json([
                 'message' => 'Erreur de validation',

@@ -195,9 +195,44 @@ class PartnerController extends Controller
         return response()->json(['message' => 'Suppression réussit !', 'success' => true]);
     }
 
+    // public function operationPartnerAPI(Partner $partner)
+    // {
+    //     // Vérification que l'utilisateur est bien le propriétaire du partenaire
+    //     if ($partner->user_id != auth()->id()) {
+    //         return response()->json([
+    //             'message' => 'Partenaire non trouvé. Le partenaire a peut-être été supprimé ou est en privé',
+    //             'success' => true,
+    //         ], 404);
+    //     }
+
+    //     $user = auth()->user();
+
+    //     // Récupération des ventes et des achats pour ce partenaire, triés par created_at (descendant)
+    //     $sales = $user->sales()
+    //         ->with('articles', 'partner')
+    //         ->where('partner_id', $partner->id)
+    //         ->orderBy('created_at', 'desc') // Tri décroissant par created_at
+    //         ->get();
+
+    //     $purchases = $user->purchases()
+    //         ->with('articles', 'partner')
+    //         ->where('partner_id', $partner->id)
+    //         ->orderBy('created_at', 'desc') // Tri décroissant par created_at
+    //         ->get();
+
+    //     // Retourner les ventes et achats dans la même réponse
+    //     return response()->json([
+    //         'message' => 'Récupération réussie !',
+    //         'success' => true,
+    //         'data' => [
+    //             'sales' => $sales,
+    //             'purchases' => $purchases
+    //         ]
+    //     ]);
+    // }
+
     public function operationPartnerAPI(Partner $partner)
     {
-        // Vérification que l'utilisateur est bien le propriétaire du partenaire
         if ($partner->user_id != auth()->id()) {
             return response()->json([
                 'message' => 'Partenaire non trouvé. Le partenaire a peut-être été supprimé ou est en privé',
@@ -207,27 +242,32 @@ class PartnerController extends Controller
 
         $user = auth()->user();
 
-        // Récupération des ventes et des achats pour ce partenaire, triés par created_at (descendant)
         $sales = $user->sales()
             ->with('articles', 'partner')
             ->where('partner_id', $partner->id)
-            ->orderBy('created_at', 'desc') // Tri décroissant par created_at
-            ->get();
+            ->get()
+            ->map(function($sale) {
+                $sale->type = 'sale';
+                return $sale;
+            });
 
         $purchases = $user->purchases()
             ->with('articles', 'partner')
             ->where('partner_id', $partner->id)
-            ->orderBy('created_at', 'desc') // Tri décroissant par created_at
-            ->get();
+            ->get()
+            ->map(function($purchase) {
+                $purchase->type = 'purchase';
+                return $purchase;
+            });
 
-        // Retourner les ventes et achats dans la même réponse
+        $merged = $sales->merge($purchases);
+        $sorted = $merged->sortByDesc('created_at');
+        $result = $sorted->values()->all();
+
         return response()->json([
             'message' => 'Récupération réussie !',
             'success' => true,
-            'data' => [
-                'sales' => $sales,
-                'purchases' => $purchases
-            ]
+            'data' => $result
         ]);
     }
 
