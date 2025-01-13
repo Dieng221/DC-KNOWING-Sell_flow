@@ -134,7 +134,10 @@ class PartnerController extends Controller
     public function showAPI(Partner $partner)
     {
         if ($partner->user_id != auth()->id()) {
-            return response()->json(['message' => 'Partenaire non trouvé. Le partenaire a peut-être été supprimé ou est en privé', 'success' => true,], 404);
+            return response()->json([
+                'message' => 'Partenaire non trouvé. Le partenaire a peut-être été supprimé ou est en privé',
+                'success' => false
+            ], 404);
         }
         return response()->json(['message' => 'Récupération réussit !', 'success' => false, 'data' => $partner]);
     }
@@ -143,7 +146,10 @@ class PartnerController extends Controller
     {
         try {
             if ($partner->user_id != auth()->id()) {
-                return response()->json(['message' => 'Partenaire non trouvé. Le partenaire a peut-être été supprimé ou est en privé', 'success' => true,], 404);
+                return response()->json([
+                    'message' => 'Partenaire non trouvé. Le partenaire a peut-être été supprimé ou est en privé',
+                    'success' => false
+                ], 404);
             }
 
             // Validation des données
@@ -189,7 +195,10 @@ class PartnerController extends Controller
     public function destroyAPI(Partner $partner)
     {
         if ($partner->user_id != auth()->id()) {
-            return response()->json(['message' => 'Partenaire non trouvé. Le partenaire a peut-être été supprimé ou est en privé', 'success' => true,], 404);
+            return response()->json([
+                'message' => 'Partenaire non trouvé. Le partenaire a peut-être été supprimé ou est en privé',
+                'success' => false
+            ], 404);
         }
         $partner->delete();
         return response()->json(['message' => 'Suppression réussit !', 'success' => true]);
@@ -236,12 +245,10 @@ class PartnerController extends Controller
         if ($partner->user_id != auth()->id()) {
             return response()->json([
                 'message' => 'Partenaire non trouvé. Le partenaire a peut-être été supprimé ou est en privé',
-                'success' => true,
+                'success' => false,
             ], 404);
         }
-
         $user = auth()->user();
-
         $sales = $user->sales()
             ->with('articles', 'partner')
             ->where('partner_id', $partner->id)

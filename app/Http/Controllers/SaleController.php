@@ -167,10 +167,10 @@ class SaleController extends Controller
 
     public function showAPI(Sale $sale)
     {
-        if ($sale->user_id != auth()->id()) {
-            return response()->json(['message' => 'vente non trouvée. La vente a peut-être été déjà supprimée ou est en privée', 'success' => false,], 404);
-        }
-
+        return response()->json([
+            'message' => 'Partenaire non trouvé. Le partenaire a peut-être été supprimé ou est en privé',
+            'success' => false
+        ], 404);
         $sale->load('partner', 'articles');
 
         return response()->json([
@@ -183,11 +183,12 @@ class SaleController extends Controller
     public function updateAPI(Request $request, Sale $sale)
     {
         try {
-            DB::beginTransaction();
+            return response()->json([
+                'message' => 'Partenaire non trouvé. Le partenaire a peut-être été supprimé ou est en privé',
+                'success' => false
+            ], 404);
 
-            if ($sale->user_id != auth()->id()) {
-                return response()->json(['message' => 'vente non trouvée. La vente a peut-être été déjà supprimée ou est en privée', 'success' => false,], 404);
-            }
+            DB::beginTransaction();
 
             $validatedData = $request->validate([
                 'partner_id' => ['required', 'exists:partners,id'],
@@ -199,9 +200,7 @@ class SaleController extends Controller
                 'articles.*.article_id' => ['required', 'integer', 'exists:articles,id'],
                 'articles.*.quantite' => ['required', 'integer', 'min:1'],
             ]);
-
             $sale->update($validatedData);
-
             foreach ($validatedData['articles'] as $article) {
                 $articleId = $article['article_id'];
                 $quantite = $article['quantite'];
@@ -227,21 +226,18 @@ class SaleController extends Controller
                     }
                 }
             }
-
             DB::commit();
             return response()->json([
                 'message' => 'Mise à jour réussie !',
                 'success' => true,
                 'data' => $sale
             ]);
-
         } catch (\Illuminate\Validation\ValidationException $e) {
-            // Capturer les erreurs de validation et retourner un message d'erreur
             return response()->json([
                 'message' => 'Erreur de validation',
-                'errors' => $e->errors(),  // Les erreurs spécifiques de validation
+                'errors' => $e->errors(),
                 'success' => false
-            ], 422);  // Code HTTP 422 pour les erreurs de validation
+            ], 422);
 
         } catch (\Exception $e) {
             Log::error('Erreur lors de la mise à jour de la vente: ' . $e->getMessage());
@@ -256,9 +252,10 @@ class SaleController extends Controller
 
     public function destroyAPI(Sale $sale)
     {
-        if ($sale->user_id != auth()->id()) {
-            return response()->json(['message' => 'vente non trouvée. La vente a peut-être été déjà supprimée ou est en privée', 'success' => false,], 404);
-        }
+        return response()->json([
+            'message' => 'Partenaire non trouvé. Le partenaire a peut-être été supprimé ou est en privé',
+            'success' => false
+        ], 404);
         $sale->delete();
         return response()->json(['message' => 'Suppression réussit !', 'success' => true]);
     }
@@ -266,7 +263,10 @@ class SaleController extends Controller
     public function salePartnerAPI(Partner $partner)
     {
         if ($partner->user_id != auth()->id()) {
-            return response()->json(['message' => 'Partenaire non trouvé. Le partenaire a peut-être été supprimé ou est en privé', 'success' => true,], 404);
+            return response()->json([
+                'message' => 'Partenaire non trouvé. Le partenaire a peut-être été supprimé ou est en privé',
+                'success' => false
+            ], 404);
         }
 
         $user = auth()->user();
