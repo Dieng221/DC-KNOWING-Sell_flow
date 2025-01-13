@@ -8,6 +8,7 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Illuminate\Support\Facades\Hash;
 use Validator;
+use Illuminate\Support\Facades\Log;
 
 
 class AuthController extends Controller
@@ -82,5 +83,38 @@ class AuthController extends Controller
     {
         auth()->logout();
         return response()->json(['message' => 'User logged out successfully']);
+    }
+
+    public function updateAPI(Request $request)
+    {
+        try {
+            $validatedData = $request->validate([
+                'nom' => 'nullable|string',
+                'prenom' => 'nullable|string',
+                'numero' => 'nullable|string',
+            ]);
+
+            $user = auth()->user();
+
+            $user->update($validatedData);
+
+            return response()->json(['message' => 'Vos données sont à jours !'], 200);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return response()->json([
+                'message' => 'Erreur de validation',
+                'errors' => $e->errors(),
+                'success' => false
+            ], 422);
+
+        } catch (\Exception $e) {
+            Log::error('Erreur lors de la création du partenaire: ' . $e->getMessage());
+
+            return response()->json([
+                'message' => 'Une erreur est survenue. Veuillez réessayer plus tard.',
+                'errors' => $e->getMessage(),
+                'success' => false
+            ], 500);
+        }
+
     }
 }

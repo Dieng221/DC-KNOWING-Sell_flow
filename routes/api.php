@@ -31,6 +31,10 @@ Route::post('login', [AuthController::class, 'loginAPI']);
 Route::group(['middleware' => 'jwt.auth'], function () {
     Route::post('logout', [AuthController::class, 'logoutAPI']);
 
+    Route::group(['prefix' => 'users'], function(){
+        Route::patch('/update', [AuthController::class, 'updateAPI']);
+    });
+
     Route::group(['prefix' => 'sales'], function(){
         Route::get('/list', [SaleController::class, 'indexAPI']);
         Route::get('/list/partners/{partner}', [SaleController::class, 'salePartnerAPI']);
@@ -59,6 +63,7 @@ Route::group(['middleware' => 'jwt.auth'], function () {
 
     Route::group(['prefix' => 'partners'], function(){
         Route::get('/list', [PartnerController::class, 'indexAPI']);
+        Route::get('/list/operation/{partner}', [PartnerController::class, 'operationPartnerAPI']);
         Route::post('/store', [PartnerController::class, 'storeAPI']);
         Route::get('/show/{partner}', [PartnerController::class, 'showAPI']);
         Route::patch('/update/{partner}', [PartnerController::class, 'updateAPI']);
