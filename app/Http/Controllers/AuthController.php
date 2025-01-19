@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\User;
-use Tymon\JWTAuth\Facades\JWTAuth;
-use Tymon\JWTAuth\Exceptions\JWTException;
-use Illuminate\Support\Facades\Hash;
 use Validator;
+use App\Models\Sale;
+use App\Models\User;
+use App\Models\Purchase;
+use Illuminate\Http\Request;
+use Tymon\JWTAuth\Facades\JWTAuth;
+use Illuminate\Support\Facades\Hash;
+use Tymon\JWTAuth\Exceptions\JWTException;
 
 
 class AuthController extends Controller
@@ -17,7 +19,9 @@ class AuthController extends Controller
     }
 
     public function dashboard(){
-        return view('auth.dashboard');
+        $sales = Sale::orderBy('created_at', 'desc')->take(5)->get();
+        $purchases = Purchase::orderBy('created_at', 'desc')->take(5)->get();
+        return view('auth.dashboard', compact('sales', 'purchases'));
     }
 
     // Méthode pour enregistrer un nouvel utilisateur

@@ -34,6 +34,6 @@ class Sale extends Model
 
     public function articles()
     {
-        return $this->belongsToMany(Article::class, 'article_sales');
+        return $this->belongsToMany(Article::class, 'article_sales')->withPivot('quantite');
     }
 }

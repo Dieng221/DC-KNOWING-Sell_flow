@@ -8,7 +8,7 @@
           <div class="shop-breadcrumb">
 
              <div class="breadcrumb-main">
-                <h4 class="text-capitalize breadcrumb-title">Détails du produit</h4>
+                <h4 class="text-capitalize breadcrumb-title">Détails de l'article</h4>
                 <div class="breadcrumb-action justify-content-center flex-wrap">
                    <nav aria-label="breadcrumb">
                       <ol class="breadcrumb">
@@ -24,7 +24,73 @@
        </div>
     </div>
  </div>
- <div class="products mb-30">
+
+
+<div class="row">
+ <div class="col-md-8 offset-md-2">
+   <div class="card">
+     <div class="card-body">
+        <div class="row mb-3">
+            <div class="col-md-4">
+              <h5 class="card-title">Id de l'article:</h5>
+            </div>
+            <div class="col-md-8">
+              <p class="card-text">{{$article->id}}</p>
+            </div>
+          </div>
+       <div class="row mb-3">
+         <div class="col-md-4">
+           <h5 class="card-title">Désignation:</h5>
+         </div>
+         <div class="col-md-8">
+           <p class="card-text">{{$article->libelle}}</p>
+         </div>
+       </div>
+       <div class="row mb-3">
+         <div class="col-md-4">
+           <h5 class="card-title">Quantité:</h5>
+         </div>
+         <div class="col-md-8">
+           <p class="card-text">{{$article->quantite}}</p>
+         </div>
+       </div>
+       <div class="row mb-3">
+         <div class="col-md-4">
+           <h5 class="card-title">Prix d'achat:</h5>
+         </div>
+         <div class="col-md-8">
+           <p class="card-text">{{$article->prix_achat}}</p>
+         </div>
+       </div>
+       <div class="row mb-3">
+         <div class="col-md-4">
+           <h5 class="card-title">Prix de vente:</h5>
+         </div>
+         <div class="col-md-8">
+           <p class="card-text">{{$article->prix_vente}}</p>
+         </div>
+       </div>
+       <div class="row mb-3">
+        <div class="col-md-4">
+          <h5 class="card-title">Date de création:</h5>
+        </div>
+        <div class="col-md-8">
+            <p class="card-text">{{ $article->created_at->format('d M Y') }}</p>
+        </div>
+      </div>
+       <div class="d-flex text-center mt-4">
+         <a href="{{route('articles.list')}}" class="btn btn-outline-secondary me-2">Retour</a>
+         <a href="{{route('articles.edit', $article->id)}}" class="btn btn-outline-primary me-2">Modifier</a>
+         <a href="{{route('articles.delete', $article->id)}}" class="btn btn-outline-danger">Supprimer</a>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+
+
+
+ {{-- <div class="products mb-30">
     <div class="container-fluid">
        <!-- Start: Card -->
        <div class="card product-details h-100 border-0">
@@ -111,6 +177,6 @@
        <!-- End: Card -->
     </div>
 
- </div>
+ </div> --}}
 
 @endsection

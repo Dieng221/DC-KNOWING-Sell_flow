@@ -12,7 +12,7 @@
                 <nav aria-label="breadcrumb">
                    <ol class="breadcrumb">
                       <li class="breadcrumb-item"><a href="#"><i class="uil uil-estate"></i>Accueil</a></li>
-                      <li class="breadcrumb-item active" aria-current="page">Bilan</li>
+                      <li class="breadcrumb-item active" aria-current="page">Liste des ventes</li>
                    </ol>
                 </nav>
              </div>
@@ -27,7 +27,7 @@
              <div class="breadcrumb-main m-0 breadcrumb-main--table justify-content-sm-between ">
                 <div class=" d-flex flex-wrap justify-content-center breadcrumb-main__wrapper">
                    <div class="d-flex align-items-center ticket__title justify-content-center me-md-25 mb-md-0 mb-20">
-                      <h4 class="text-capitalize fw-500 breadcrumb-title">Bilan</h4>
+                      <h4 class="text-capitalize fw-500 breadcrumb-title">Liste des ventes</h4>
                    </div>
                 </div>
 
@@ -38,19 +38,8 @@
                             Sélectionnez...
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="max-height: 200px; overflow-y: auto;">
-                            <li><a class="dropdown-item" href="">Demande emplois</a></li>
-                            <li><a class="dropdown-item" href="">Demandes emplois restauration</a></li>
-                            <li><a class="dropdown-item" href="">Demande emplois transport</a></li>
-                        </ul>
-                    </div>
-                    <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                            Exporter...
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="max-height: 200px; overflow-y: auto;">
-                            <li><a class="dropdown-item" href="">Pdf</a></li>
-                            <li><a class="dropdown-item" href="">Csv</a></li>
-                           <li><a class="dropdown-item" href="">Print</a></li>
+                            <li><a class="dropdown-item" href="">En cours</a></li>
+                            <li><a class="dropdown-item" href="">Terminer</a></li>
                         </ul>
                     </div>
                 </div>
@@ -66,15 +55,11 @@
                    <table class="table mb-0 mt-4 adv-table" data-sorting="true" data-filter-container="#filter-form-container" data-paging-current="1" data-paging-position="right" data-paging-size="10">
                       <thead>
                          <tr class="userDatatable-header">
-                            <th><span class="userDatatable-title">Nom complet du client</span></th>
-                            <th><span class="userDatatable-title">Condition de paiement</span></th>
-                            <th><span class="userDatatable-title">Adresse de facturation</span></th>
+                            <th><span class="userDatatable-title">Nom du client</span></th>
+                            <th><span class="userDatatable-title">Article & Quantité</span></th>
+                            <th><span class="userDatatable-title">Montant payer</span></th>
                             <th><span class="userDatatable-title">Adresse de livraison</span></th>
-                            <th><span class="userDatatable-title">Facture n°</span></th>
-                            <th><span class="userDatatable-title">Type de remise</span></th>
-                            <th><span class="userDatatable-title">Valeur de la remise</span></th>
-                            <th><span class="userDatatable-title">Produits</span></th>
-                            <th><span class="userDatatable-title">Date de vente</span></th>
+                            <th><span class="userDatatable-title">Date de facturation</span></th>
                             <th><span class="userDatatable-title">Statut</span></th>
                             <th class="actions"><span class="userDatatable-title">Actions</span></th>
                          </tr>
@@ -83,71 +68,51 @@
                                 @foreach ($sales as $sale)
                                 <tr>
                                     <td>
-                                       <div class="userDatatable-content">01</div>
-                                    </td>
-                                    <td>
-                                       <div class="d-flex">
-                                          <div class="userDatatable-inline-title">
-                                             <a href="" class="text-dark fw-500">
-                                                <h6>Kellie Marquot </h6>
-                                             </a>
-                                          </div>
-                                       </div>
-                                    </td>
-                                    <td>
                                        <div class="userDatatable-content">
-                                          john-keller@gmail.com
+                                          {{$sale->partner->nom}}
                                        </div>
                                     </td>
                                     <td>
-                                       <div class="userDatatable-content">
-                                          Business Development
-                                       </div>
-                                    </td>
-                                    <td>
-                                       <div class="userDatatable-content">
-                                          Web Developer
-                                       </div>
-                                    </td>
-                                    <td>
-                                       <div class="userDatatable-content">
-                                          January 20, 2020
-                                       </div>
+                                        <div class="userDatatable-content">
+                                            @foreach ($sale->articles as $article)
+                                                {{ $article->libelle }} : {{ $article->pivot->quantite }}{{ !$loop->last ? ', ' : '' }}
+                                            @endforeach
+                                        </div>
                                     </td>
                                     <td>
                                      <div class="userDatatable-content">
-                                        Valeur de test
+                                        {{$sale->montant_payer}} FCFA
                                      </div>
                                   </td>
                                   <td>
                                      <div class="userDatatable-content">
-                                        Valeur de test
+                                        {{$sale->adresse_livraison}}
                                      </div>
                                   </td>
                                   <td>
                                      <div class="userDatatable-content">
-                                        Valeur de test
+                                        {{ $sale->created_at->translatedFormat('d F Y') }}
                                      </div>
                                   </td>
                                     <td>
                                        <div class="userDatatable-content d-inline-block">
-                                          <span class="bg-opacity-success  color-success rounded-pill userDatatable-content-status active">active</span>
+                                          <span class="bg-opacity-warning  color-warning rounded-pill userDatatable-content-status active">En cours</span>
                                        </div>
                                     </td>
                                     <td>
                                        <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
                                           <li>
-                                             <a href="{{route('sales.show', 1)}}" class="view">
+                                             <a href="{{route('sales.show', $sale->id)}}" class="view">
                                                 <i class="uil uil-eye"></i>
                                              </a>
                                           </li>
                                           <li>
-                                             <a href="{{route('sales.edit', 1)}}" class="edit">
+                                             <a href="{{route('sales.edit', $sale->id)}}" class="edit">
                                                 <i class="uil uil-edit"></i>
                                              </a>
                                           </li>
                                           <li>
-                                             <a href="{{route('sales.delete', 1)}}" class="remove">
+                                             <a href="{{route('sales.delete', $sale->id)}}" class="remove">
                                                 <i class="uil uil-trash-alt"></i>
                                              </a>
                                           </li>

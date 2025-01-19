@@ -16,7 +16,7 @@
                       <a href="#"><i class="uil uil-estate"></i>Partenaire</a>
 
                       </li>
-                      <li class="breadcrumb-item active" aria-current="page">Création</li>
+                      <li class="breadcrumb-item active" aria-current="page">Modification</li>
                    </ol>
                 </nav>
              </div>
@@ -31,56 +31,56 @@
                 <h6>Modifier un partenaire</h6>
              </div>
              <div class="card-body py-md-30">
-                <form method="POST" action="">
+                <form method="POST" action="{{route('partners.update', $partner->id)}}">
                     @csrf
                    <div class="row">
                     <div class="col-md-6 mb-25">
-                        <select class="form-control ih-medium ip-gray radius-xs b-light px-15" name="module">
-                            <option selected>Type de partenariat...</option>
-                            <option value="Bim Bara">Client</option>
-                            <option value="Bim Livraison">Fournisseur</option>
-                            <option value="Bim Dabali">Client & Fournisseur</option>
+                        <select class="form-control ih-medium ip-gray radius-xs b-light px-15" name="type_partenariat">
+                            <option value="" disabled>Type de partenariat...</option>
+                            <option value="Client" {{ $partner->type_partenariat == 'Client' ? 'selected' : '' }}>Client</option>
+                            <option value="Fournisseur" {{ $partner->type_partenariat == 'Fournisseur' ? 'selected' : '' }}>Fournisseur</option>
+                            <option value="Client & Fournisseur" {{ $partner->type_partenariat == 'Client & Fournisseur' ? 'selected' : '' }}>Client & Fournisseur</option>
                         </select>
                     </div>
                     <div class="col-md-6 mb-25">
-                        <select class="form-control ih-medium ip-gray radius-xs b-light px-15" name="module">
-                            <option selected>Statut du partenaire...</option>
-                            <option value="Bim Bara">Individuel</option>
-                            <option value="Bim Bara">Entreprise</option>
+                        <select class="form-control ih-medium ip-gray radius-xs b-light px-15" name="statut">
+                            <option value="" disabled>Statut du partenaire...</option>
+                            <option value="Individuel" {{ $partner->statut == 'Individuel' ? 'selected' : '' }}>Individuel</option>
+                            <option value="Entreprise" {{ $partner->statut == 'Entreprise' ? 'selected' : '' }}>Entreprise</option>
                         </select>
                     </div>
                     <div class="col-md-6 mb-25">
-                        <input type="text" name="adresse_facturation" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Nom ou Raison sociale">
+                        <input type="text" name="nom" class="form-control ih-medium ip-gray radius-xs b-light px-15" value="{{$partner->nom}}">
                      </div>
                      <div class="col-md-6 mb-25">
-                        <input type="number" name="adresse_livraison" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Contact téléphonique">
+                        <input type="number" name="contact" class="form-control ih-medium ip-gray radius-xs b-light px-15" value="{{$partner->contact}}">
                      </div>
                      <div class="col-md-6 mb-25">
-                        <input type="number" name="adresse_livraison" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Ligne fixe">
+                        <input type="number" name="ligne_fixe" class="form-control ih-medium ip-gray radius-xs b-light px-15" value="{{$partner->ligne_fixe}}">
                      </div>
                      <div class="col-md-6 mb-25">
-                        <input type="email" name="adresse_livraison" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Email">
+                        <input type="email" name="email" class="form-control ih-medium ip-gray radius-xs b-light px-15" value="{{$partner->email}}">
                      </div>
                      <div class="col-md-6 mb-25">
-                        <input type="text" name="adresse_facturation" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Adresse de l'entreprise">
+                        <input type="text" name="adresse" class="form-control ih-medium ip-gray radius-xs b-light px-15" value="{{$partner->adresse}}">
                      </div>
                      <div class="col-md-6 mb-25">
-                        <input type="text" name="adresse_facturation" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Adresse de livraison">
+                        <input type="text" name="adresse_livraison" class="form-control ih-medium ip-gray radius-xs b-light px-15" value="{{$partner->adresse_livraison}}">
                      </div>
                      <div class="col-md-6 mb-25">
-                        <input type="number" name="adresse_livraison" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Numéro d'identification fiscale">
+                        <input type="number" name="numero_identification_fiscal" class="form-control ih-medium ip-gray radius-xs b-light px-15" value="{{$partner->numero_identification_fiscal}}">
                      </div>
                      <div class="col-md-6 mb-25">
-                        <input type="number" name="adresse_livraison" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Solde d'ouverture">
+                        <input type="number" name="solde_ouverture" class="form-control ih-medium ip-gray radius-xs b-light px-15" value="{{$partner->solde_ouverture}}">
                      </div>
                      <div class="col-md-6 mb-25">
-                        <input type="number" name="adresse_livraison" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Limite de crédit">
+                        <input type="number" name="limite_credit" class="form-control ih-medium ip-gray radius-xs b-light px-15" value="{{$partner->limite_credit}}">
                      </div>
                      <div class="col-md-6 mb-25">
-                        <select class="form-control ih-medium ip-gray radius-xs b-light px-15" name="module">
-                            <option selected>Condition de paiement...</option>
-                            <option value="Bim Bara">Journées</option>
-                            <option value="Bim Bara">Mois</option>
+                        <select class="form-control ih-medium ip-gray radius-xs b-light px-15" name="condition_paiement">
+                            <option value="" disabled>Condition de paiement...</option>
+                            <option value="Journées" {{ $partner->condition_paiement == 'Journées' ? 'selected' : '' }}>Journées</option>
+                            <option value="Mois" {{ $partner->condition_paiement == 'Mois' ? 'selected' : '' }}>Mois</option>
                         </select>
                     </div>
                       <div class="col-md-6">

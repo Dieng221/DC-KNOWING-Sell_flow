@@ -10,7 +10,15 @@ class Purchase extends Model
     use HasFactory;
 
     protected $fillable = [
-
+        'partner_id',
+        'user_id',
+        'num_ref',
+        'adresse',
+        'magasin_entrepot',
+        'date_achat',
+        'type_remise',
+        'valeur_remise',
+        'montant_payer',
     ];
 
     public function user()
@@ -18,13 +26,18 @@ class Purchase extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function supplier()
+    public function partner()
     {
-        return $this->belongsTo(Supplier::class);
+        return $this->belongsTo(Partner::class);
     }
+
+    // public function supplier()
+    // {
+    //     return $this->belongsTo(Supplier::class);
+    // }
 
     public function articles()
     {
-        return $this->belongsToMany(Article::class, 'article_purchases');
+        return $this->belongsToMany(Article::class, 'article_purchases')->withPivot('quantite');
     }
 }

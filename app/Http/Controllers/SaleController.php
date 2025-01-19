@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Sale;
+use App\Models\Article;
+use App\Models\Partner;
+use App\Models\ArticleSale;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log; // Pour la gestion des logs
 
 class SaleController extends Controller
@@ -22,8 +25,9 @@ class SaleController extends Controller
      */
     public function create()
     {
-        $clients = Client::all();
-        return view('pages.sales.create', compact('clients'));
+        $clients = Partner::where('type_partenariat', 'Client')->get();
+        $articles = Article::all();
+        return view('pages.sales.create', compact('clients', 'articles'));
     }
 
     /**
@@ -31,15 +35,55 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validation des données
+        $request->validate([
+            'num_facture' => 'required|string|max:255',
+            'adresse_facturation' => 'required|string|max:255',
+            'adresse_livraison' => 'required|string|max:255',
+            'montant_payer' => 'required|numeric|min:0',
+            'date_vente' => 'required|date',
+            'type_remise' => 'nullable|string|in:Montant fixe,Pourcentage',
+            'valeur_remise' => 'nullable|numeric|min:0',
+            'products' => 'required|array',
+            'products.*' => 'exists:articles,id', // Vérifie que chaque produit existe
+            'quantities' => 'required|array',
+            'quantities.*' => 'integer|min:1', // Vérifie que chaque quantité est un entier >= 1
+        ]);
+
+        // Création de la vente
+        $sale = Sale::create([
+            'partner_id' => $request->partner_id,
+            'user_id' => 1, // Utilisateur connecté
+            'adresse_facturation' => $request->adresse_facturation,
+            'adresse_livraison' => $request->adresse_livraison,
+            'num_facture' => $request->num_facture,
+            'montant_payer' => $request->montant_payer,
+            'date_vente' => $request->date_vente,
+            'type_remise' => $request->type_remise,
+            'valeur_remise' => $request->valeur_remise ?? 0, // Valeur remise par défaut à 0
+        ]);
+
+        // Association des articles à la vente
+        foreach ($request->products as $index => $productId) {
+            ArticleSale::create([
+                'sale_id' => $sale->id, // Identifiant de la vente
+                'article_id' => $productId, // Identifiant de l'article
+                'quantite' => $request->quantities[$index], // Quantité correspondante
+            ]);
+        }
+
+        // Redirection ou réponse JSON
+        return redirect()->route('sales.list')->with('success', 'Vente enregistrée avec succès.');
     }
+
 
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        return view('pages.sales.show');
+        $sale = Sale::find($id);
+        return view('pages.sales.show', compact('sale'));
     }
 
     /**
@@ -63,7 +107,10 @@ class SaleController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $sale = Sale::find($id);
+        $sale->delete();
+
+        return redirect()->route('sales.list');
     }
 
 

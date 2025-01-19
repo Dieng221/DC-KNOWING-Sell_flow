@@ -14,7 +14,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        return view('pages.articles.list');
+        $articles = Article::all();
+        return view('pages.articles.list', compact('articles'));
     }
 
     /**
@@ -30,31 +31,63 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'libelle' => 'required',
+            'quantite' => 'required',
+            'prix_achat' => 'required',
+            'prix_vente' => 'required'
+        ]);
+
+        $article = new Article();
+        $article->user_id = 1;
+        $article->libelle = $request->libelle;
+        $article->quantite = $request->quantite;
+        $article->prix_achat = $request->prix_achat;
+        $article->prix_vente = $request->prix_vente;
+        $article->save();
+
+        Return redirect()->route('articles.list');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        return view('pages.articles.show');
+        $article = Article::find($id);
+        return view('pages.articles.show', compact('article'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        return view('pages.articles.edit');
+        $article = Article::find($id);
+        return view('pages.articles.edit', compact('article'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'libelle' => 'required',
+            'quantite' => 'required',
+            'prix_achat' => 'required',
+            'prix_vente' => 'required'
+        ]);
+
+        $article = Article::find($id);
+        $article->user_id = 1;
+        $article->libelle = $request->libelle;
+        $article->quantite = $request->quantite;
+        $article->prix_achat = $request->prix_achat;
+        $article->prix_vente = $request->prix_vente;
+        $article->save();
+
+        Return redirect()->route('articles.list');
     }
 
     /**
@@ -62,7 +95,10 @@ class ArticleController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $article = Article::find($id);
+        $article->delete();
+
+        return redirect()->route('articles.list');
     }
 
 
