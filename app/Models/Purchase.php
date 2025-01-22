@@ -29,6 +29,11 @@ class Purchase extends Model
         return $this->belongsTo(Partner::class);
     }
 
+    // public function supplier()
+    // {
+    //     return $this->belongsTo(Supplier::class);
+    // }
+
     public function articles()
     {
         return $this->belongsToMany(Article::class, 'article_purchases')->withPivot('quantite');;

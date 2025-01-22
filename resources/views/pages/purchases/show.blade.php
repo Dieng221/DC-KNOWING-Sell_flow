@@ -47,16 +47,16 @@
                          <div class="display-3">
                             Facture
                          </div>
-                         <p>N° : <span>F642678</span></p>
-                         <p>Date : <span>17 Jan, 2025</span></p>
+                         <p>N° : <span>{{$purchase->num_ref}}</span></p>
+                         <p>Date : <span>{{ $purchase->created_at->translatedFormat('d F Y') }}</span></p>
                       </div>
                    </div><!-- End: .d-flex -->
                    <div class="d-flex justify-content-center">
                       <div class="payment-invoice-qr__address">
                          <p>Fournisseur:</p>
-                         <span>Alpha Service</span><br>
-                         <span>Abidjan, Cocody Rivièra 2</span><br>
-                         <span>alpha_service@accueil.com</span>
+                         <span>{{$purchase->partner->nom}}</span><br>
+                         <span>{{$purchase->partner->adresse}}</span><br>
+                         <span>{{$purchase->partner->email}}</span>
                       </div>
                    </div><!-- End: .d-flex -->
                 </div><!-- End: .payment-invoice-qr -->
@@ -66,70 +66,81 @@
                          <thead>
                             <tr class="product-cart__header">
                                <th scope="col">#</th>
-                               <th scope="col">Produit</th>
+                               <th scope="col">Article</th>
                                <th scope="col" class="text-end">Prix unitaire</th>
                                <th scope="col" class="text-end">Quantité</th>
                                <th scope="col" class="text-end">Montant total</th>
                             </tr>
                          </thead>
                          <tbody>
-                            <tr>
-                               <th>1</th>
-                               <td class="Product-cart-title">
-                                  <div class="media  align-items-center">
-                                     <div class="media-body">
-                                        <h5 class="mt-0">Table à manger</h5>
-                                     </div>
-                                  </div>
-                               </td>
-                               <td class="unit text-end">75000 FCFA</td>
-                               <td class="invoice-quantity text-end">1</td>
-                               <td class="text-end order">75000 FCFA</td>
-                            </tr>
-                            <tr>
-                               <th>2</th>
-                               <td class="Product-cart-title">
-                                  <div class="media  align-items-center">
-                                     <div class="media-body">
-                                        <h5 class="mt-0">Placard</h5>
-                                     </div>
-                                  </div>
-                               </td>
-                               <td class="unit text-end">75300 FCFA</td>
-                               <td class="invoice-quantity text-end">1</td>
-                               <td class="text-end order">75300 FCFA</td>
-                            </tr>
-                         </tbody>
-                         <tfoot>
-                            <tr>
-                               <td colspan="3"></td>
-                               <td class="order-summery float-right border-0   ">
-                                  <div class="total">
-                                     <div class="subtotalTotal mb-0 text-end">
-                                        Total partiel :
-                                     </div>
-                                     <div class="taxes mb-0 text-end">
-                                        réduction :
-                                     </div>
-                                     <div class="shipping mb-0 text-end">
-                                        Frais d'expédition :
-                                     </div>
-                                  </div>
-                                  <div class="total-money mt-2 text-end">
-                                     <h6>Total :</h6>
-                                  </div>
-                               </td>
+                            @php
+                                $total = 0; // Initialiser le total à zéro
+                            @endphp
 
-                               <td>
-                                  <div class="total-order float-right text-end fs-14 fw-500">
-                                     <p>150300 FCFA</p>
-                                     <p>-5000 FCFA</p>
-                                     <p>3000 FCFA</p>
-                                     <h5 class="text-primary">148300 FCFA</h5>
-                                  </div>
-                               </td>
+                            @foreach ($purchase->articles as $article)
+                                <tr>
+                                    <th>{{ $loop->iteration }}</th>
+                                    <td class="Product-cart-title">
+                                        <div class="media align-items-center">
+                                            <div class="media-body">
+                                                <h5 class="mt-0">{{$article->libelle}}</h5>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="unit text-end">{{ $article->prix_vente }}</td>
+                                    <td class="invoice-quantity text-end">{{ $article->pivot->quantite }}</td>
+                                    <td class="text-end order">
+                                        {{ $article->prix_vente * $article->pivot->quantite }}
+                                        @php
+                                            $total += $article->prix_vente * $article->pivot->quantite; // Ajouter à la somme totale
+                                        @endphp
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+
+                        <tfoot>
+                            <tr>
+                                <td colspan="3"></td>
+                                <td class="order-summery float-right border-0">
+                                    <div class="total">
+                                        <div class="subtotalTotal mb-0 text-end">
+                                            Total partiel :
+                                        </div>
+                                        <div class="taxes mb-0 text-end">
+                                            réduction :
+                                        </div>
+                                        <div class="total-money mt-2 text-end">
+                                            <h6>Total :</h6>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="total-order float-right text-end fs-14 fw-500">
+                                        <p>{{ $total }} FCFA</p> <!-- Affichage du total calculé -->
+                                        @if ($purchase->type_remise == "Montant fixe")
+                                            @php
+                                                $remise = $purchase->valeur_remise;
+                                            @endphp
+                                            <p>{{$remise}} FCFA</p>
+                                        @else
+                                            @php
+                                                $remise = ($purchase->valeur_remise*$total)/100;
+                                            @endphp
+                                            <p>{{$remise}} FCFA</p>
+                                        @endif
+
+                                        <h5 class="text-primary">
+                                            @php
+                                                $finalTotal = $total - $remise;
+                                            @endphp
+                                            <p>{{ $finalTotal }} FCFA</p>
+                                        </h5>
+                                    </div>
+                                </td>
                             </tr>
-                         </tfoot>
+                        </tfoot>
                       </table>
                    </div>
                    <div class="payment-invoice__btn mt-xxl-50 pt-xxl-30">

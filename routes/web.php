@@ -28,7 +28,7 @@ Route::group(['prefix' => 'sales'], function(){
     Route::post('/store', [SaleController::class, 'store'])->name('sales.store');
     Route::get('/show/{id}', [SaleController::class, 'show'])->name('sales.show');
     Route::get('/edit/{id}', [SaleController::class, 'edit'])->name('sales.edit');
-    Route::post('/update/{id}', [SaleController::class, 'edit'])->name('sales.update');
+    Route::post('/update/{id}', [SaleController::class, 'update'])->name('sales.update');
     Route::get('/delete/{id}', [SaleController::class, 'destroy'])->name('sales.delete');
 });
 
@@ -38,7 +38,7 @@ Route::group(['prefix' => 'purchases'], function(){
     Route::post('/store', [PurchaseController::class, 'store'])->name('purchases.store');
     Route::get('/show/{id}', [PurchaseController::class, 'show'])->name('purchases.show');
     Route::get('/edit/{id}', [PurchaseController::class, 'edit'])->name('purchases.edit');
-    Route::post('/update/{id}', [PurchaseController::class, 'edit'])->name('purchases.update');
+    Route::post('/update/{id}', [PurchaseController::class, 'update'])->name('purchases.update');
     Route::get('/delete/{id}', [PurchaseController::class, 'destroy'])->name('purchases.delete');
 });
 
@@ -48,7 +48,7 @@ Route::group(['prefix' => 'articles'], function(){
     Route::post('/store', [ArticleController::class, 'store'])->name('articles.store');
     Route::get('/show/{id}', [ArticleController::class, 'show'])->name('articles.show');
     Route::get('/edit/{id}', [ArticleController::class, 'edit'])->name('articles.edit');
-    Route::post('/update/{id}', [ArticleController::class, 'edit'])->name('articles.update');
+    Route::post('/update/{id}', [ArticleController::class, 'update'])->name('articles.update');
     Route::get('/delete/{id}', [ArticleController::class, 'destroy'])->name('articles.delete');
 });
 
@@ -58,13 +58,13 @@ Route::group(['prefix' => 'partners'], function(){
     Route::post('/store', [PartnerController::class, 'store'])->name('partners.store');
     Route::get('/show/{id}', [PartnerController::class, 'show'])->name('partners.show');
     Route::get('/edit/{id}', [PartnerController::class, 'edit'])->name('partners.edit');
-    Route::post('/update/{id}', [PartnerController::class, 'edit'])->name('partners.update');
+    Route::post('/update/{id}', [PartnerController::class, 'update'])->name('partners.update');
     Route::get('/delete/{id}', [PartnerController::class, 'destroy'])->name('partners.delete');
 });
 
 Route::group(['prefix' => 'profiles'], function(){
     Route::get('/show/{id}', [ProfileController::class, 'show'])->name('profiles.show');
     Route::get('/edit/{id}', [ProfileController::class, 'edit'])->name('profiles.edit');
-    Route::post('/update/{id}', [ProfileController::class, 'edit'])->name('profiles.update');
+    Route::post('/update/{id}', [ProfileController::class, 'update'])->name('profiles.update');
     Route::get('/delete/{id}', [ProfileController::class, 'destroy'])->name('profiles.delete');
 });

@@ -32,20 +32,13 @@
                             <img class="ap-img__main rounded-circle mb-3  wh-120 d-flex bg-opacity-primary" src="{{asset('img/author/profile.png')}}" alt="profile">
                          </div>
                          <div class="ap-nameAddress pb-3 pt-1">
-                            <h5 class="ap-nameAddress__title">Duran Clayton</h5>
-                            <p class="ap-nameAddress__subTitle fs-14 m-0">UI/UX Designer</p>
-                            <p class="ap-nameAddress__subTitle fs-14 m-0">
-                               <img src="{{asset('img/svg/map-pin.svg')}}" alt="map-pin" class="svg">London, England
-                            </p>
+                            <h5 class="ap-nameAddress__title">DIENG Ibrahima</h5>
+                            <p class="ap-nameAddress__subTitle fs-14 m-0">Administrateur</p>
                          </div>
                          <div class="ap-button button-group d-flex justify-content-center flex-wrap mb-4">
-                            <button type="button" class="border text-capitalize px-25 color-gray transparent radius-md">
-                               <img class="svg" src="{{asset('img/svg/mail.svg')}}" alt="mail">message</button>
-
-
-                            <button class="btn btn-primary btn-default btn-squared text-capitalize  px-25"><img src="{{asset('img/svg/user-plus.svg')}}" alt="user-plus" class="svg">
-                               follow
-                            </button>
+                            <a href="{{route('profiles.edit', 1)}}" class="btn btn-primary btn-default btn-squared text-capitalize  px-25"><img src="{{asset('img/svg/user-plus.svg')}}" alt="user-plus" class="svg">
+                               Modifier
+                            </a>
                          </div>
                       </div>
                    </div>
@@ -54,40 +47,22 @@
 
                 <!-- Profile User Bio -->
                 <div class="card mb-25">
-                   <div class="user-bio border-bottom">
-                      <div class="card-header border-bottom-0 pt-sm-30 pb-sm-0  px-md-25 px-3">
-                         <div class="profile-header-title">
-                            User Bio
-                         </div>
-                      </div>
-                      <div class="card-body pt-md-1 pt-0">
-                         <div class="user-bio__content">
-                            <p class="m-0">Nam malesuada dolor tellus pretium amet was hendrerit facilisi id
-                               vitae enim
-                               sed ornare
-                               there suspendisse sed orci neque ac sed aliquet risus faucibus in pretium
-                               molestie nisl
-                               tempor quis odio habitant.</p>
-                         </div>
-                      </div>
-                   </div>
                    <div class="user-info border-bottom">
                       <div class="card-header border-bottom-0 pt-sm-25 pb-sm-0  px-md-25 px-3">
                          <div class="profile-header-title">
-                            Contact info
+                            Informations personnelles
                          </div>
                       </div>
                       <div class="card-body pt-md-1 pt-0">
                          <div class="user-content-info">
                             <p class="user-content-info__item">
-                               <img class="svg" src="{{asset('img/svg/mail.svg')}}" alt="mail">Clayton@example.com
+                               <img class="svg" src="{{asset('img/svg/mail.svg')}}" alt="mail">ibrahima.dieng150@gmail.com
                             </p>
                             <p class="user-content-info__item">
-                               <img src="{{asset('img/svg/phone.svg')}}" alt="phone" class="svg">+44 (0161) 347
-                               8854
+                               <img src="{{asset('img/svg/phone.svg')}}" alt="phone" class="svg">+225 07 78 08 7378
                             </p>
                             <p class="user-content-info__item mb-0">
-                               <img src="{{asset('img/svg/globe.svg')}}" alt="globe" class="svg">www.example.com
+                               <img src="{{asset('img/svg/map-pin.svg')}}" alt="map-pin" class="svg">Abidjan, Treichville
                             </p>
                          </div>
                       </div>
@@ -95,25 +70,25 @@
                    <div class="user-skils border-bottom">
                       <div class="card-header border-bottom-0 pt-sm-25 pb-sm-0  px-md-25 px-3">
                          <div class="profile-header-title">
-                            Skills
+                            Module
                          </div>
                       </div>
                       <div class="card-body pt-md-1 pt-0">
                          <ul class="user-skils-parent">
                             <li class="user-skils-parent__item">
-                               <a href="#">UI/UX</a>
+                               <a href="#">Ventes</a>
                             </li>
                             <li class="user-skils-parent__item">
-                               <a href="#">Branding</a>
+                               <a href="#">Achats</a>
                             </li>
                             <li class="user-skils-parent__item">
-                               <a href="#">product design</a>
-                            </li>
-                            <li class="user-skils-parent__item">
-                               <a href="#">Application</a>
+                               <a href="#">Partenaires</a>
                             </li>
                             <li class="user-skils-parent__item mb-0">
-                               <a href="#">web design</a>
+                               <a href="#">Produits</a>
+                            </li>
+                            <li class="user-skils-parent__item mb-0">
+                               <a href="#">Paramètrages</a>
                             </li>
                          </ul>
                       </div>

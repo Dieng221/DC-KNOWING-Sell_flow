@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Purchase;
-use App\Models\Partner;
 use App\Models\Article;
-use Illuminate\Support\Facades\Log;
+use App\Models\Partner;
+use App\Models\Purchase;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StorePurchaseRequest;
 use App\Http\Requests\UpdatePurchaseRequest;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
+use App\Models\ArticlePurchase;
+use Illuminate\Support\Facades\Log;
 
 class PurchaseController extends Controller
 {
@@ -19,7 +20,8 @@ class PurchaseController extends Controller
      */
     public function index()
     {
-        return view('pages.purchases.list');
+        $purchases = Purchase::all();
+        return view('pages.purchases.list', compact('purchases'));
     }
 
     /**
@@ -27,23 +29,115 @@ class PurchaseController extends Controller
      */
     public function create()
     {
-        return view('pages.purchases.create');
+        $suppliers = Partner::where('type_partenariat', 'Fournisseur')->get();
+        $articles = Article::all();
+        return view('pages.purchases.create', compact('suppliers', 'articles'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
+    // public function store(Request $request){
+
+    //     // Validation des données
+    //     $request->validate([
+    //         'partner_id' => 'required',
+    //         'num_ref' => 'required|string|max:255',
+    //         'adresse' => 'required|string|max:255',
+    //         'magasin_entrepot' => 'required|string|max:255',
+    //         'date_achat' => 'required',
+    //         'type_remise' => 'nullable|string',
+    //         'valeur_remise' => 'nullable|numeric|min:0',
+    //         'montant_payer' => 'required|string|max:255',
+    //         'products' => 'required|array',
+    //         'products.*' => 'exists:articles,id', // Vérifie que chaque produit existe
+    //         'quantities' => 'required|array',
+    //         'quantities.*' => 'integer|min:1', // Vérifie que chaque quantité est un entier >= 1
+    //         'unit_prices' => 'required|array',
+    //         'unit_prices.*' => 'numeric|min:0', // Vérifie que chaque prix unitaire est >= 0
+    //     ]);
+
+    //     // Création de l'achat
+    //     $purchase = Purchase::create([
+    //         'partner_id' => $request->partner_id,
+    //         'user_id' => 1, // Utilisateur connecté (à adapter si nécessaire)
+    //         'num_ref' => $request->num_ref,
+    //         'adresse' => $request->adresse,
+    //         'magasin_entrepot' => $request->magasin_entrepot,
+    //         'date_achat' => date('Y-m-d', strtotime($request->date_achat)),
+    //         'type_remise' => $request->type_remise,
+    //         'valeur_remise' => $request->valeur_remise ?? 0, // Valeur remise par défaut à 0
+    //         'montant_payer' => $request->montant_payer,
+    //     ]);
+
+    //     // Association des articles à l'achat
+    //     foreach ($request->products as $index => $productId) {
+    //         ArticlePurchase::create([
+    //             'purchase_id' => $purchase->id, // Identifiant de l'achat
+    //             'article_id' => $productId, // Identifiant de l'article
+    //             'quantite' => $request->quantities[$index], // Quantité correspondante
+    //         ]);
+    //     }
+
+    //     // Redirection ou réponse JSON
+    //     return redirect()->route('purchases.list')->with('success', 'Achat enregistré avec succès.');
+    // }
+
     public function store(Request $request)
-    {
-        //
+{
+    // Validation des données
+    $request->validate([
+        'partner_id' => 'required',
+        'num_ref' => 'required|string|max:255',
+        'adresse' => 'required|string|max:255',
+        'magasin_entrepot' => 'required|string|max:255',
+        'date_achat' => 'required',
+        'type_remise' => 'nullable|string',
+        'valeur_remise' => 'nullable|numeric|min:0',
+        'montant_payer' => 'required|string|max:255',
+        'products' => 'required|array',
+        'products.*' => 'exists:articles,id', // Vérifie que chaque produit existe
+        'quantities' => 'required|array',
+        'quantities.*' => 'integer|min:1', // Vérifie que chaque quantité est un entier >= 1
+        'unit_prices' => 'required|array',
+        'unit_prices.*' => 'numeric|min:0', // Vérifie que chaque prix unitaire est >= 0
+    ]);
+
+    // Création de l'achat
+    $purchase = Purchase::create([
+        'partner_id' => $request->partner_id,
+        'user_id' => 1, // Utilisateur connecté (à adapter si nécessaire)
+        'num_ref' => $request->num_ref,
+        'adresse' => $request->adresse,
+        'magasin_entrepot' => $request->magasin_entrepot,
+        'date_achat' => date('Y-m-d', strtotime($request->date_achat)),
+        'type_remise' => $request->type_remise,
+        'valeur_remise' => $request->valeur_remise ?? 0, // Valeur remise par défaut à 0
+        'montant_payer' => $request->montant_payer,
+    ]);
+
+    // Association des articles à l'achat avec les quantités et les prix unitaires
+    foreach ($request->products as $index => $productId) {
+        ArticlePurchase::create([
+            'purchase_id' => $purchase->id, // Identifiant de l'achat
+            'article_id' => $productId, // Identifiant de l'article
+            'quantite' => $request->quantities[$index], // Quantité correspondante
+        ]);
     }
+
+    // Redirection ou réponse JSON
+    return redirect()->route('purchases.list')->with('success', 'Achat enregistré avec succès.');
+}
+
+
 
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        return view('pages.purchases.show');
+        $purchase = Purchase::find($id);
+        return view('pages.purchases.show', compact('purchase'));
     }
 
     /**
@@ -67,7 +161,10 @@ class PurchaseController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $purchase = Purchase::find($id);
+        $purchase->delete();
+
+        return redirect()->route('purchases.list');
     }
 
 

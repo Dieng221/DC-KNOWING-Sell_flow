@@ -31,53 +31,20 @@
                 <h6>Ajouter un article</h6>
              </div>
              <div class="card-body py-md-30">
-                <form method="POST" action="">
+                <form method="POST" action="{{route('articles.store')}}">
                     @csrf
                    <div class="row">
                     <div class="col-md-6 mb-25">
-                        <input type="text" name="adresse_facturation" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Nom de l'article (Désignation)">
-                     </div>
-                    <div class="col-md-6 mb-25">
-                        <select class="form-control ih-medium ip-gray radius-xs b-light px-15" name="module">
-                            <option selected>Unité...</option>
-                            <option value="Bim Bara">Pièces (Pc(s))</option>
-                        </select>
-                    </div>
-                    <div class="col-md-6 mb-25">
-                        <select class="form-control ih-medium ip-gray radius-xs b-light px-15" name="module">
-                            <option selected>Catégorie...</option>
-                            <option value="Bim Bara">Electronique</option>
-                            <option value="Bim Bara">Maison et décoration</option>
-                            <option value="Bim Bara">Vêtement</option>
-                        </select>
-                    </div>
-                     <div class="col-md-6 mb-25">
-                        <input type="number" name="adresse_livraison" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Quatité">
+                        <input type="text" name="libelle" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Nom de l'article (Désignation)">
                      </div>
                      <div class="col-md-6 mb-25">
-                        <select class="form-control ih-medium ip-gray radius-xs b-light px-15" name="module">
-                            <option selected>Taxe de vente...</option>
-                            <option value="Bim Bara">Aucun</option>
-                        </select>
-                    </div>
-                    <div class="col-md-6 mb-25">
-                        <select class="form-control ih-medium ip-gray radius-xs b-light px-15" name="module">
-                            <option selected>Type de taxe de vente...</option>
-                            <option value="Bim Bara">Compris</option>
-                            <option value="Bim Bara">Exclusif</option>
-                        </select>
-                    </div>
-                     <div class="col-md-6 mb-25">
-                        <input type="number" name="adresse_livraison" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Prix d'achat">
+                        <input type="number" name="quantite" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Quantité">
                      </div>
                      <div class="col-md-6 mb-25">
-                        <input type="number" name="adresse_livraison" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Prix de vente">
+                        <input type="number" name="prix_achat" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Prix d'achat">
                      </div>
                      <div class="col-md-6 mb-25">
-                        <input type="number" name="adresse_livraison" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Poids">
-                     </div>
-                     <div class="col-md-6 mb-25">
-                        <input type="file" name="adresse_livraison" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Image de l'article">
+                        <input type="number" name="prix_vente" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Prix de vente">
                      </div>
                       <div class="col-md-6">
                          <div class="layout-button mt-0">

@@ -12,6 +12,7 @@ class ArticlePurchase extends Model
     protected $fillable = [
         'article_id',
         'purchase_id',
+        'quantite'
     ];
 
     public function article()
